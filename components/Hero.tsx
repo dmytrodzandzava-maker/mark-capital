@@ -1,24 +1,59 @@
+"use client";
+
 import { ChevronDown } from "lucide-react";
+import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 import RevealText from "./RevealText";
 import { SUPPORTING_LINE } from "@/lib/data";
 
 export default function Hero() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [videoReady, setVideoReady] = useState(false);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    // autoPlay can start playback before hydration attaches React's event
+    // listeners, so the "playing" event fires and is missed entirely if we
+    // only listen for it as a prop. Check the element's own state directly
+    // first — if it's already playing by the time this effect runs, mark it
+    // ready immediately instead of waiting on an event that already fired.
+    if (!video.paused) {
+      setVideoReady(true);
+      return;
+    }
+    const markReady = () => setVideoReady(true);
+    video.addEventListener("playing", markReady, { once: true });
+    return () => video.removeEventListener("playing", markReady);
+  }, []);
+
   return (
     <section
       id="top"
       data-header-theme="dark"
       className="relative flex h-[100svh] min-h-[560px] w-full items-end overflow-hidden bg-ink"
     >
-      {/* poster paints immediately; the video streams in and takes over once buffered */}
+      {/* Stays underneath permanently — the video crossfades in over it once it's
+          actually playing, instead of popping in and replacing it outright. */}
+      <Image
+        src="/images/hero/dawn-mareterra.jpg"
+        alt="Mareterra, Monaco, at dawn — a MARK development"
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover"
+      />
       <video
+        ref={videoRef}
         autoPlay
         muted
         loop
         playsInline
-        preload="metadata"
-        poster="/images/hero/dawn-mareterra.jpg"
+        preload="auto"
         aria-hidden="true"
-        className="absolute inset-0 h-full w-full object-cover"
+        className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ease-out ${
+          videoReady ? "opacity-100" : "opacity-0"
+        }`}
       >
         <source src="/videos/hero.mp4" type="video/mp4" />
       </video>
