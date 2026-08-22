@@ -38,13 +38,30 @@ export default function SmoothScroll({ children }: { children: ReactNode }) {
   }, []);
 
   useEffect(() => {
-    // Skip on mount so a direct link with a #hash (e.g. /#portfolio) still
-    // lands where the browser's native anchor scroll put it. Only reset on
-    // actual client-side navigations between routes.
+    // Let our own logic below own the scroll position instead of the
+    // browser's history-restoration heuristics, which is what was landing
+    // reloads at "random" places — especially on mobile, where fonts and
+    // images shift layout as they load, so whatever position the browser
+    // tried to restore no longer lines up with the freshly laid-out page.
+    if ("scrollRestoration" in history) {
+      history.scrollRestoration = "manual";
+    }
+  }, []);
+
+  useEffect(() => {
     if (isFirstRender.current) {
       isFirstRender.current = false;
+      // On mount, a direct link with a #hash (e.g. /#portfolio) should still
+      // land where the browser's native anchor scroll puts it. Without a
+      // hash, force a deterministic top-of-page instead of leaving whatever
+      // the browser's (now-disabled-going-forward) restoration left behind.
+      if (!window.location.hash) {
+        lenisRef.current?.lenis?.scrollTo(0, { immediate: true });
+        window.scrollTo(0, 0);
+      }
       return;
     }
+    // Actual client-side navigations between routes always reset to top.
     lenisRef.current?.lenis?.scrollTo(0, { immediate: true });
     window.scrollTo(0, 0);
   }, [pathname]);
