@@ -2,6 +2,7 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUpRight, Plus, X } from "lucide-react";
+import { useLenis } from "lenis/react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -114,19 +115,37 @@ export default function Header() {
     }
   }, [open]);
 
+  const [hideLogo, setHideLogo] = useState(false);
+
+  useLenis((lenis) => {
+    if (lenis.scroll < 80) {
+      setHideLogo(false);
+    } else if (lenis.direction === 1) {
+      setHideLogo(true);
+    } else if (lenis.direction === -1) {
+      setHideLogo(false);
+    }
+  });
+
   const isDark = theme === "dark";
   const close = () => setOpen(false);
 
   return (
     <header className="fixed inset-x-0 top-0 z-50">
       <div className="relative z-10 mx-auto flex max-w-[1600px] items-start justify-between px-5 pt-5 sm:px-8 sm:pt-8">
-        <Link href="/#top" aria-label="MARK — back to top">
-          <Logo
-            className={`h-6 w-auto transition-colors duration-300 sm:h-7 ${
-              isDark || open ? "text-white" : "text-ink"
-            }`}
-          />
-        </Link>
+        <motion.div
+          animate={{ opacity: hideLogo && !open ? 0 : 1, y: hideLogo && !open ? -16 : 0 }}
+          transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+          style={{ pointerEvents: hideLogo && !open ? "none" : "auto" }}
+        >
+          <Link href="/#top" aria-label="MARK — back to top">
+            <Logo
+              className={`h-6 w-auto transition-colors duration-300 sm:h-7 ${
+                isDark || open ? "text-white" : "text-ink"
+              }`}
+            />
+          </Link>
+        </motion.div>
 
         <div className="flex flex-col items-end gap-3">
           <motion.p

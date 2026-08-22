@@ -2,12 +2,23 @@
 
 import { ReactLenis, type LenisRef } from "lenis/react";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 
 export default function SmoothScroll({ children }: { children: ReactNode }) {
   const lenisRef = useRef<LenisRef>(null);
   const pathname = usePathname();
   const isFirstRender = useRef(true);
+
+  // Safari's trackpad already applies its own inertia/momentum to wheel
+  // scrolling. Layering Lenis's wheel-driven easing on top of that native
+  // momentum double-smooths the motion, which reads as loose and "dizzy"
+  // rather than smooth. Chrome doesn't do this, so Lenis's wheel smoothing
+  // is only disabled for Safari — native momentum takes over there instead.
+  const [smoothWheel, setSmoothWheel] = useState(true);
+  useEffect(() => {
+    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+    if (isSafari) setSmoothWheel(false);
+  }, []);
 
   useEffect(() => {
     // Skip on mount so a direct link with a #hash (e.g. /#portfolio) still
@@ -28,7 +39,7 @@ export default function SmoothScroll({ children }: { children: ReactNode }) {
       options={{
         duration: 1.2,
         easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        smoothWheel: true,
+        smoothWheel,
         wheelMultiplier: 1,
         touchMultiplier: 1.5,
       }}

@@ -50,7 +50,7 @@ export default function Verticals() {
                   <p className="text-sm leading-relaxed sm:text-base">{v.description2}</p>
                 </div>
 
-                <div className="font-serif-num text-[clamp(3rem,8vw,6rem)] leading-none text-white/15 transition-colors duration-300 group-hover:text-white/30 md:w-[180px] md:text-right">
+                <div className="font-serif-num text-[clamp(3rem,8vw,6rem)] leading-none text-white/15 transition-colors duration-300 group-hover:text-white md:w-[180px] md:text-right">
                   {v.index}
                 </div>
               </Link>
