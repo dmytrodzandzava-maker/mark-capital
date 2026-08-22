@@ -11,7 +11,7 @@ export default function ClosingCta() {
       className="relative flex min-h-[70vh] items-center overflow-hidden bg-ink"
     >
       <Image
-        src="/images/abstract/blue-glass-swirl.jpg"
+        src="/images/abstract/glass2.webp"
         alt="Abstract blue glass render"
         fill
         sizes="100vw"

@@ -17,7 +17,7 @@ export default function StatsBand() {
       <div data-header-theme="dark" className="relative mt-8 overflow-hidden">
         <div className="relative h-[640px] w-full sm:h-[700px]">
           <Image
-            src="/images/abstract/blue-abstract-dark.jpg"
+            src="/images/abstract/glass1.webp"
             alt="Abstract blue glass render"
             fill
             priority
