@@ -49,22 +49,37 @@ export default function SmoothScroll({ children }: { children: ReactNode }) {
   }, []);
 
   useEffect(() => {
-    if (isFirstRender.current) {
-      isFirstRender.current = false;
-      // On mount, a direct link with a #hash (e.g. /#portfolio) should still
-      // land where the browser's native anchor scroll puts it. Without a
-      // hash, force a deterministic top-of-page instead of leaving whatever
-      // the browser's (now-disabled-going-forward) restoration left behind.
-      if (!window.location.hash) {
-        lenisRef.current?.lenis?.scrollTo(0, { immediate: true });
-        window.scrollTo(0, 0);
-      }
-      return;
-    }
-    // Actual client-side navigations between routes always reset to top.
+    isFirstRender.current = false;
+    // Always reset to top — on mount (reload) and on every later client-side
+    // route change alike. A #hash left over from in-page nav clicks (e.g.
+    // the header's "Portfolio" link sets /#portfolio without a full
+    // navigation) previously made reloads jump back to that section instead
+    // of just refreshing in place, which read as "stuck". In-page anchor
+    // clicks don't change `pathname` (only the hash does), so they never run
+    // through this effect and keep working via the browser's native anchor
+    // scroll — only reload/first-load and real route changes land here.
     lenisRef.current?.lenis?.scrollTo(0, { immediate: true });
     window.scrollTo(0, 0);
   }, [pathname]);
+
+  useEffect(() => {
+    // On a fresh load with a leftover #hash, the browser's native
+    // scroll-to-fragment can fire late — re-applied as images above the
+    // target finish loading and push it further down the page — which was
+    // overriding the reset above. Force it again once everything (images
+    // included) has actually finished loading, since that's the last point
+    // the browser would still try to adjust scroll for the fragment.
+    const forceTop = () => {
+      lenisRef.current?.lenis?.scrollTo(0, { immediate: true });
+      window.scrollTo(0, 0);
+    };
+    if (document.readyState === "complete") {
+      forceTop();
+      return;
+    }
+    window.addEventListener("load", forceTop, { once: true });
+    return () => window.removeEventListener("load", forceTop);
+  }, []);
 
   return (
     <ReactLenis

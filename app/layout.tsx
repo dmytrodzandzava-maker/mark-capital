@@ -92,6 +92,20 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <head>
         <script
+          // Strip any #hash from the URL before the browser gets a chance to
+          // jump to it. This must run synchronously in <head>, before <body>
+          // (and the target element) exist — the browser's native
+          // scroll-to-fragment only fires once that element is in the DOM,
+          // so removing the hash first means there's nothing left to jump
+          // to. Without this, a stale hash from earlier in-page nav (e.g.
+          // /#portfolio from clicking the header's Portfolio link) would
+          // make every later reload jump straight back to that section
+          // instead of loading at the top like a normal page refresh.
+          dangerouslySetInnerHTML={{
+            __html: `if(window.location.hash){history.replaceState(null,"",window.location.pathname+window.location.search)}`,
+          }}
+        />
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
