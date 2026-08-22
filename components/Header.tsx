@@ -1,10 +1,10 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { Plus, X } from "lucide-react";
+import { ArrowUpRight, Plus, X } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { navLinks } from "@/lib/data";
+import { navLinks, offices, stats } from "@/lib/data";
 import Logo from "./Logo";
 
 const SUPPORTING_LINE =
@@ -98,18 +98,84 @@ export default function Header() {
                     height: { duration: 0.4, ease: [0.22, 1, 0.36, 1] },
                     opacity: { duration: 0.25, ease: "easeInOut" },
                   }}
-                  className="flex flex-col items-end overflow-hidden px-5 pb-4"
+                  className="overflow-hidden"
                 >
-                  {navLinks.map((link) => (
-                    <a
-                      key={link.href}
-                      href={link.href}
-                      onClick={() => setOpen(false)}
-                      className="cursor-pointer py-2 text-base text-white/80 transition-all duration-200 ease-out hover:translate-x-[-3px] hover:text-white"
-                    >
-                      {link.label}
-                    </a>
-                  ))}
+                  <div className="grid grid-cols-1 gap-8 px-6 pb-7 pt-1 sm:w-[520px] sm:grid-cols-[1fr_200px] sm:gap-10 sm:px-8">
+                    <div className="flex flex-col">
+                      <span className="text-xs uppercase tracking-wide text-white/40">
+                        Navigate
+                      </span>
+                      <div className="mt-3 flex flex-col">
+                        {navLinks.map((link) => (
+                          <a
+                            key={link.href}
+                            href={link.href}
+                            onClick={() => setOpen(false)}
+                            className="cursor-pointer border-t border-white/10 py-3 text-base text-white/80 transition-all duration-200 ease-out first:border-t-0 hover:translate-x-1 hover:text-white"
+                          >
+                            {link.label}
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="flex flex-col gap-6 border-t border-white/10 pt-6 sm:border-t-0 sm:border-l sm:border-white/10 sm:pl-8 sm:pt-0">
+                      <div>
+                        <span className="text-xs uppercase tracking-wide text-white/40">
+                          At a Glance
+                        </span>
+                        <dl className="mt-3 space-y-1.5">
+                          {stats.map((s) => (
+                            <div key={s.label} className="flex items-baseline gap-2 text-sm">
+                              <dt className="font-serif-num text-white/90">{s.value}</dt>
+                              <dd className="text-white/50">{s.label}</dd>
+                            </div>
+                          ))}
+                        </dl>
+                      </div>
+
+                      <div>
+                        <span className="text-xs uppercase tracking-wide text-white/40">
+                          Headquarters
+                        </span>
+                        <p className="mt-3 text-sm leading-relaxed text-white/60">
+                          {offices[0].address}
+                        </p>
+                      </div>
+
+                      <div>
+                        <span className="text-xs uppercase tracking-wide text-white/40">
+                          Get in Touch
+                        </span>
+                        <div className="mt-3 flex flex-col gap-2">
+                          <a
+                            href="mailto:info@thisismark.com"
+                            onClick={() => setOpen(false)}
+                            className="group flex items-center gap-1.5 text-sm text-white/70 transition-colors hover:text-white"
+                          >
+                            info@thisismark.com
+                            <ArrowUpRight
+                              size={13}
+                              className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                            />
+                          </a>
+                          <a
+                            href="https://www.linkedin.com/company/thisismark"
+                            target="_blank"
+                            rel="noreferrer"
+                            onClick={() => setOpen(false)}
+                            className="group flex items-center gap-1.5 text-sm text-white/70 transition-colors hover:text-white"
+                          >
+                            LinkedIn
+                            <ArrowUpRight
+                              size={13}
+                              className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                            />
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </motion.nav>
               )}
             </AnimatePresence>

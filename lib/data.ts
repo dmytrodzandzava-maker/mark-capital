@@ -1,7 +1,9 @@
 export const navLinks = [
+  { label: "Who We Are", href: "/#who-we-are" },
   { label: "Team", href: "/#team" },
   { label: "Impact", href: "/#impact" },
   { label: "Verticals", href: "/#verticals" },
+  { label: "Portfolio", href: "/#portfolio" },
   { label: "Insights", href: "/#insights" },
   { label: "Contact", href: "/#contact" },
 ];
@@ -41,6 +43,11 @@ export const recognitions = [
     name: "INREV",
     detail: "Member",
     image: "/images/awards/inrev.png",
+  },
+  {
+    name: "SFDR",
+    detail: "Sustainable Finance Disclosure Regulation compliant",
+    image: "/images/awards/sfdr.png",
   },
 ];
 
