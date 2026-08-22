@@ -1,5 +1,6 @@
 "use client";
 
+import { ChevronDown } from "lucide-react";
 import { useMemo, useState } from "react";
 import { teamDirectory } from "@/lib/data";
 
@@ -37,55 +38,73 @@ export default function TeamDirectory() {
           <label htmlFor="filter-role" className="text-xs uppercase tracking-wide text-ink/40">
             Role
           </label>
-          <select
-            id="filter-role"
-            value={role}
-            onChange={(e) => setRole(e.target.value)}
-            className={`mt-2 ${selectClasses}`}
-          >
-            <option value={ALL}>All Roles</option>
-            {roles.map((r) => (
-              <option key={r} value={r}>
-                {r}
-              </option>
-            ))}
-          </select>
+          <div className="relative mt-2">
+            <select
+              id="filter-role"
+              value={role}
+              onChange={(e) => setRole(e.target.value)}
+              className={selectClasses}
+            >
+              <option value={ALL}>All Roles</option>
+              {roles.map((r) => (
+                <option key={r} value={r}>
+                  {r}
+                </option>
+              ))}
+            </select>
+            <ChevronDown
+              size={16}
+              className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 text-ink/40"
+            />
+          </div>
         </div>
         <div>
           <label htmlFor="filter-bu" className="text-xs uppercase tracking-wide text-ink/40">
             Business Unit
           </label>
-          <select
-            id="filter-bu"
-            value={businessUnit}
-            onChange={(e) => setBusinessUnit(e.target.value)}
-            className={`mt-2 ${selectClasses}`}
-          >
-            <option value={ALL}>All Business Units</option>
-            {businessUnits.map((bu) => (
-              <option key={bu} value={bu}>
-                {bu}
-              </option>
-            ))}
-          </select>
+          <div className="relative mt-2">
+            <select
+              id="filter-bu"
+              value={businessUnit}
+              onChange={(e) => setBusinessUnit(e.target.value)}
+              className={selectClasses}
+            >
+              <option value={ALL}>All Business Units</option>
+              {businessUnits.map((bu) => (
+                <option key={bu} value={bu}>
+                  {bu}
+                </option>
+              ))}
+            </select>
+            <ChevronDown
+              size={16}
+              className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 text-ink/40"
+            />
+          </div>
         </div>
         <div>
           <label htmlFor="filter-location" className="text-xs uppercase tracking-wide text-ink/40">
             Location
           </label>
-          <select
-            id="filter-location"
-            value={location}
-            onChange={(e) => setLocation(e.target.value)}
-            className={`mt-2 ${selectClasses}`}
-          >
-            <option value={ALL}>All Locations</option>
-            {locations.map((l) => (
-              <option key={l} value={l}>
-                {l}
-              </option>
-            ))}
-          </select>
+          <div className="relative mt-2">
+            <select
+              id="filter-location"
+              value={location}
+              onChange={(e) => setLocation(e.target.value)}
+              className={selectClasses}
+            >
+              <option value={ALL}>All Locations</option>
+              {locations.map((l) => (
+                <option key={l} value={l}>
+                  {l}
+                </option>
+              ))}
+            </select>
+            <ChevronDown
+              size={16}
+              className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 text-ink/40"
+            />
+          </div>
         </div>
       </div>
 
