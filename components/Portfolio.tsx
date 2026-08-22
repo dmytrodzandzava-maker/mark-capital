@@ -20,7 +20,7 @@ function PortfolioCard({ item, index }: { item: PortfolioHighlight; index: numbe
   const dim = useTransform(scrollYProgress, [0, 1], [0, 0.6]);
 
   return (
-    <div ref={ref} className="relative h-[150vh]">
+    <div ref={ref} className="relative h-screen">
       <div className="sticky top-0 h-screen overflow-hidden" style={{ zIndex: index + 1 }}>
         <motion.div style={{ scale }} className="relative h-full w-full origin-top">
           <Link
