@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Reveal from "@/components/Reveal";
 import RevealText from "@/components/RevealText";
+import VideoHero from "@/components/VideoHero";
 import { offices, team } from "@/lib/data";
 
 export const metadata: Metadata = {
@@ -22,38 +23,12 @@ export default function ContactPage() {
     <>
       <Header />
       <main>
-        <section
-          data-header-theme="dark"
-          className="relative overflow-hidden bg-ink px-5 pb-20 pt-40 sm:px-8 sm:pb-28 sm:pt-48"
-        >
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-            aria-hidden="true"
-            className="absolute inset-0 h-full w-full object-cover"
-          >
-            <source src="/videos/contact-header.mp4" type="video/mp4" />
-          </video>
-          <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-ink/20" />
-
-          <div className="relative z-10 mx-auto max-w-[1400px]">
-            <Reveal>
-              <Eyebrow light>Contact</Eyebrow>
-            </Reveal>
-            <h1 className="mt-6 max-w-3xl text-[clamp(2.5rem,7vw,5.5rem)] font-normal leading-[1.05] text-white">
-              <RevealText delay={0.05}>Let&rsquo;s talk.</RevealText>
-            </h1>
-            <Reveal delay={0.15} className="mt-8 max-w-xl">
-              <p className="text-base leading-relaxed text-white/70 md:text-lg">
-                Whether you&rsquo;re an investor, a journalist, or exploring a
-                career at MARK, our team is ready to hear from you.
-              </p>
-            </Reveal>
-          </div>
-        </section>
+        <VideoHero
+          videoSrc="/videos/contact-header.mp4"
+          eyebrow="Contact"
+          heading="Let’s talk."
+          paragraph="Whether you’re an investor, a journalist, or exploring a career at MARK, our team is ready to hear from you."
+        />
 
         <section data-header-theme="light" className="bg-white px-5 py-20 sm:px-8 sm:py-28">
           <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-16 lg:grid-cols-[1fr_360px]">
