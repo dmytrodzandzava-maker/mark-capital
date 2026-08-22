@@ -1,26 +1,40 @@
 "use client";
 
 import { ReactLenis, type LenisRef } from "lenis/react";
+import type { LenisOptions } from "lenis";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState, type ReactNode } from "react";
+
+const defaultTuning: Partial<LenisOptions> = {
+  duration: 1.2,
+  easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+  wheelMultiplier: 1,
+};
+
+// Chrome's trackpad wheel events are infrequent enough that a fresh
+// duration/easing tween per event reads as one continuous glide. Safari
+// fires wheel events for the same gesture more often, so each one restarts
+// the tween before the last finishes — the animation keeps getting
+// interrupted and re-accelerated mid-flight, which is what reads as
+// "dizzy" rather than smooth, no matter how short the tween is made.
+// Dropping duration/easing switches Lenis to its lerp (exponential damping)
+// mode instead: it continuously chases the accumulating scroll target every
+// frame rather than replaying a tween per event, so repeated events just
+// feed the same steady chase instead of restarting it.
+const safariTuning: Partial<LenisOptions> = {
+  lerp: 0.1,
+  wheelMultiplier: 1,
+};
 
 export default function SmoothScroll({ children }: { children: ReactNode }) {
   const lenisRef = useRef<LenisRef>(null);
   const pathname = usePathname();
   const isFirstRender = useRef(true);
 
-  // Safari's trackpad already applies its own inertia/momentum to wheel
-  // scrolling. Layering Lenis's full-strength wheel smoothing on top of that
-  // native momentum double-smoothed the motion (felt "dizzy"), so it was
-  // previously disabled outright for Safari — but that removed the glide
-  // entirely, leaving plain native scroll. The middle ground: keep Lenis's
-  // easing on, but shrink how far each wheel tick pushes the target (lower
-  // wheelMultiplier) and how long it takes to catch up (lower duration), so
-  // its glide settles before it can stack with the trackpad's own momentum.
-  const [wheelTuning, setWheelTuning] = useState({ duration: 1.2, wheelMultiplier: 1 });
+  const [tuning, setTuning] = useState(defaultTuning);
   useEffect(() => {
     const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-    if (isSafari) setWheelTuning({ duration: 0.8, wheelMultiplier: 0.65 });
+    if (isSafari) setTuning(safariTuning);
   }, []);
 
   useEffect(() => {
@@ -40,11 +54,9 @@ export default function SmoothScroll({ children }: { children: ReactNode }) {
       root
       ref={lenisRef}
       options={{
-        duration: wheelTuning.duration,
-        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         smoothWheel: true,
-        wheelMultiplier: wheelTuning.wheelMultiplier,
         touchMultiplier: 1.5,
+        ...tuning,
       }}
     >
       {children}

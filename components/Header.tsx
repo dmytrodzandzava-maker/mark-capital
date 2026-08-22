@@ -159,7 +159,7 @@ export default function Header() {
             {SUPPORTING_LINE}
           </motion.p>
 
-          <div className="overflow-hidden rounded-xs border border-white/15 bg-ink-alt/50 backdrop-blur-xl">
+          <div className="overflow-hidden rounded-xs border border-white/15 bg-ink-alt/50 backdrop-blur-xl [will-change:backdrop-filter]">
             <button
               onClick={() => setOpen((v) => !v)}
               className={`group flex w-full cursor-pointer items-center justify-end gap-2 px-5 py-3 text-sm text-white transition-colors duration-200 ease-out ${
