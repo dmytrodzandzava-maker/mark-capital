@@ -16,20 +16,33 @@ export default function NotFound() {
       <main>
         <section
           data-header-theme="dark"
-          className="flex min-h-[100svh] flex-col justify-center bg-ink px-5 py-40 sm:px-8"
+          className="relative flex h-[100svh] min-h-[560px] w-full items-end overflow-hidden bg-ink"
         >
-          <div className="mx-auto w-full max-w-[1400px]">
-            <div className="font-serif-num text-[clamp(4rem,14vw,10rem)] leading-none text-white/15">
-              404
-            </div>
-            <h1 className="mt-6 max-w-2xl text-[clamp(2rem,6vw,4rem)] font-normal leading-[1.05] text-white">
-              <RevealText>This page has moved on.</RevealText>
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            aria-hidden="true"
+            className="absolute inset-0 h-full w-full object-cover"
+          >
+            <source src="/videos/hero.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/25 to-ink/10" />
+          <div className="absolute inset-0 bg-gradient-to-r from-ink/40 via-transparent to-transparent" />
+
+          <div className="relative z-10 w-full px-5 pb-16 sm:px-8 sm:pb-20 lg:pb-24">
+            <h1 className="max-w-4xl font-sans text-[clamp(2.75rem,8vw,7rem)] font-normal leading-[1.02] tracking-tight text-white">
+              <RevealText delay={0.2}>404</RevealText>
             </h1>
-            <p className="mt-6 max-w-md text-base leading-relaxed text-white/70 md:text-lg">
-              The page you&rsquo;re looking for doesn&rsquo;t exist or has
-              been moved. Let&rsquo;s get you back on track.
+            <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/80 sm:max-w-md sm:text-base">
+              <RevealText delay={0.35}>
+                This page has moved on, or never existed. Let&rsquo;s get you
+                back on track.
+              </RevealText>
             </p>
-            <div className="mt-10 flex flex-wrap gap-4">
+            <div className="mt-8 flex flex-wrap gap-4">
               <Button href="/" variant="light">
                 Back to Home
               </Button>
