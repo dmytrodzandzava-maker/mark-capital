@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Reveal from "@/components/Reveal";
 import RevealText from "@/components/RevealText";
-import { offices } from "@/lib/data";
+import { offices, team } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -14,6 +14,8 @@ export const metadata: Metadata = {
     "Get in touch with MARK Capital Management — investment enquiries, press, careers, and our office locations across Europe.",
   alternates: { canonical: "/contact" },
 };
+
+const ceo = team[0];
 
 export default function ContactPage() {
   return (
@@ -72,6 +74,33 @@ export default function ContactPage() {
                     <br />
                     {offices[0].phone}
                   </p>
+                </div>
+                <div>
+                  <Eyebrow>From Our CEO</Eyebrow>
+                  <p className="font-serif mt-4 text-lg italic leading-relaxed text-ink/80">
+                    &ldquo;We unlock the potential value in properties. Our
+                    expertise in urban, mixed-use real estate allows us to
+                    transform a property through hands-on management.
+                    It&rsquo;s an approach that has enabled us to source
+                    opportunities that generally don&rsquo;t appear on the
+                    general market and to generate attractive returns for our
+                    clients and investors.&rdquo;
+                  </p>
+                  <div className="mt-5 flex items-center gap-3">
+                    <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full">
+                      <Image
+                        src={ceo.image}
+                        alt={ceo.name}
+                        fill
+                        sizes="44px"
+                        className="object-cover"
+                      />
+                    </div>
+                    <div>
+                      <div className="text-sm text-ink">{ceo.name}</div>
+                      <div className="text-xs text-ink/50">CEO of MARK</div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </Reveal>
