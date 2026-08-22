@@ -2,6 +2,7 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { Plus, X } from "lucide-react";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { navLinks } from "@/lib/data";
 import Logo from "./Logo";
@@ -35,13 +36,13 @@ export default function Header() {
   return (
     <header className="fixed inset-x-0 top-0 z-50">
       <div className="mx-auto flex max-w-[1600px] items-start justify-between px-5 pt-5 sm:px-8 sm:pt-8">
-        <a href="#top" aria-label="MARK — back to top">
+        <Link href="/#top" aria-label="MARK — back to top">
           <Logo
             className={`h-6 w-auto transition-colors duration-300 sm:h-7 ${
               isDark ? "text-white" : "text-ink"
             }`}
           />
-        </a>
+        </Link>
 
         <div className="flex flex-col items-end gap-3">
           <motion.p

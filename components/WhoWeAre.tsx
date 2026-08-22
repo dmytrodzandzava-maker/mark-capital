@@ -10,7 +10,7 @@ export default function WhoWeAre() {
     >
       <div className="mx-auto max-w-[1400px]">
         <Reveal>
-          <Eyebrow>This is MARK</Eyebrow>
+          <Eyebrow as="h2">This is MARK</Eyebrow>
         </Reveal>
 
         <Reveal delay={0.05}>

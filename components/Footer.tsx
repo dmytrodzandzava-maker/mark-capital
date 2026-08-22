@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer data-header-theme="dark" className="bg-ink px-5 pt-16 pb-8 sm:px-8 md:pt-24">
       <div className="mx-auto max-w-[1400px]">
-        <a href="#top" className="text-sm text-white/50 transition-colors hover:text-white">
+        <a href="/#top" className="text-sm text-white/50 transition-colors hover:text-white">
           ↑ Back To Top
         </a>
 

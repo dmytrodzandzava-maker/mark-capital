@@ -9,7 +9,7 @@ export default function StatsBand() {
       <div data-header-theme="light" className="px-5 pt-16 sm:px-8">
         <div className="mx-auto max-w-[1400px]">
           <Reveal>
-            <Eyebrow>Core Stats</Eyebrow>
+            <Eyebrow as="h2">Core Stats</Eyebrow>
           </Reveal>
         </div>
       </div>
@@ -49,7 +49,7 @@ export default function StatsBand() {
       <div data-header-theme="light" className="px-5 py-16 sm:px-8 sm:py-20">
         <div className="mx-auto max-w-[1400px]">
           <Reveal>
-            <Eyebrow>Recognition</Eyebrow>
+            <Eyebrow as="h3">Recognition</Eyebrow>
           </Reveal>
           <Reveal delay={0.05}>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink/70 md:text-xl">

@@ -1,9 +1,9 @@
 export const navLinks = [
-  { label: "Team", href: "#team" },
-  { label: "Impact", href: "#impact" },
-  { label: "Verticals", href: "#verticals" },
-  { label: "Insights", href: "#insights" },
-  { label: "Contact", href: "#contact" },
+  { label: "Team", href: "/#team" },
+  { label: "Impact", href: "/#impact" },
+  { label: "Verticals", href: "/#verticals" },
+  { label: "Insights", href: "/#insights" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export const recognitions = [
@@ -341,10 +341,10 @@ export const offices: Office[] = [
 ];
 
 export const footerNav = [
-  { label: "About Us", href: "#who-we-are" },
-  { label: "Team", href: "#team" },
-  { label: "Portfolio", href: "#portfolio" },
-  { label: "Verticals", href: "#verticals" },
-  { label: "Insights", href: "#insights" },
-  { label: "Contact", href: "#contact" },
+  { label: "About Us", href: "/#who-we-are" },
+  { label: "Team", href: "/#team" },
+  { label: "Portfolio", href: "/#portfolio" },
+  { label: "Verticals", href: "/#verticals" },
+  { label: "Insights", href: "/#insights" },
+  { label: "Contact", href: "/#contact" },
 ];
