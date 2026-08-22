@@ -3,7 +3,6 @@ export const SUPPORTING_LINE =
 
 export const navLinks = [
   { label: "Who We Are", href: "/about-us" },
-  { label: "Team", href: "/#team" },
   { label: "Impact", href: "/#impact" },
   { label: "Verticals", href: "/#verticals" },
   { label: "Portfolio", href: "/#portfolio" },
@@ -531,7 +530,6 @@ export const offices: Office[] = [
 
 export const footerNav = [
   { label: "About Us", href: "/about-us" },
-  { label: "Team", href: "/#team" },
   { label: "Portfolio", href: "/#portfolio" },
   { label: "Verticals", href: "/#verticals" },
   { label: "Insights", href: "/#insights" },
