@@ -56,6 +56,7 @@ export default async function PortfolioProjectPage({
             alt={`${item.name}, ${item.location} — a MARK development`}
             fill
             priority
+            quality={90}
             sizes="100vw"
             className="object-cover"
           />
@@ -110,6 +111,7 @@ export default async function PortfolioProjectPage({
                       src={p.image}
                       alt={`${p.name}, ${p.location}`}
                       fill
+                      quality={90}
                       sizes="(min-width: 640px) 50vw, 100vw"
                       className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                     />

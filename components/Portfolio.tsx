@@ -40,12 +40,16 @@ function PortfolioCard({
   return (
     <div
       ref={cardRef}
-      className="sticky mb-5 overflow-hidden rounded-2xl shadow-2xl shadow-black/40 sm:mb-6"
+      className="sticky mb-5 sm:mb-6"
       style={{ top: BASE_TOP + index * STACK_STEP, height: CARD_HEIGHT, zIndex: index + 1 }}
     >
+      {/* Scale + brightness apply here, on the same element that owns the frame
+          (rounded corners, shadow, overflow-hidden) — so the image and the frame
+          shrink together as one unit instead of the image shrinking inside a
+          frame that stays full size. */}
       <motion.div
         style={hasNext ? { scale, filter } : undefined}
-        className="relative h-full w-full origin-top bg-ink"
+        className="relative h-full w-full origin-top overflow-hidden rounded-xs bg-ink shadow-2xl shadow-black/40"
       >
         <Link
           href={`/portfolio/${item.slug}`}
@@ -56,6 +60,7 @@ function PortfolioCard({
             alt={`${item.name}, ${item.location} — a MARK development`}
             fill
             priority={index === 0}
+            quality={90}
             sizes="(min-width: 1400px) 1400px, 100vw"
             className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
           />
