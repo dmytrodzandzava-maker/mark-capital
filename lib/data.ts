@@ -161,6 +161,45 @@ export const verticals = [
   },
 ];
 
+export type PortfolioHighlight = {
+  slug: string;
+  name: string;
+  location: string;
+  tag: string;
+  description: string;
+  image: string;
+};
+
+export const portfolioHighlights: PortfolioHighlight[] = [
+  {
+    slug: "mareterra",
+    name: "Mareterra",
+    location: "Monaco",
+    tag: "Development",
+    description:
+      "A landmark waterfront extension of the Principality, combining residential, retail, and marina infrastructure on newly created land.",
+    image: "/images/portfolio/mareterra.jpg",
+  },
+  {
+    slug: "the-whiteley",
+    name: "The Whiteley",
+    location: "London, UK",
+    tag: "Mixed-use",
+    description:
+      "The historic Bayswater department store reimagined as a luxury residential, retail, and hospitality destination.",
+    image: "/images/portfolio/whiteley.jpg",
+  },
+  {
+    slug: "toko",
+    name: "TOKO",
+    location: "Paris, France",
+    tag: "Residential",
+    description:
+      "A newly delivered mixed residential scheme in the Paris metropolitan area, part of MARK's continental housing strategy.",
+    image: "/images/portfolio/toko.jpg",
+  },
+];
+
 export type Transaction = {
   name: string;
   location: string;

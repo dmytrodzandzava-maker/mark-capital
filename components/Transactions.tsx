@@ -16,7 +16,7 @@ export default function Transactions() {
 
   return (
     <section
-      id="portfolio"
+      id="transactions"
       data-header-theme="light"
       className="bg-light px-5 py-24 sm:px-8 md:py-32"
     >
@@ -80,7 +80,9 @@ export default function Transactions() {
 
         <Reveal delay={0.05}>
           <a
-            href="#portfolio"
+            href="https://thisismark.com/portfolio/"
+            target="_blank"
+            rel="noreferrer"
             className="mt-4 inline-block text-sm text-accent underline decoration-accent/40 underline-offset-4 transition-colors hover:text-ink"
           >
             View All →

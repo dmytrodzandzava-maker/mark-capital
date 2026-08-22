@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Insights from "@/components/Insights";
+import Portfolio from "@/components/Portfolio";
 import StatsBand from "@/components/StatsBand";
 import Team from "@/components/Team";
 import Transactions from "@/components/Transactions";
@@ -19,6 +20,7 @@ export default function Home() {
         <StatsBand />
         <Team />
         <Verticals />
+        <Portfolio />
         <Transactions />
         <Insights />
         <ClosingCta />
