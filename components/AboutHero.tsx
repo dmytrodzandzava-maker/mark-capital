@@ -31,7 +31,8 @@ export default function AboutHero() {
         />
         <div className="absolute inset-0 bg-accent mix-blend-color" />
         <div className="halftone-dots absolute inset-0 opacity-60 mix-blend-overlay" />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink/50 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-ink/35" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-ink/25" />
 
         <div className="relative z-10 flex h-full w-full flex-col justify-between px-5 pt-6 pb-8 sm:px-8 sm:pt-10 sm:pb-12">
           <div className={`${headlineClasses} text-right text-white`}>
