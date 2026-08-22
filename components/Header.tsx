@@ -2,10 +2,13 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUpRight, Plus, X } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { navLinks, offices, stats } from "@/lib/data";
+import { navLinks, offices, team } from "@/lib/data";
 import Logo from "./Logo";
+
+const ceo = team[0];
 
 const SUPPORTING_LINE =
   "An independent real estate investment and asset manager, managing private real estate across Europe since 2004.";
@@ -59,7 +62,9 @@ export default function Header() {
           <div className="overflow-hidden rounded-xs border border-white/15 bg-ink-alt/50 backdrop-blur-xl">
             <button
               onClick={() => setOpen((v) => !v)}
-              className="group flex w-full cursor-pointer items-center justify-end gap-2 px-5 py-3 text-sm text-white transition-colors duration-200 ease-out hover:bg-white/10"
+              className={`group flex w-full cursor-pointer items-center justify-end gap-2 px-5 py-3 text-sm text-white transition-colors duration-200 ease-out ${
+                open ? "" : "hover:bg-white/10"
+              }`}
               aria-expanded={open}
               aria-label="Toggle menu"
             >
@@ -76,7 +81,7 @@ export default function Header() {
                   {open ? (
                     <X
                       size={16}
-                      className="transition-transform duration-200 ease-out group-hover:rotate-90"
+                      className="transition-all duration-200 ease-out group-hover:rotate-90 group-hover:text-white/45"
                     />
                   ) : (
                     <Plus
@@ -91,11 +96,12 @@ export default function Header() {
             <AnimatePresence initial={false}>
               {open && (
                 <motion.nav
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: "auto", opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
+                  initial={{ height: 0, width: 0, opacity: 0 }}
+                  animate={{ height: "auto", width: "auto", opacity: 1 }}
+                  exit={{ height: 0, width: 0, opacity: 0 }}
                   transition={{
                     height: { duration: 0.4, ease: [0.22, 1, 0.36, 1] },
+                    width: { duration: 0.4, ease: [0.22, 1, 0.36, 1] },
                     opacity: { duration: 0.25, ease: "easeInOut" },
                   }}
                   className="overflow-hidden"
@@ -122,16 +128,23 @@ export default function Header() {
                     <div className="flex flex-col gap-6 border-t border-white/10 pt-6 sm:border-t-0 sm:border-l sm:border-white/10 sm:pl-8 sm:pt-0">
                       <div>
                         <span className="text-xs uppercase tracking-wide text-white/40">
-                          At a Glance
+                          Leadership
                         </span>
-                        <dl className="mt-3 space-y-1.5">
-                          {stats.map((s) => (
-                            <div key={s.label} className="flex items-baseline gap-2 text-sm">
-                              <dt className="font-serif-num text-white/90">{s.value}</dt>
-                              <dd className="text-white/50">{s.label}</dd>
-                            </div>
-                          ))}
-                        </dl>
+                        <div className="mt-3 flex items-center gap-3">
+                          <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full">
+                            <Image
+                              src={ceo.image}
+                              alt={ceo.name}
+                              fill
+                              sizes="48px"
+                              className="object-cover"
+                            />
+                          </div>
+                          <div>
+                            <div className="text-sm text-white/90">{ceo.name}</div>
+                            <div className="text-xs text-white/50">{ceo.title}</div>
+                          </div>
+                        </div>
                       </div>
 
                       <div>
