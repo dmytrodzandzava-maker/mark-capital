@@ -24,9 +24,22 @@ export default function ContactPage() {
       <main>
         <section
           data-header-theme="dark"
-          className="bg-ink px-5 pb-20 pt-40 sm:px-8 sm:pb-28 sm:pt-48"
+          className="relative overflow-hidden bg-ink px-5 pb-20 pt-40 sm:px-8 sm:pb-28 sm:pt-48"
         >
-          <div className="mx-auto max-w-[1400px]">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            aria-hidden="true"
+            className="absolute inset-0 h-full w-full object-cover"
+          >
+            <source src="/videos/contact-header.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-ink/20" />
+
+          <div className="relative z-10 mx-auto max-w-[1400px]">
             <Reveal>
               <Eyebrow light>Contact</Eyebrow>
             </Reveal>
