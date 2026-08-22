@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import AboutHero from "@/components/AboutHero";
+import ClosingCta from "@/components/ClosingCta";
 import Eyebrow from "@/components/Eyebrow";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
@@ -62,10 +63,45 @@ export default function AboutUsPage() {
               </div>
             </Reveal>
           </div>
+
+          <Reveal delay={0.15} className="mx-auto mt-16 max-w-[1400px]">
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <Link
+                href="/#verticals"
+                className="flex-1 rounded-xs bg-light px-6 py-6 text-base text-ink transition-colors hover:bg-ink hover:text-white"
+              >
+                Our Verticals →
+              </Link>
+              <Link
+                href="/#portfolio"
+                className="flex-1 rounded-xs bg-light px-6 py-6 text-base text-ink transition-colors hover:bg-ink hover:text-white"
+              >
+                Our Portfolio →
+              </Link>
+              <Link
+                href="/contact"
+                className="flex-1 rounded-xs bg-light px-6 py-6 text-base text-ink transition-colors hover:bg-ink hover:text-white"
+              >
+                Get in Touch →
+              </Link>
+            </div>
+          </Reveal>
         </section>
 
-        <section data-header-theme="dark" className="bg-ink px-5 py-24 sm:px-8 sm:py-32">
-          <div className="mx-auto max-w-[1000px]">
+        <section
+          data-header-theme="dark"
+          className="relative overflow-hidden bg-ink px-5 py-24 sm:px-8 sm:py-32"
+        >
+          <Image
+            src="/images/about-quote.jpg"
+            alt="A MARK building facade, viewed from below"
+            fill
+            sizes="100vw"
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-ink/75" />
+
+          <div className="relative z-10 mx-auto max-w-[1000px]">
             <Reveal>
               <Eyebrow light>Mark Team</Eyebrow>
             </Reveal>
@@ -120,10 +156,19 @@ export default function AboutUsPage() {
                 ))}
               </div>
             </Reveal>
+
+            <Reveal delay={0.2} className="mt-10">
+              <Link
+                href="#directory"
+                className="inline-flex items-center gap-2 text-sm text-accent underline decoration-accent/40 underline-offset-4 transition-colors hover:text-ink"
+              >
+                View the full directory →
+              </Link>
+            </Reveal>
           </div>
         </section>
 
-        <section data-header-theme="light" className="bg-light px-5 py-24 sm:px-8 sm:py-32">
+        <section id="directory" data-header-theme="light" className="bg-light px-5 py-24 sm:px-8 sm:py-32">
           <div className="mx-auto max-w-[1400px]">
             <Reveal>
               <Eyebrow>Directory</Eyebrow>
@@ -138,6 +183,7 @@ export default function AboutUsPage() {
           </div>
         </section>
       </main>
+      <ClosingCta />
       <Footer />
     </>
   );

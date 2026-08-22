@@ -25,16 +25,16 @@ export default function AboutHero() {
       </div>
 
       <div className="absolute inset-x-0 top-[38%] bottom-0 z-10 flex flex-col justify-between px-5 pb-8 sm:px-8 sm:pb-12">
-        <h1 className="-translate-y-[0.56em] text-[clamp(1.9rem,7vw,6.5rem)] font-normal leading-[0.95] tracking-tight">
-          <span className="block text-right text-accent">
+        <h1 className="-translate-y-[0.5em] text-[clamp(2.75rem,8vw,7rem)] font-normal leading-[1.02] tracking-tight">
+          <span className="block text-left text-accent">
             <RevealText delay={0.2}>A Multi-Platform</RevealText>
           </span>
-          <span className="block text-left text-white">
+          <span className="block text-right text-white">
             <RevealText delay={0.35}>Investment Manager</RevealText>
           </span>
         </h1>
 
-        <div className="max-w-full sm:ml-auto sm:max-w-sm">
+        <div className="max-w-full sm:max-w-sm">
           <Reveal delay={0.5}>
             <span className="text-xs uppercase tracking-widest text-white/70">About Us</span>
             <p className="mt-3 text-sm leading-relaxed text-white sm:text-base">
