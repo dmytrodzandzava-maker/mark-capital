@@ -1,5 +1,4 @@
 import { ChevronDown } from "lucide-react";
-import Image from "next/image";
 import RevealText from "./RevealText";
 import { SUPPORTING_LINE } from "@/lib/data";
 
@@ -10,14 +9,19 @@ export default function Hero() {
       data-header-theme="dark"
       className="relative flex h-[100svh] min-h-[560px] w-full items-end overflow-hidden bg-ink"
     >
-      <Image
-        src="/images/hero/dawn-mareterra.jpg"
-        alt="Mareterra, Monaco, at dawn — a MARK development"
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover"
-      />
+      {/* poster paints immediately; the video streams in and takes over once buffered */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        poster="/images/hero/dawn-mareterra.jpg"
+        aria-hidden="true"
+        className="absolute inset-0 h-full w-full object-cover"
+      >
+        <source src="/videos/hero.mp4" type="video/mp4" />
+      </video>
       <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/25 to-ink/10" />
       <div className="absolute inset-0 bg-gradient-to-r from-ink/40 via-transparent to-transparent" />
 
