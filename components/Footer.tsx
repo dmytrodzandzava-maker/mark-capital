@@ -37,12 +37,12 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#contact" className="text-sm text-white/70 transition-colors hover:text-white">
+                <a href="/contact" className="text-sm text-white/70 transition-colors hover:text-white">
                   Careers
                 </a>
               </li>
               <li>
-                <a href="#contact" className="text-sm text-white/70 transition-colors hover:text-white">
+                <a href="/contact" className="text-sm text-white/70 transition-colors hover:text-white">
                   Data Room
                 </a>
               </li>
@@ -74,9 +74,9 @@ export default function Footer() {
         <div className="mt-10 flex flex-col items-start justify-between gap-6 border-t border-hairline-light pt-8 sm:flex-row sm:items-end">
           <Logo className="h-8 w-auto text-white sm:h-10" />
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-xs text-white/40">
-            <a href="#contact" className="hover:text-white/70">Accessibility</a>
-            <a href="#contact" className="hover:text-white/70">Privacy</a>
-            <a href="#contact" className="hover:text-white/70">Legal</a>
+            <a href="/contact" className="hover:text-white/70">Accessibility</a>
+            <a href="/contact" className="hover:text-white/70">Privacy</a>
+            <a href="/contact" className="hover:text-white/70">Legal</a>
             <span>© 2026 MARK. All rights reserved.</span>
           </div>
         </div>

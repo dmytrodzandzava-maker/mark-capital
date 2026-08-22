@@ -31,7 +31,7 @@ export default function ClosingCta() {
         </Reveal>
         <Reveal delay={0.15} className="mt-10">
           <div className="inline-block rounded-xs border border-white/15 bg-white/10 p-1.5 backdrop-blur-xl [will-change:backdrop-filter]">
-            <Button href="mailto:info@thisismark.com" variant="light" className="border-0">
+            <Button href="/contact" variant="light" className="border-0">
               Get in Touch
             </Button>
           </div>

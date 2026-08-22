@@ -8,7 +8,7 @@ export const navLinks = [
   { label: "Verticals", href: "/#verticals" },
   { label: "Portfolio", href: "/#portfolio" },
   { label: "Insights", href: "/#insights" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export const recognitions = [
@@ -395,5 +395,5 @@ export const footerNav = [
   { label: "Portfolio", href: "/#portfolio" },
   { label: "Verticals", href: "/#verticals" },
   { label: "Insights", href: "/#insights" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Contact", href: "/contact" },
 ];
