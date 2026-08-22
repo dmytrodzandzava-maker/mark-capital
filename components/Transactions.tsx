@@ -1,7 +1,6 @@
 "use client";
 
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import Link from "next/link";
 import { useRef } from "react";
 import Eyebrow from "./Eyebrow";
 import Reveal from "./Reveal";
@@ -80,12 +79,14 @@ export default function Transactions() {
         </div>
 
         <Reveal delay={0.05}>
-          <Link
-            href="/portfolio"
+          <a
+            href="https://thisismark.com/portfolio/"
+            target="_blank"
+            rel="noreferrer"
             className="mt-4 inline-block text-sm text-accent underline decoration-accent/40 underline-offset-4 transition-colors hover:text-ink"
           >
             View All →
-          </Link>
+          </a>
         </Reveal>
       </div>
     </section>

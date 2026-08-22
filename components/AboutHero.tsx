@@ -1,4 +1,4 @@
-import DuotoneImage from "./DuotoneImage";
+import Image from "next/image";
 import Reveal from "./Reveal";
 import RevealText from "./RevealText";
 
@@ -21,12 +21,16 @@ export default function AboutHero() {
         data-header-theme="dark"
         className="absolute inset-x-0 bottom-0 h-[62%] overflow-hidden bg-ink"
       >
-        <DuotoneImage
+        <Image
           src="/images/about-us-hero-new.jpg"
           alt="MARK, viewed from street level among the towers of a European city"
-          sizes="100vw"
+          fill
           priority
+          sizes="100vw"
+          className="object-cover grayscale contrast-125"
         />
+        <div className="absolute inset-0 bg-accent mix-blend-color" />
+        <div className="halftone-dots absolute inset-0 opacity-60 mix-blend-overlay" />
         <div className="absolute inset-0 bg-ink/35" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-ink/25" />
 

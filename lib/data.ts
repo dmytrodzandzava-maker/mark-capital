@@ -5,7 +5,7 @@ export const navLinks = [
   { label: "Who We Are", href: "/about-us" },
   { label: "Impact", href: "/#impact" },
   { label: "Verticals", href: "/#verticals" },
-  { label: "Portfolio", href: "/portfolio" },
+  { label: "Portfolio", href: "/#portfolio" },
   { label: "Insights", href: "/#insights" },
   { label: "Contact", href: "/contact" },
 ];
@@ -303,69 +303,6 @@ export const portfolioHighlights: PortfolioHighlight[] = [
       "A newly delivered mixed residential scheme in the Paris metropolitan area, part of MARK's continental housing strategy.",
     image: "/images/portfolio/toko.jpg",
   },
-  {
-    slug: "borough-yards",
-    name: "Borough Yards",
-    location: "London, UK",
-    tag: "Mixed-use",
-    description:
-      "A restored railway-arch quarter beside Borough Market, repositioned into a retail, dining, and workspace destination.",
-    image: "/images/portfolio/borough-yards.jpg",
-  },
-  {
-    slug: "corti-segreti",
-    name: "Corti Segreti & Corso Buenos Aires 59",
-    location: "Milan, Italy",
-    tag: "Retail",
-    description:
-      "Two prime Milan retail assets repositioned for the city's high-street and courtyard retail circuits.",
-    image: "/images/portfolio/corti-segreti.jpg",
-  },
-  {
-    slug: "pershing-hall",
-    name: "Pershing Hall",
-    location: "Paris, France",
-    tag: "Hospitality",
-    description:
-      "A landmark Champs-Élysées-adjacent hospitality asset repositioned within MARK's Paris portfolio.",
-    image: "/images/portfolio/pershing-hall.jpg",
-  },
-  {
-    slug: "richardstrasse",
-    name: "Richardstrasse 20",
-    location: "Berlin, Germany",
-    tag: "Residential",
-    description:
-      "A German residential acquisition extending MARK's footprint into the Berlin housing market.",
-    image: "/images/portfolio/richardstrasse.jpg",
-  },
-  {
-    slug: "grafton-place",
-    name: "Grafton Place & 60 Dawson Street",
-    location: "Dublin, Ireland",
-    tag: "Mixed-use",
-    description:
-      "Prime Dublin city-centre assets combining retail and office accommodation in the capital's core.",
-    image: "/images/portfolio/grafton-place.jpg",
-  },
-  {
-    slug: "bond-street-house",
-    name: "Bond Street House",
-    location: "London, UK",
-    tag: "Retail",
-    description:
-      "A prime West End retail and office asset on one of London's most prestigious shopping streets.",
-    image: "/images/portfolio/bond-street-house.jpg",
-  },
-  {
-    slug: "promenaden",
-    name: "Promenaden",
-    location: "Oslo, Norway",
-    tag: "Retail",
-    description:
-      "Oslo's premier luxury retail district, redeveloped into a destination now home to nine of the world's ten most valuable luxury brands.",
-    image: "/images/portfolio/promenaden.jpg",
-  },
 ];
 
 export type Transaction = {
@@ -593,7 +530,7 @@ export const offices: Office[] = [
 
 export const footerNav = [
   { label: "About Us", href: "/about-us" },
-  { label: "Portfolio", href: "/portfolio" },
+  { label: "Portfolio", href: "/#portfolio" },
   { label: "Verticals", href: "/#verticals" },
   { label: "Insights", href: "/#insights" },
   { label: "Contact", href: "/contact" },
