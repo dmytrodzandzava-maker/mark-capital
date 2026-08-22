@@ -1,4 +1,5 @@
 import { footerNav, offices } from "@/lib/data";
+import Logo from "./Logo";
 
 export default function Footer() {
   return (
@@ -71,7 +72,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-10 flex flex-col items-start justify-between gap-6 border-t border-hairline-light pt-8 sm:flex-row sm:items-end">
-          <div className="font-serif-num text-4xl text-white sm:text-5xl">MARK</div>
+          <Logo className="h-8 w-auto text-white sm:h-10" />
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-xs text-white/40">
             <a href="#contact" className="hover:text-white/70">Accessibility</a>
             <a href="#contact" className="hover:text-white/70">Privacy</a>

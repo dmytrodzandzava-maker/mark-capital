@@ -32,7 +32,31 @@ export default function Team() {
           </p>
         </Reveal>
 
-        <Reveal delay={0.15} className="mt-14 md:mt-16">
+        {/* Mobile / tablet: photo grid — no hover to rely on, so show the images up front */}
+        <Reveal delay={0.15} className="mt-14 lg:hidden">
+          <div className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3">
+            {team.map((member) => (
+              <div key={member.name}>
+                <div className="relative aspect-3/4 w-full overflow-hidden rounded-xs bg-ink/5">
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    fill
+                    sizes="(min-width: 640px) 33vw, 50vw"
+                    className="object-cover"
+                  />
+                </div>
+                <div className="mt-3 text-base text-ink">{member.name}</div>
+                <div className="mt-0.5 text-sm leading-snug text-ink/50">
+                  {member.title} — {member.location}
+                </div>
+              </div>
+            ))}
+          </div>
+        </Reveal>
+
+        {/* Desktop: hover-to-reveal row list */}
+        <Reveal delay={0.15} className="mt-14 hidden md:mt-16 lg:block">
           <div className="border-t border-hairline">
             {team.map((member, i) => (
               <div

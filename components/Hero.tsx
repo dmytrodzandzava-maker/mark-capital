@@ -1,13 +1,14 @@
 import { ChevronDown } from "lucide-react";
 import Image from "next/image";
 import RevealText from "./RevealText";
+import { SUPPORTING_LINE } from "@/lib/data";
 
 export default function Hero() {
   return (
     <section
       id="top"
       data-header-theme="dark"
-      className="relative flex h-screen min-h-[720px] w-full items-end overflow-hidden bg-ink"
+      className="relative flex h-[100svh] min-h-[560px] w-full items-end overflow-hidden bg-ink"
     >
       <Image
         src="/images/hero/dawn-mareterra.jpg"
@@ -24,6 +25,9 @@ export default function Hero() {
         <h1 className="max-w-4xl font-sans text-[clamp(2.75rem,8vw,7rem)] font-normal leading-[1.02] tracking-tight text-white">
           <RevealText delay={0.2}>Making our MARK</RevealText>
         </h1>
+        <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/80 md:hidden">
+          <RevealText delay={0.35}>{SUPPORTING_LINE}</RevealText>
+        </p>
       </div>
 
       <div className="absolute bottom-8 right-5 z-10 flex flex-col items-center gap-2 text-white/70 sm:right-8">

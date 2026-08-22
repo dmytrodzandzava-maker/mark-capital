@@ -1,3 +1,6 @@
+export const SUPPORTING_LINE =
+  "An independent real estate investment and asset manager, managing private real estate across Europe since 2004.";
+
 export const navLinks = [
   { label: "Who We Are", href: "/#who-we-are" },
   { label: "Team", href: "/#team" },
