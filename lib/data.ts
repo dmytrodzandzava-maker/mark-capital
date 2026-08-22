@@ -2,7 +2,7 @@ export const SUPPORTING_LINE =
   "An independent real estate investment and asset manager, managing private real estate across Europe since 2004.";
 
 export const navLinks = [
-  { label: "Who We Are", href: "/#who-we-are" },
+  { label: "Who We Are", href: "/about-us" },
   { label: "Team", href: "/#team" },
   { label: "Impact", href: "/#impact" },
   { label: "Verticals", href: "/#verticals" },
@@ -62,73 +62,176 @@ export const stats = [
 ];
 
 export type TeamMember = {
+  slug: string;
   name: string;
   title: string;
   location: string;
   image: string;
+  investmentCommittee?: boolean;
 };
 
 export const team: TeamMember[] = [
   {
+    slug: "marcus-meijer",
     name: "Marcus Meijer",
     title: "Managing Partner & Chief Executive Officer",
     location: "London",
     image: "/images/team/marcus-meijer.jpg",
+    investmentCommittee: true,
   },
   {
+    slug: "philippe-bidaud",
     name: "Philippe Bidaud",
     title: "Managing Partner & Chief Operating Officer",
     location: "Paris",
     image: "/images/team/philippe-bidaud.jpg",
+    investmentCommittee: true,
   },
   {
+    slug: "marco-riva",
     name: "Marco Riva",
     title: "Partner & CEO, Crossbay",
     location: "London",
     image: "/images/team/marco-riva.jpg",
+    investmentCommittee: true,
   },
   {
+    slug: "michelle-doran",
     name: "Michelle Doran",
     title: "Senior Managing Director, Head of Client Solutions",
     location: "London",
     image: "/images/team/michelle-doran.jpg",
+    investmentCommittee: true,
   },
   {
+    slug: "matthew-armitage",
     name: "Matthew Armitage",
     title: "Chief Financial Officer",
     location: "London",
     image: "/images/team/matthew-armitage.jpg",
+    investmentCommittee: true,
   },
   {
+    slug: "matthew-ammirati",
     name: "Matthew Ammirati",
     title: "Chief Marketing Officer",
     location: "New York",
     image: "/images/team/matthew-ammirati.jpg",
   },
   {
+    slug: "nitin-aggarwal",
     name: "Nitin Aggarwal",
     title: "Chief Technology Officer",
     location: "London",
     image: "/images/team/nitin-aggarwal.jpg",
   },
   {
+    slug: "eric-van-duren",
     name: "Eric van Duren",
     title: "Senior Managing Director",
     location: "London",
     image: "/images/team/eric-van-duren.jpg",
+    investmentCommittee: true,
   },
   {
+    slug: "nick-russell",
     name: "Nick Russell",
     title: "Managing Director, General Counsel",
     location: "London",
     image: "/images/team/nick-russell.jpg",
+    investmentCommittee: true,
   },
   {
+    slug: "jonathan-buchanan",
     name: "Jonathan Buchanan",
     title: "Board Director",
     location: "Guernsey",
     image: "/images/team/jonathan-buchanan.jpg",
   },
+];
+
+export type TeamDirectoryEntry = {
+  name: string;
+  role: string;
+  businessUnit: string;
+  location: string;
+};
+
+export const teamDirectory: TeamDirectoryEntry[] = [
+  { name: "Nnes Ajukwu", role: "Senior Associate", businessUnit: "Client Solutions", location: "London" },
+  { name: "Baptiste Antier", role: "Associate", businessUnit: "Investment and Asset Management", location: "Paris" },
+  { name: "David Barnett", role: "UK PRS", businessUnit: "Investment and Asset Management", location: "London" },
+  { name: "Jimmy Barnett", role: "UK PRS", businessUnit: "Investment and Asset Management", location: "London" },
+  { name: "Matilde Corrêa De Barros", role: "Senior Associate", businessUnit: "Investment and Asset Management", location: "London" },
+  { name: "Adam Benabbou", role: "Senior Associate", businessUnit: "Investment and Asset Management", location: "Paris" },
+  { name: "Johana Bodart", role: "Senior Analyst", businessUnit: "Finance", location: "Luxembourg" },
+  { name: "Pietro Bucci", role: "Senior Vice President, Crossbay", businessUnit: "Investment and Asset Management", location: "London" },
+  { name: "Laura Button", role: "Executive Assistant, Client Solutions & Investment Management", businessUnit: "Operations", location: "London" },
+  { name: "Jack Chandler", role: "Corporate Financial Controller", businessUnit: "Finance", location: "London" },
+  { name: "Maxime Clerc", role: "Vice President, Assembly", businessUnit: "Finance", location: "Paris" },
+  { name: "Anushka Das", role: "Senior Analyst", businessUnit: "Finance", location: "London" },
+  { name: "Tristan Jobbe Duval", role: "Senior Associate", businessUnit: "Investment and Asset Management", location: "Paris" },
+  { name: "Maud Ecochard", role: "Associate, Assembly", businessUnit: "Finance", location: "Paris" },
+  { name: "Tom Edet", role: "Deputy Program Director, Assembly", businessUnit: "Investment and Asset Management", location: "Paris" },
+  { name: "Kamil Elantri", role: "Analyst", businessUnit: "Finance", location: "Luxembourg" },
+  { name: "Jean-Charles Equoy", role: "CEO, Assembly", businessUnit: "Investment and Asset Management", location: "Paris" },
+  { name: "Roy Erkelens", role: "Managing Director, Crossbay", businessUnit: "Investment and Asset Management", location: "Amsterdam" },
+  { name: "Pietro Faggion", role: "Analyst", businessUnit: "Investment and Asset Management", location: "Paris" },
+  { name: "Aaron Fernandes", role: "ESG Manager", businessUnit: "ESG", location: "London" },
+  { name: "Pierre Fontaine", role: "Vice President", businessUnit: "Finance", location: "Luxembourg" },
+  { name: "Isabella Fowler-Dewe", role: "Executive Assistant", businessUnit: "Operations", location: "London" },
+  { name: "Frederic Gardeur", role: "Managing Director", businessUnit: "Finance", location: "Luxembourg" },
+  { name: "Aurore Gines", role: "Deputy Program Director, Assembly", businessUnit: "Investment and Asset Management", location: "Paris" },
+  { name: "Tomás Gonzalez", role: "Vice President", businessUnit: "Investment and Asset Management", location: "Madrid" },
+  { name: "Antoine Le Gourrierec", role: "Senior Analyst", businessUnit: "Investment and Asset Management", location: "Paris" },
+  { name: "Claire Haddon", role: "Head of Asset Management, Crossbay", businessUnit: "Investment and Asset Management", location: "London" },
+  { name: "Jocelynn Harley", role: "Marketing Manager", businessUnit: "Marketing", location: "London" },
+  { name: "Catherine Hine", role: "Executive Assistant", businessUnit: "Operations", location: "London" },
+  { name: "Stuart Holligan", role: "Senior Vice President", businessUnit: "Investment and Asset Management", location: "London" },
+  { name: "Rodney Hunt", role: "Vice President, Crossbay", businessUnit: "Investment and Asset Management", location: "London" },
+  { name: "Sam Husken", role: "Senior Associate", businessUnit: "Investment and Asset Management", location: "London" },
+  { name: "Nikos Iordanou", role: "Senior Analyst", businessUnit: "Investment and Asset Management", location: "London" },
+  { name: "Nienke Jansen", role: "Senior Asset Manager", businessUnit: "Investment and Asset Management", location: "Amsterdam" },
+  { name: "Bernat Just", role: "Associate", businessUnit: "Investment and Asset Management", location: "London" },
+  { name: "Pauline Kerlo", role: "Program Director, Assembly", businessUnit: "Investment and Asset Management", location: "Paris" },
+  { name: "Arjan Kooman", role: "Managing Director", businessUnit: "Investment and Asset Management", location: "Amsterdam" },
+  { name: "Edouard de Lanouvelle", role: "Directeur Général Adjoint", businessUnit: "Investment and Asset Management", location: "Paris" },
+  { name: "Mathilde Lanoy", role: "Associate", businessUnit: "Investment and Asset Management", location: "Paris" },
+  { name: "Thomas Ledoux", role: "Program Director, Assembly", businessUnit: "Investment and Asset Management", location: "Paris" },
+  { name: "Margarita Liasides", role: "Senior Analyst", businessUnit: "Finance", location: "London" },
+  { name: "Katherine Lindop", role: "Vice President, Head of Operations & HR", businessUnit: "Operations", location: "London" },
+  { name: "Maxim Lobes", role: "Vice President", businessUnit: "Finance", location: "Luxembourg" },
+  { name: "Alex Lowry", role: "Senior Associate, Crossbay", businessUnit: "Investment and Asset Management", location: "Frankfurt" },
+  { name: "Etienne Lucas", role: "Program Manager, Assembly", businessUnit: "Investment and Asset Management", location: "Paris" },
+  { name: "Marvin Marciano", role: "Head of Acquisition & Asset Management, France", businessUnit: "Investment and Asset Management", location: "Paris" },
+  { name: "Tilly Martin-Redman", role: "Operations Assistant", businessUnit: "Operations", location: "London" },
+  { name: "Hugo Maudsley", role: "Senior Associate", businessUnit: "Investment and Asset Management", location: "London" },
+  { name: "Trung Nguyen", role: "Senior Vice President, Crossbay", businessUnit: "Investment and Asset Management", location: "Frankfurt" },
+  { name: "Gonzalo Alcover Olaso", role: "Senior Vice President, Crossbay", businessUnit: "Investment and Asset Management", location: "Madrid" },
+  { name: "Augustin Olivier", role: "Senior Vice President, France", businessUnit: "Investment and Asset Management", location: "Paris" },
+  { name: "Keith Owiredu", role: "Senior Analyst", businessUnit: "Finance", location: "London" },
+  { name: "Dimitri Peignois", role: "Vice President", businessUnit: "Finance", location: "Luxembourg" },
+  { name: "Catherine Picton-Turbervill", role: "Vice President, Crossbay", businessUnit: "Finance", location: "London" },
+  { name: "Marie Pinard", role: "Analyst", businessUnit: "Finance", location: "Paris" },
+  { name: "Devan du Plooy", role: "Managing Director", businessUnit: "Investment and Asset Management", location: "London" },
+  { name: "Kristina Pramana", role: "Senior Vice President", businessUnit: "Finance", location: "London" },
+  { name: "Louis Radiguet", role: "Partner", businessUnit: "Investment and Asset Management", location: "Paris" },
+  { name: "Victor Ram", role: "Associate", businessUnit: "Investment and Asset Management", location: "Amsterdam" },
+  { name: "Ariane Richardson", role: "Analyst", businessUnit: "Investment and Asset Management", location: "Frankfurt" },
+  { name: "Carlo Rositani", role: "Senior Associate", businessUnit: "Investment and Asset Management", location: "London" },
+  { name: "Penelope Röhrig", role: "Analyst", businessUnit: "Investment and Asset Management", location: "Frankfurt" },
+  { name: "Maximilian von Rönne", role: "Vice President", businessUnit: "Investment and Asset Management", location: "Frankfurt" },
+  { name: "James Shindler", role: "UK PRS", businessUnit: "Investment and Asset Management", location: "London" },
+  { name: "Harry Soning", role: "UK PRS", businessUnit: "Investment and Asset Management", location: "London" },
+  { name: "Reinier Stuyt", role: "Asset & Investment Manager", businessUnit: "Investment and Asset Management", location: "Amsterdam" },
+  { name: "Walter Tocco", role: "Vice President", businessUnit: "Finance", location: "Luxembourg" },
+  { name: "Alexandre Tuchmuntz", role: "Vice President", businessUnit: "Investment and Asset Management", location: "London" },
+  { name: "Constance de Varax", role: "Head of Finance & Administration, France", businessUnit: "Finance", location: "Paris" },
+  { name: "Sophie de la Vieuville", role: "Office Manager", businessUnit: "Operations", location: "Paris" },
+  { name: "Harriet Walsh", role: "Vice President", businessUnit: "Client Solutions", location: "London" },
+  { name: "James Watkins", role: "Senior Vice President", businessUnit: "Investment and Asset Management", location: "London" },
+  { name: "Joy Yang", role: "Analyst", businessUnit: "Investment and Asset Management", location: "London" },
+  { name: "Xing Zhang", role: "Executive Assistant", businessUnit: "Operations", location: "London" },
 ];
 
 export const verticals = [
@@ -427,7 +530,7 @@ export const offices: Office[] = [
 ];
 
 export const footerNav = [
-  { label: "About Us", href: "/#who-we-are" },
+  { label: "About Us", href: "/about-us" },
   { label: "Team", href: "/#team" },
   { label: "Portfolio", href: "/#portfolio" },
   { label: "Verticals", href: "/#verticals" },

@@ -27,7 +27,7 @@ export default function WhoWeAre() {
           <Reveal delay={0.1}>
             <div className="flex flex-col gap-3 sm:flex-row">
               <a
-                href="#who-we-are"
+                href="/about-us"
                 className="flex-1 rounded-xs bg-light px-6 py-6 text-base text-ink transition-colors hover:bg-ink hover:text-white"
               >
                 About Us →

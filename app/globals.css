@@ -33,3 +33,14 @@ body {
   background: var(--color-accent);
   color: #ffffff;
 }
+
+/* Halftone screen texture for duotone image treatments — pair with a
+   mix-blend-color accent tint layer on top of a grayscale image. */
+.halftone-dots {
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.95) 1px,
+    transparent 1.4px
+  );
+  background-size: 6px 6px;
+}
