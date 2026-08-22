@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import ContactForm from "@/components/ContactForm";
 import Eyebrow from "@/components/Eyebrow";
 import Footer from "@/components/Footer";
@@ -91,11 +92,22 @@ export default function ContactPage() {
                 {offices.map((office) => (
                   <div
                     key={office.name}
-                    className="rounded-xs border border-hairline bg-white p-8 transition-colors hover:border-ink/20"
+                    className="group overflow-hidden rounded-xs border border-hairline bg-white transition-colors hover:border-ink/20"
                   >
-                    <div className="text-lg text-ink">{office.name}</div>
-                    <p className="mt-3 text-sm leading-relaxed text-ink/60">{office.address}</p>
-                    {office.phone && <p className="mt-2 text-sm text-ink/60">{office.phone}</p>}
+                    <div className="relative aspect-[2/1] w-full overflow-hidden bg-ink/5">
+                      <Image
+                        src={office.image}
+                        alt={`MARK's ${office.name} office`}
+                        fill
+                        sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                        className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                      />
+                    </div>
+                    <div className="p-8">
+                      <div className="text-lg text-ink">{office.name}</div>
+                      <p className="mt-3 text-sm leading-relaxed text-ink/60">{office.address}</p>
+                      {office.phone && <p className="mt-2 text-sm text-ink/60">{office.phone}</p>}
+                    </div>
                   </div>
                 ))}
               </div>

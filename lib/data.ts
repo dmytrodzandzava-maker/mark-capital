@@ -376,17 +376,54 @@ export type Office = {
   name: string;
   address: string;
   phone?: string;
+  image: string;
 };
 
 export const offices: Office[] = [
-  { name: "London (HQ)", address: "141 Wardour Street, London, W1F 0UT, UK", phone: "+44 (0) 207 355 8300" },
-  { name: "Paris", address: "79 Boulevard Malesherbes, 75008 Paris", phone: "+33 (0) 1 85 73 71 11" },
-  { name: "Madrid", address: "Calle Alcalá 54, 4º izquierda, 28014 Madrid, Spain" },
-  { name: "Luxembourg", address: "12C Impasse Drosbach, L-1882 Luxembourg", phone: "+352 277 234 12" },
-  { name: "Frankfurt", address: "Goethestrasse 14, 60313 Frankfurt am Main", phone: "+49 69 80883470" },
-  { name: "Guernsey", address: "Oak House, Hirzel Street, St Peter Port, GY1 3RH" },
-  { name: "Amsterdam", address: "J.J. Viottastraat 35, 1071 JP Amsterdam, Netherlands" },
-  { name: "Oslo", address: "Nedre Slottsgate 8, 0157 Oslo, Norway" },
+  {
+    name: "London (HQ)",
+    address: "141 Wardour Street, London, W1F 0UT, UK",
+    phone: "+44 (0) 207 355 8300",
+    image: "/images/offices/london.jpg",
+  },
+  {
+    name: "Paris",
+    address: "79 Boulevard Malesherbes, 75008 Paris",
+    phone: "+33 (0) 1 85 73 71 11",
+    image: "/images/offices/paris.jpg",
+  },
+  {
+    name: "Madrid",
+    address: "Calle Alcalá 54, 4º izquierda, 28014 Madrid, Spain",
+    image: "/images/offices/madrid.jpg",
+  },
+  {
+    name: "Luxembourg",
+    address: "12C Impasse Drosbach, L-1882 Luxembourg",
+    phone: "+352 277 234 12",
+    image: "/images/offices/luxembourg.jpg",
+  },
+  {
+    name: "Frankfurt",
+    address: "Goethestrasse 14, 60313 Frankfurt am Main",
+    phone: "+49 69 80883470",
+    image: "/images/offices/frankfurt.jpg",
+  },
+  {
+    name: "Guernsey",
+    address: "Oak House, Hirzel Street, St Peter Port, GY1 3RH",
+    image: "/images/offices/guernsey.jpg",
+  },
+  {
+    name: "Amsterdam",
+    address: "J.J. Viottastraat 35, 1071 JP Amsterdam, Netherlands",
+    image: "/images/offices/amsterdam.jpg",
+  },
+  {
+    name: "Oslo",
+    address: "Nedre Slottsgate 8, 0157 Oslo, Norway",
+    image: "/images/offices/oslo.jpg",
+  },
 ];
 
 export const footerNav = [
