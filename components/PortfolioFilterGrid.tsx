@@ -1,47 +1,59 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion, useScroll, useSpring, useTransform } from "framer-motion";
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import DuotoneImage from "./DuotoneImage";
 import type { PortfolioHighlight } from "@/lib/data";
 
 const ALL = "All";
+const COLUMN_COUNT = 3;
 
-function chunk<T>(items: T[], size: number): T[][] {
-  const groups: T[][] = [];
-  for (let i = 0; i < items.length; i += size) {
-    groups.push(items.slice(i, i + size));
-  }
-  return groups;
+// Cycled by absolute card index so neighboring cards in a column vary in shape.
+const ASPECTS = ["aspect-[4/5]", "aspect-[4/3]", "aspect-[1/1]", "aspect-[3/4]"];
+
+// Per-column drift direction: -1 drifts up, 0 stays put, 1 drifts down.
+// Three alternating patterns keep the rhythm readable without every row
+// repeating the same still/up/down combination.
+const DIRECTION_PATTERNS = [
+  [0, -1, 1],
+  [-1, 1, 1],
+  [1, 0, -1],
+];
+
+function useParallaxY(direction: number) {
+  const ref = useRef<HTMLDivElement>(null);
+  const prefersReducedMotion = useReducedMotion();
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+
+  const magnitude = direction === 0 ? 0 : 48;
+  const range =
+    direction < 0 ? [magnitude, -magnitude] : direction > 0 ? [-magnitude, magnitude] : [0, 0];
+  const rawY = useTransform(scrollYProgress, [0, 1], range);
+  const springY = useSpring(rawY, { stiffness: 90, damping: 24, mass: 0.4 });
+
+  return { ref, y: prefersReducedMotion ? 0 : springY };
 }
 
 function PortfolioCard({
   item,
-  index,
-  tall,
+  aspectClass,
+  direction,
 }: {
   item: PortfolioHighlight;
-  index: number;
-  tall?: boolean;
+  aspectClass: string;
+  direction: number;
 }) {
+  const { ref, y } = useParallaxY(direction);
+
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 32 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-15% 0px" }}
-      transition={{ duration: 0.7, delay: (index % 3) * 0.12, ease: [0.22, 1, 0.36, 1] }}
-    >
+    <motion.div ref={ref} style={{ y }}>
       <Link href={`/portfolio/${item.slug}`} className="group block">
-        <div
-          className={`relative w-full overflow-hidden rounded-xs bg-ink/5 ${
-            tall ? "aspect-[4/5]" : "aspect-[4/3]"
-          }`}
-        >
+        <div className={`relative w-full overflow-hidden rounded-xs bg-ink/5 ${aspectClass}`}>
           <DuotoneImage
             src={item.image}
             alt={`${item.name}, ${item.location}`}
-            sizes="(min-width: 1024px) 40vw, (min-width: 640px) 50vw, 100vw"
+            sizes="(min-width: 640px) 33vw, 100vw"
             interactive
           />
         </div>
@@ -51,33 +63,6 @@ function PortfolioCard({
         <div className="mt-1 text-xs uppercase tracking-widest text-ink/40">{item.tag}</div>
       </Link>
     </motion.div>
-  );
-}
-
-function PortfolioGroup({ items, reverse }: { items: PortfolioHighlight[]; reverse: boolean }) {
-  if (items.length === 1) {
-    return <PortfolioCard item={items[0]} index={0} tall />;
-  }
-
-  const [large, ...rest] = items;
-
-  return (
-    <div
-      className={`flex flex-col gap-10 md:items-start md:gap-8 ${
-        reverse ? "md:flex-row-reverse" : "md:flex-row"
-      }`}
-    >
-      <div className="md:w-3/5">
-        <PortfolioCard item={large} index={0} tall />
-      </div>
-      <div className="flex flex-col gap-10 md:w-2/5">
-        {rest.map((item, i) => (
-          <div key={item.slug} className={i === 1 ? "md:mt-16" : ""}>
-            <PortfolioCard item={item} index={i + 1} />
-          </div>
-        ))}
-      </div>
-    </div>
   );
 }
 
@@ -93,13 +78,21 @@ export default function PortfolioFilterGrid({ items }: { items: PortfolioHighlig
     [items, active]
   );
 
-  const groups = useMemo(() => chunk(filtered, 3), [filtered]);
+  const columns = useMemo(() => {
+    const cols: { item: PortfolioHighlight; index: number }[][] = Array.from(
+      { length: COLUMN_COUNT },
+      () => []
+    );
+    filtered.forEach((item, index) => {
+      cols[index % COLUMN_COUNT].push({ item, index });
+    });
+    return cols;
+  }, [filtered]);
 
   return (
     <div>
       <h2 className="text-[clamp(2rem,5vw,3.5rem)] font-normal leading-[1.1] text-ink">
-        Our Portfolio{" "}
-        <span className="text-ink/35">({filtered.length})</span>
+        Our Portfolio <span className="text-ink/35">({filtered.length})</span>
       </h2>
       <div className="mt-8 h-px w-full bg-hairline" />
 
@@ -136,9 +129,22 @@ export default function PortfolioFilterGrid({ items }: { items: PortfolioHighlig
           </div>
         </div>
 
-        <div className="flex flex-col gap-16 sm:gap-20">
-          {groups.map((group, i) => (
-            <PortfolioGroup key={group.map((item) => item.slug).join("-")} items={group} reverse={i % 2 === 1} />
+        <div className="grid grid-cols-1 gap-x-6 gap-y-16 sm:grid-cols-3 sm:gap-x-8">
+          {columns.map((column, colIndex) => (
+            <div key={colIndex} className="flex flex-col gap-14">
+              {column.map(({ item, index }) => {
+                const rowGroup = Math.floor(index / COLUMN_COUNT);
+                const pattern = DIRECTION_PATTERNS[rowGroup % DIRECTION_PATTERNS.length];
+                return (
+                  <PortfolioCard
+                    key={item.slug}
+                    item={item}
+                    aspectClass={ASPECTS[index % ASPECTS.length]}
+                    direction={pattern[colIndex]}
+                  />
+                );
+              })}
+            </div>
           ))}
         </div>
       </div>

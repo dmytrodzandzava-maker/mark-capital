@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import ClosingCta from "@/components/ClosingCta";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import PortfolioFilterGrid from "@/components/PortfolioFilterGrid";
@@ -18,10 +19,10 @@ export default function PortfolioPage() {
       <Header />
       <main>
         <VideoHero
-          videoSrc="/videos/contact-header.mp4"
+          videoSrc="/videos/portfolio-hero.mp4"
           eyebrow="Portfolio"
           heading="Our Portfolio"
-          paragraph="We have successfully repositioned landmark assets across multiple cities, using deep asset management expertise to enhance value, drive rents, and attract a broader range of occupiers."
+          paragraph="We have successfully created or repositioned a number of landmark assets in multiple cities, using our deep asset management expertise to reconfigure space to enhance value, drive rents and attract a broader range of occupiers."
         />
 
         <section data-header-theme="light" className="bg-white px-5 py-20 sm:px-8 sm:py-28">
@@ -29,6 +30,8 @@ export default function PortfolioPage() {
             <PortfolioFilterGrid items={portfolioHighlights} />
           </div>
         </section>
+
+        <ClosingCta />
       </main>
       <Footer />
     </>
