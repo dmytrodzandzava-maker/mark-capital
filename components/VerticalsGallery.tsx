@@ -16,15 +16,15 @@ export default function VerticalsGallery({
   const activeVertical = verticals[active];
 
   return (
-    <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12">
-      <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xs bg-ink/5 lg:sticky lg:top-32 lg:self-start">
-        <AnimatePresence mode="wait" initial={false}>
+    <div className="grid grid-cols-1 items-stretch gap-8 lg:grid-cols-2 lg:gap-12">
+      <div className="relative h-[280px] w-full overflow-hidden rounded-xs bg-ink/5 sm:h-[360px] lg:sticky lg:top-32 lg:h-auto lg:self-stretch">
+        <AnimatePresence initial={false}>
           <motion.div
             key={activeVertical.slug}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className="absolute inset-0"
           >
             <Image
@@ -39,27 +39,31 @@ export default function VerticalsGallery({
         </AnimatePresence>
       </div>
 
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+      <div className="grid grid-cols-1 border-t border-l border-hairline sm:grid-cols-2">
         {verticals.map((v, i) => (
           <Link
             key={v.slug}
             href={`/verticals/${v.slug}`}
             onMouseEnter={() => setActive(i)}
-            className={`group flex flex-col justify-between gap-10 rounded-xs border p-8 transition-colors duration-300 sm:min-h-[280px] ${
+            className={`group relative flex flex-col justify-between gap-8 border-r border-b border-hairline p-6 transition-colors duration-300 sm:p-8 ${
               i === 2 ? "sm:col-span-2" : ""
-            } ${
-              active === i
-                ? "border-ink bg-ink text-white"
-                : "border-hairline text-ink hover:border-ink/30"
-            }`}
+            } ${active === i ? "text-white" : "text-ink"}`}
           >
-            <div className="flex items-start justify-between gap-4">
+            {active === i && (
+              <motion.div
+                layoutId="active-vertical-bg"
+                className="absolute inset-0 bg-ink"
+                transition={{ type: "spring", stiffness: 260, damping: 28 }}
+              />
+            )}
+
+            <div className="relative z-10 flex items-start justify-between gap-4">
               <span
-                className={`text-xs uppercase tracking-widest transition-colors duration-300 ${
-                  active === i ? "text-white/50" : "text-ink/40"
+                className={`font-serif-num text-2xl transition-colors duration-300 ${
+                  active === i ? "text-white/50" : "text-ink/30"
                 }`}
               >
-                {v.subtitle}
+                {v.index}
               </span>
               <ArrowUpRight
                 size={18}
@@ -69,15 +73,15 @@ export default function VerticalsGallery({
               />
             </div>
 
-            <div>
-              <div className="text-2xl">{v.name}</div>
-              <p
-                className={`mt-3 text-sm leading-relaxed transition-colors duration-300 ${
-                  active === i ? "text-white/70" : "text-ink/60"
+            <div className="relative z-10">
+              <span
+                className={`text-xs uppercase tracking-widest transition-colors duration-300 ${
+                  active === i ? "text-white/50" : "text-ink/40"
                 }`}
               >
-                {v.description}
-              </p>
+                {v.subtitle}
+              </span>
+              <div className="mt-2 text-xl sm:text-2xl">{v.name}</div>
             </div>
           </Link>
         ))}
