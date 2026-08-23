@@ -70,7 +70,7 @@ export default function VerticalsGallery({
             </div>
 
             <span
-              className={`absolute right-0 top-0 z-10 flex h-16 w-16 shrink-0 items-center justify-center rounded-bl-xs transition-colors duration-300 sm:h-20 sm:w-20 ${
+              className={`absolute right-3 top-3 z-10 flex h-16 w-16 shrink-0 items-center justify-center rounded-xs transition-colors duration-300 sm:right-4 sm:top-4 sm:h-20 sm:w-20 ${
                 active === i ? "bg-white" : "bg-transparent"
               }`}
             >
