@@ -2,6 +2,7 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import Eyebrow from "./Eyebrow";
 import Reveal from "./Reveal";
@@ -36,7 +37,7 @@ export default function Team() {
         <Reveal delay={0.15} className="mt-14 lg:hidden">
           <div className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3">
             {team.map((member) => (
-              <div key={member.name}>
+              <Link key={member.name} href={`/about-us/team/${member.slug}`}>
                 <div className="relative aspect-3/4 w-full overflow-hidden rounded-xs bg-ink/5">
                   <Image
                     src={member.image}
@@ -50,7 +51,7 @@ export default function Team() {
                 <div className="mt-0.5 text-sm leading-snug text-ink/50">
                   {member.title} — {member.location}
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </Reveal>
@@ -59,11 +60,12 @@ export default function Team() {
         <Reveal delay={0.15} className="mt-14 hidden md:mt-16 lg:block">
           <div className="border-t border-hairline">
             {team.map((member, i) => (
-              <div
+              <Link
                 key={member.name}
+                href={`/about-us/team/${member.slug}`}
                 onMouseEnter={() => setHovered(i)}
                 onMouseLeave={() => setHovered(null)}
-                className={`relative flex cursor-default flex-col items-start justify-between gap-1 border-b border-hairline py-6 transition-colors duration-300 sm:flex-row sm:items-center sm:py-8 ${
+                className={`relative flex cursor-pointer flex-col items-start justify-between gap-1 border-b border-hairline py-6 transition-colors duration-300 sm:flex-row sm:items-center sm:py-8 ${
                   hovered === null
                     ? "text-ink/50"
                     : hovered === i
@@ -97,7 +99,7 @@ export default function Team() {
                     )}
                   </AnimatePresence>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </Reveal>
