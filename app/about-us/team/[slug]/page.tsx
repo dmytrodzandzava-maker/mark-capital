@@ -58,12 +58,12 @@ export default async function TeamMemberPage({
 
             <div className="mt-10 grid grid-cols-1 gap-10 sm:grid-cols-[280px_1fr] sm:gap-16">
               <Reveal delay={0.05}>
-                <div className="relative aspect-[3/4] w-full max-w-xs overflow-hidden rounded-xs">
+                <div className="relative aspect-[3/4] w-28 overflow-hidden rounded-xs sm:w-full sm:max-w-xs">
                   <Image
                     src={member.image}
                     alt={member.name}
                     fill
-                    sizes="(min-width: 640px) 280px, 60vw"
+                    sizes="(min-width: 640px) 280px, 112px"
                     className="object-cover"
                   />
                 </div>
