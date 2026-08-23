@@ -22,7 +22,7 @@ export default function VerticalsPage() {
           videoSrc="/videos/verticals-hero.mp4"
           theme="light"
           eyebrow="Verticals"
-          heading="Thematic strategies, built by sector specialists."
+          heading="Our Verticals"
           paragraph="MARK invests thematically across three verticals, executed by local acquisitions, asset management, and development teams."
         />
 
