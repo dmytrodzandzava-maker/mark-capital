@@ -68,6 +68,7 @@ export type TeamMember = {
   image: string;
   investmentCommittee?: boolean;
   bio?: string[];
+  linkedin?: string;
 };
 
 export const team: TeamMember[] = [
@@ -83,6 +84,7 @@ export const team: TeamMember[] = [
       "Before founding MARK in 2004, Marcus served as CFO of MARK's predecessor, MAB Group, where he was responsible for the strategic restructuring of the business, culminating in the sale of the business to a global financial institution.",
       "Marcus began his career in 1995 at Hines in Chicago and London, before joining Goldman Sachs' Principal Investment Team in 1997. Marcus graduated from Leyden University with a Master's degree in law, and received his MBA in 2002 from INSEAD. He speaks six languages.",
     ],
+    linkedin: "https://www.linkedin.com/in/marcus-meijer/",
   },
   {
     slug: "philippe-bidaud",
@@ -96,6 +98,7 @@ export const team: TeamMember[] = [
       "Before joining MARK, Philippe was the M&A Director at HSBC, where he managed large real estate disposals and corporate finance deals in Continental Europe. He also held senior roles at Klepierre and Unibail Rodamco, overseeing acquisitions, asset management, and dispositions of retail assets in Western Europe.",
       "Philippe is a graduate of ESTP Civil Engineering School and ESSEC Business School in Paris and is fluent in both French and English.",
     ],
+    linkedin: "https://www.linkedin.com/in/philippe-bidaud-b7901712/",
   },
   {
     slug: "marco-riva",
@@ -110,6 +113,7 @@ export const team: TeamMember[] = [
       "His career began at KPMG, before moving to Goldman Sachs, where he was involved in acquisitions, restructuring and debt management, as well as leasing across the company's real estate investments in Italy.",
       "He then joined Logicor, Blackstone's pan-European logistics portfolio, which exited to the China Investment Corporation for €12.5bn. As director of acquisitions, Marco oversaw a 147 million sq. ft portfolio across 17 European countries, 70% of which was concentrated in the UK, Germany, France and Southern Europe. He oversaw over €2bn of investments for the platform.",
     ],
+    linkedin: "https://uk.linkedin.com/in/marco-riva-95aba334",
   },
   {
     slug: "michelle-doran",
@@ -124,6 +128,7 @@ export const team: TeamMember[] = [
       "Michelle has been in the real estate investment industry since 2006. She worked at M3 Capital and CBRE before joining Tishman Speyer in 2010, gaining extensive capital markets and acquisitions experience in the process.",
       "Michelle has studied in both Hong Kong and the UK, where she obtained a Master's degree in real estate investment from Cass Business School and an MA (Oxon) in Modern History from the University of Oxford.",
     ],
+    linkedin: "https://www.linkedin.com/in/michelle-doran-b760a053/",
   },
   {
     slug: "matthew-armitage",
@@ -136,6 +141,7 @@ export const team: TeamMember[] = [
       "Matthew Armitage joined MARK in 2016 and is focused on the structuring of new and existing investments.",
       "Prior to joining MARK, Matthew worked at PwC, where he gained significant experience in the financial and tax elements of real estate transactions.",
     ],
+    linkedin: "https://www.linkedin.com/in/matthew-armitage-09850338/",
   },
   {
     slug: "matthew-ammirati",
@@ -148,6 +154,7 @@ export const team: TeamMember[] = [
       "Prior to joining MARK, Matthew held senior roles at Newell Brands as Head of Marketing eCommerce, and founded and led Ammirati (subsequently renamed Resource/Ammirati) as CEO from 2001 to 2017.",
       "Matthew holds a BFA in Graphic Design and Marketing from the School of Visual Arts.",
     ],
+    linkedin: "https://www.linkedin.com/in/matthewammirati/",
   },
   {
     slug: "nitin-aggarwal",
@@ -173,6 +180,7 @@ export const team: TeamMember[] = [
       "Prior to joining MARK, Eric held senior roles at Multi Corporation, including nine years as a member of the Board of Directors and Chief Investment Officer, with responsibility for overseeing investments and disposals of retail assets valued over €8 billion across Europe. He began his career in 1985 at NN Vastgoed in Delft.",
       "Eric holds a Master's in Architecture from Delft University. He is fluent in Dutch, English, French and German.",
     ],
+    linkedin: "https://www.linkedin.com/in/eric-van-duren-41b88015/",
   },
   {
     slug: "nick-russell",
@@ -186,6 +194,7 @@ export const team: TeamMember[] = [
       "Before joining MARK, he served as General Counsel at Henderson Park, General Counsel at Cross Ocean Partners in London, and Senior Counsel at Capula Investment Management. Prior to working in alternative asset management, he spent 14 years at Goldman Sachs, where he acted as counsel to the European Special Situations Group.",
       "A Solicitor of the Senior Courts of England and Wales, Nick earned his LLB (Hons) in Law from Sheffield Hallam University.",
     ],
+    linkedin: "https://www.linkedin.com/in/nick-russell-63761658/",
   },
   {
     slug: "jonathan-buchanan",
@@ -198,6 +207,7 @@ export const team: TeamMember[] = [
       "Prior to joining MARK, Jonathan built his career in property investment and development, and has held various board positions in the UK and abroad, including six years on the board of Notting Hill Housing Trust (Notting Hill Genesis), where he also chaired The Group Development Committee.",
       "Jonathan holds a fiduciary licence with The Guernsey Financial Services Commission.",
     ],
+    linkedin: "https://www.linkedin.com/in/jonathan-buchanan-ba722489/",
   },
 ];
 

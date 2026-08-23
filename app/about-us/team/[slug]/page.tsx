@@ -69,35 +69,58 @@ export default async function TeamMemberPage({
                 </div>
               </Reveal>
 
-              <div>
-                <Reveal delay={0.1}>
-                  <Eyebrow light>{member.location}</Eyebrow>
-                </Reveal>
-                <h1 className="mt-4 text-[clamp(2rem,5vw,3.5rem)] font-normal leading-[1.05] text-white">
-                  {member.name}
-                </h1>
-                <Reveal delay={0.15}>
-                  <p className="mt-3 text-lg text-white/70">{member.title}</p>
-                  {member.investmentCommittee && (
-                    <p className="mt-6 text-sm text-white/40">
-                      Member of the Investment Committee
+              <div className="flex flex-col">
+                <div>
+                  <Reveal delay={0.1}>
+                    <Eyebrow light>{member.location}</Eyebrow>
+                  </Reveal>
+                  <h1 className="mt-4 text-[clamp(2rem,5vw,3.5rem)] font-normal leading-[1.05] text-white">
+                    {member.name}
+                  </h1>
+                  <Reveal delay={0.15}>
+                    <p className="mt-3 text-lg text-white/70">{member.title}</p>
+                    {member.investmentCommittee && (
+                      <p className="mt-6 text-sm text-white/40">
+                        Member of the Investment Committee
+                      </p>
+                    )}
+                  </Reveal>
+                  <Reveal delay={0.2} className="mt-10 flex items-center gap-3">
+                    <Button href="/contact" variant="light">
+                      Get in Touch
+                    </Button>
+                    {member.linkedin && (
+                      <a
+                        href={member.linkedin}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label={`${member.name} on LinkedIn`}
+                        className="inline-flex rounded-xs border border-white/40 p-3.5 text-white transition-colors hover:bg-white hover:text-ink"
+                      >
+                        <svg viewBox="0 0 24 24" width={16} height={16} fill="currentColor" aria-hidden="true">
+                          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452z" />
+                        </svg>
+                      </a>
+                    )}
+                  </Reveal>
+                </div>
+
+                {member.bio && member.bio.length > 0 && (
+                  <Reveal delay={0.25} className="mt-14 border-t border-white/15 pt-10 sm:mt-16">
+                    <p className="font-serif max-w-xl text-[clamp(1.25rem,2.8vw,1.875rem)] italic leading-[1.4] text-white/90">
+                      &ldquo;{member.bio[0]}&rdquo;
                     </p>
-                  )}
-                </Reveal>
-                <Reveal delay={0.2} className="mt-10">
-                  <Button href="/contact" variant="light">
-                    Get in Touch
-                  </Button>
-                </Reveal>
+                  </Reveal>
+                )}
               </div>
             </div>
           </div>
         </section>
 
-        {member.bio && member.bio.length > 0 && (
+        {member.bio && member.bio.length > 1 && (
           <section data-header-theme="light" className="bg-white px-5 py-20 sm:px-8">
             <div className="mx-auto flex max-w-[1400px] flex-col gap-6">
-              {member.bio.map((paragraph, i) => (
+              {member.bio.slice(1).map((paragraph, i) => (
                 <Reveal key={i} delay={i * 0.05}>
                   <p className="max-w-2xl text-lg leading-relaxed text-ink/70 md:text-xl">
                     {paragraph}
