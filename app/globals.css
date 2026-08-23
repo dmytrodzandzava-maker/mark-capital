@@ -24,6 +24,16 @@ body {
   font-family: var(--font-sans);
 }
 
+/* Lenis's root-mode scrolling relies on <html>/<body> growing to the
+   page's natural content height. Our own h-full class caps <html> at
+   100% (i.e. one viewport), which otherwise breaks position:sticky's
+   scrollport calculations — content still renders and scrolls fine, but
+   sticky elements stop tracking correctly partway down a tall page. */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
 .font-serif-num {
   font-family: var(--font-serif);
   font-variant-numeric: oldstyle-nums;

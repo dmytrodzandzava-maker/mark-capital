@@ -119,7 +119,7 @@ export default function PortfolioFilterGrid({ items }: { items: PortfolioHighlig
       <div className="mt-8 h-px w-full bg-hairline" />
 
       <div className="grid grid-cols-1 gap-20 lg:grid-cols-[200px_1fr] lg:gap-16">
-        <div className="flex flex-col gap-4 lg:sticky lg:top-32">
+        <div className="flex flex-col gap-4 lg:sticky lg:top-32 lg:self-start">
           {[ALL, ...categories].map((category) => (
             <button
               key={category}

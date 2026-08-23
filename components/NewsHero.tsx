@@ -23,18 +23,18 @@ export default function NewsHero({ featured }: { featured: Insight }) {
       </div>
 
       <Reveal delay={0.15} className="mx-auto mt-14 max-w-[1400px] sm:mt-16">
-        <div className="grid grid-cols-1 gap-3 lg:grid-cols-2">
-          <div className="flex min-h-[420px] flex-col justify-between gap-10 rounded-xs bg-ink p-8 sm:min-h-[640px] sm:p-12">
+        <div className="grid grid-cols-1 gap-2 lg:grid-cols-2">
+          <div className="flex min-h-[420px] flex-col gap-10 rounded-xs bg-ink p-8 sm:min-h-[640px] sm:p-12">
             <div className="flex flex-wrap gap-2">
-              <span className="inline-block rounded-full bg-white/10 px-2.5 py-1 text-[11px] uppercase tracking-wide text-white/80">
+              <span className="inline-block rounded-xs bg-white/10 px-2.5 py-1 text-[11px] uppercase tracking-wide text-white/80">
                 {TAG_LABELS[featured.tag] ?? featured.tag}
               </span>
-              <span className="inline-block rounded-full bg-white/10 px-2.5 py-1 text-[11px] uppercase tracking-wide text-white/80">
+              <span className="inline-block rounded-xs bg-white/10 px-2.5 py-1 text-[11px] uppercase tracking-wide text-white/80">
                 {featured.date}
               </span>
             </div>
 
-            <div>
+            <div className="flex flex-1 flex-col justify-center">
               <h2 className="max-w-xl text-[clamp(1.5rem,3.2vw,2.5rem)] font-normal leading-[1.15] text-white">
                 {featured.title}
               </h2>
@@ -42,7 +42,7 @@ export default function NewsHero({ featured }: { featured: Insight }) {
                 href={featured.href}
                 target="_blank"
                 rel="noreferrer"
-                className="group mt-8 inline-flex items-center gap-2.5 rounded-xs border border-white/40 px-6 py-3.5 text-sm text-white transition-colors duration-200 ease-out hover:bg-white hover:text-ink md:text-base"
+                className="group mt-8 inline-flex w-fit items-center gap-2.5 rounded-xs border border-white/40 px-6 py-3.5 text-sm text-white transition-colors duration-200 ease-out hover:bg-white hover:text-ink md:text-base"
               >
                 Read Now
                 <ArrowRight
