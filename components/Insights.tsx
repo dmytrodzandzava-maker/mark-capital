@@ -1,4 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
 import Eyebrow from "./Eyebrow";
 import Reveal from "./Reveal";
 import RevealText from "./RevealText";
@@ -22,15 +23,13 @@ export default function Insights() {
               <RevealText delay={0.05}>Explore More News &amp; Insights</RevealText>
             </h2>
             <Reveal delay={0.15}>
-              <a
-                href="https://thisismark.com/news-insights/"
-                target="_blank"
-                rel="noreferrer"
+              <Link
+                href="/news-insights"
                 className="mt-8 inline-flex items-center gap-2.5 rounded-xs bg-accent px-6 py-4 text-sm text-white transition-colors hover:bg-ink"
               >
                 Explore More News &amp; Insights
                 <ArrowUpRight size={16} />
-              </a>
+              </Link>
             </Reveal>
           </div>
 
@@ -39,7 +38,7 @@ export default function Insights() {
               {insights.map((item) => (
                 <a
                   key={item.title}
-                  href="https://thisismark.com/news-insights/"
+                  href={item.href}
                   target="_blank"
                   rel="noreferrer"
                   className="group flex flex-col gap-3 border-b border-hairline py-6 sm:flex-row sm:items-center sm:justify-between sm:gap-6"

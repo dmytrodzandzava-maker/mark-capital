@@ -6,7 +6,7 @@ export const navLinks = [
   { label: "Impact", href: "/#impact" },
   { label: "Verticals", href: "/#verticals" },
   { label: "Portfolio", href: "/portfolio" },
-  { label: "Insights", href: "/#insights" },
+  { label: "Insights", href: "/news-insights" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -537,6 +537,9 @@ export type Insight = {
   tag: "MARK NEWS" | "PRESS RELEASE";
   title: string;
   date: string;
+  image: string;
+  href: string;
+  featured?: boolean;
 };
 
 export const insights: Insight[] = [
@@ -545,47 +548,66 @@ export const insights: Insight[] = [
     title:
       "MARK's senior leadership team interviewed by PERE on asset granularity as a returns driver in Crossbay's urban logistics strategy",
     date: "2026",
+    image: "/images/insights/pere-leadership-interview.jpg",
+    href: "https://thisismark.com/marks-senior-leadership-team-was-interviewed-by-pere-on-how-asset-granularity-is-a-key-returns-driver-in-crossbays-urban-logistics-strategy/",
   },
   {
     tag: "PRESS RELEASE",
     title: "Crossbay secures one of West Yorkshire's largest logistics leases of 2025",
     date: "2025",
+    image: "/images/insights/west-yorkshire-lease.jpg",
+    href: "https://thisismark.com/crossbay-secures-one-of-west-yorkshires-largest-logistics-leases-of-2025/",
   },
   {
     tag: "MARK NEWS",
     title: "MARK Capital Management wins PERE “Logistics Investor of the Year”",
-    date: "2025",
+    date: "28 February 2025",
+    image: "/images/insights/pere-logistics-investor.jpg",
+    href: "https://thisismark.com/mark-capital-management-wins-pere-logistics-investor-of-the-year/",
+    featured: true,
   },
   {
     tag: "PRESS RELEASE",
     title: "MARK appoints new Head of Asset Management for Crossbay",
     date: "2025",
+    image: "/images/insights/head-of-asset-management.jpg",
+    href: "https://thisismark.com/mark-appoints-new-head-of-asset-management-for-crossbay/",
   },
   {
     tag: "PRESS RELEASE",
     title: "MARK strengthens Crossbay and Client Solutions team with two new hires",
     date: "2025",
+    image: "/images/insights/two-new-hires.jpg",
+    href: "https://thisismark.com/mark-strengthens-crossbay-and-client-solutions-team-with-two-new-hires/",
   },
   {
     tag: "PRESS RELEASE",
     title:
       "Crossbay expands French portfolio to over 150,000 sqm following a sale-and-leaseback",
     date: "2025",
+    image: "/images/insights/french-portfolio.jpg",
+    href: "https://thisismark.com/crossbay-expands-french-portfolio-to-over-150000-sqm-following-portfolio-sale-and-leaseback/",
   },
   {
     tag: "PRESS RELEASE",
     title: "Crossbay and Kryalos acquire a last-mile logistics asset in Fiumicino",
     date: "2024",
+    image: "/images/insights/fiumicino.jpg",
+    href: "https://thisismark.com/kryalos-sgrs-bay-fund-acquires-a-last-mile-logistics-asset-in-fiumicino/",
   },
   {
     tag: "PRESS RELEASE",
     title: "Assembly and Eternam to deliver office-to-PBSA conversions in western Paris",
     date: "2024",
+    image: "/images/insights/paris-pbsa.jpg",
+    href: "https://thisismark.com/assembly-and-eternam-to-deliver-office-to-pbsa-conversions-in-western-paris/",
   },
   {
     tag: "PRESS RELEASE",
     title: "World's oldest department store in Oslo sees a surge in tax-free sales",
     date: "2024",
+    image: "/images/insights/oslo-department-store.jpg",
+    href: "https://thisismark.com/worlds-oldest-department-store-in-oslo-experiences-surge-in-tax-free-sales/",
   },
 ];
 
@@ -657,6 +679,6 @@ export const footerNav = [
   { label: "About Us", href: "/about-us" },
   { label: "Portfolio", href: "/portfolio" },
   { label: "Verticals", href: "/#verticals" },
-  { label: "Insights", href: "/#insights" },
+  { label: "Insights", href: "/news-insights" },
   { label: "Contact", href: "/contact" },
 ];
