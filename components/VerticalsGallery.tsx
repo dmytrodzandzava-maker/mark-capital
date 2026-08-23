@@ -47,7 +47,7 @@ export default function VerticalsGallery({
             onMouseEnter={() => setActive(i)}
             className={`group relative flex min-h-[260px] flex-col justify-between gap-8 border-hairline p-6 transition-colors duration-300 sm:min-h-[320px] sm:p-10 ${
               i < 2 ? "border-b" : ""
-            } ${i === 0 ? "sm:border-r" : ""} ${i === 2 ? "sm:col-span-2" : ""} ${
+            } ${i === 1 ? "sm:border-b-0 sm:border-r" : ""} ${i === 0 ? "sm:col-span-2" : ""} ${
               active === i ? "text-white" : "text-ink"
             }`}
           >

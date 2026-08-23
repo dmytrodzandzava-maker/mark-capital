@@ -298,6 +298,17 @@ export const teamDirectory: TeamDirectoryEntry[] = [
 export const verticals = [
   {
     index: "01",
+    slug: "retail",
+    name: "Retail",
+    subtitle: "Mixed-use",
+    description:
+      "MARK manages and repositions retail and mixed-use assets across Europe, most notably Promenaden in Oslo — a prime shopping district redeveloped into one of the city's premier luxury retail destinations.",
+    description2:
+      "Promenaden is now home to nine of the world's ten most valuable luxury brands.",
+    image: "/images/verticals/retail.jpg",
+  },
+  {
+    index: "02",
     slug: "logistics",
     name: "Logistics",
     subtitle: "Crossbay",
@@ -308,7 +319,7 @@ export const verticals = [
     image: "/images/verticals/logistics.jpg",
   },
   {
-    index: "02",
+    index: "03",
     slug: "residential",
     name: "Residential",
     subtitle: "UK PRS",
@@ -317,17 +328,6 @@ export const verticals = [
     description2:
       "Sourced directly and often off-market through established housebuilder relationships, then repositioned into professionally managed rental homes.",
     image: "/images/verticals/residential.jpg",
-  },
-  {
-    index: "03",
-    slug: "retail",
-    name: "Retail",
-    subtitle: "Mixed-use",
-    description:
-      "MARK manages and repositions retail and mixed-use assets across Europe, most notably Promenaden in Oslo — a prime shopping district redeveloped into one of the city's premier luxury retail destinations.",
-    description2:
-      "Promenaden is now home to nine of the world's ten most valuable luxury brands.",
-    image: "/images/verticals/retail.jpg",
   },
 ];
 
