@@ -44,7 +44,7 @@ export default async function TeamMemberPage({
     <>
       <Header />
       <main>
-        <section data-header-theme="dark" className="bg-ink px-5 pb-20 pt-24 sm:px-8 sm:pb-28 sm:pt-48">
+        <section data-header-theme="dark" className="bg-ink px-5 pb-20 pt-20 sm:px-8 sm:pb-28 sm:pt-48">
           <div className="mx-auto max-w-[1400px]">
             <Reveal>
               <Link
@@ -56,14 +56,14 @@ export default async function TeamMemberPage({
               </Link>
             </Reveal>
 
-            <div className="mt-10 grid grid-cols-1 gap-10 sm:grid-cols-[280px_1fr] sm:gap-16">
+            <div className="mt-6 grid grid-cols-1 gap-6 sm:mt-10 sm:grid-cols-[280px_1fr] sm:gap-16">
               <Reveal delay={0.05}>
-                <div className="relative aspect-[3/4] w-28 overflow-hidden rounded-xs sm:w-full sm:max-w-xs">
+                <div className="relative aspect-[3/4] w-24 overflow-hidden rounded-xs sm:w-full sm:max-w-xs">
                   <Image
                     src={member.image}
                     alt={member.name}
                     fill
-                    sizes="(min-width: 640px) 280px, 112px"
+                    sizes="(min-width: 640px) 280px, 96px"
                     className="object-cover"
                   />
                 </div>
@@ -80,12 +80,12 @@ export default async function TeamMemberPage({
                   <Reveal delay={0.15}>
                     <p className="mt-3 text-lg text-white/70">{member.title}</p>
                     {member.investmentCommittee && (
-                      <p className="mt-6 text-sm text-white/40">
+                      <p className="mt-4 text-sm text-white/40 sm:mt-6">
                         Member of the Investment Committee
                       </p>
                     )}
                   </Reveal>
-                  <Reveal delay={0.2} className="mt-10 flex items-center gap-3">
+                  <Reveal delay={0.2} className="mt-6 flex items-center gap-3 sm:mt-10">
                     <Button href="/contact" variant="light">
                       Get in Touch
                     </Button>
