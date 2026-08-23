@@ -32,7 +32,7 @@ export default function Hero() {
         </p>
       </div>
 
-      <div className="absolute right-5 top-24 z-10 flex flex-col items-center gap-2 text-white/70 sm:right-8 sm:top-32">
+      <div className="absolute right-5 top-24 z-10 flex flex-col items-center gap-2 text-white/70 sm:right-8 sm:top-auto sm:bottom-8">
         <span className="text-xs tracking-widest uppercase [writing-mode:vertical-rl]">
           Scroll
         </span>
