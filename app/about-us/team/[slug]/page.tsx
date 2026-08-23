@@ -106,8 +106,8 @@ export default async function TeamMemberPage({
                 </div>
 
                 {member.bio && member.bio.length > 0 && (
-                  <Reveal delay={0.25} className="mt-14 border-t border-white/15 pt-10 sm:mt-16">
-                    <p className="font-serif max-w-xl text-[clamp(1.25rem,2.8vw,1.875rem)] italic leading-[1.4] text-white/90">
+                  <Reveal delay={0.25} className="mt-4 border-t border-white/15 pt-4 sm:mt-16 sm:pt-10">
+                    <p className="font-serif line-clamp-2 max-w-xl text-base italic leading-snug text-white/90 sm:line-clamp-none sm:text-[clamp(1.25rem,2.8vw,1.875rem)] sm:leading-[1.4]">
                       &ldquo;{member.bio[0]}&rdquo;
                     </p>
                   </Reveal>
