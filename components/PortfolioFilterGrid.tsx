@@ -67,6 +67,27 @@ function PortfolioCard({
   );
 }
 
+// Static, uniform-size card for mobile — no parallax, no varied aspect ratio.
+function MobileCard({ item }: { item: PortfolioHighlight }) {
+  return (
+    <Link href={`/portfolio/${item.slug}`} className="group block">
+      <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xs bg-ink/5">
+        <Image
+          src={item.image}
+          alt={`${item.name}, ${item.location}`}
+          fill
+          sizes="100vw"
+          className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+        />
+      </div>
+      <div className="mt-4 text-lg text-ink transition-colors group-hover:text-accent">
+        {item.name}
+      </div>
+      <div className="mt-1 text-xs uppercase tracking-widest text-ink/40">{item.tag}</div>
+    </Link>
+  );
+}
+
 export default function PortfolioFilterGrid({ items }: { items: PortfolioHighlight[] }) {
   const categories = useMemo(
     () => [...new Set(items.map((item) => item.tag))].sort((a, b) => a.localeCompare(b)),
@@ -97,40 +118,28 @@ export default function PortfolioFilterGrid({ items }: { items: PortfolioHighlig
       </h2>
       <div className="mt-8 h-px w-full bg-hairline" />
 
-      <div className="mt-10 -mx-5 flex gap-2 overflow-x-auto px-5 pb-2 lg:hidden">
-        {[ALL, ...categories].map((category) => (
-          <button
-            key={category}
-            onClick={() => setActive(category)}
-            className={`shrink-0 cursor-pointer rounded-xs border px-4 py-2 text-sm transition-colors ${
-              active === category
-                ? "border-ink bg-ink text-white"
-                : "border-hairline text-ink/50 hover:text-ink"
-            }`}
-          >
-            {category}
-          </button>
-        ))}
-      </div>
-
-      <div className="grid grid-cols-1 gap-12 lg:grid-cols-[200px_1fr] lg:gap-16">
-        <div className="hidden lg:block">
-          <div className="sticky top-32 flex flex-col gap-4">
-            {[ALL, ...categories].map((category) => (
-              <button
-                key={category}
-                onClick={() => setActive(category)}
-                className={`cursor-pointer text-left text-base transition-colors ${
-                  active === category ? "text-ink" : "text-ink/35 hover:text-ink/70"
-                }`}
-              >
-                {category}
-              </button>
-            ))}
-          </div>
+      <div className="grid grid-cols-1 gap-20 lg:grid-cols-[200px_1fr] lg:gap-16">
+        <div className="flex flex-col gap-4 lg:sticky lg:top-32">
+          {[ALL, ...categories].map((category) => (
+            <button
+              key={category}
+              onClick={() => setActive(category)}
+              className={`cursor-pointer text-left text-base transition-colors ${
+                active === category ? "text-ink" : "text-ink/35 hover:text-ink/70"
+              }`}
+            >
+              {category}
+            </button>
+          ))}
         </div>
 
-        <div className="grid grid-cols-1 gap-x-6 gap-y-16 sm:grid-cols-3 sm:gap-x-8">
+        <div className="flex flex-col gap-10 sm:hidden">
+          {filtered.map((item) => (
+            <MobileCard key={item.slug} item={item} />
+          ))}
+        </div>
+
+        <div className="hidden sm:grid sm:grid-cols-3 sm:gap-x-8 sm:gap-y-16">
           {columns.map((column, colIndex) => (
             <div key={colIndex} className="flex flex-col gap-28">
               {column.map(({ item, index }) => {
