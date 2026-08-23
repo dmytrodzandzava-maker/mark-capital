@@ -53,7 +53,7 @@ export default async function VerticalPage({
           <div className="mx-auto max-w-[1400px]">
             <Reveal>
               <Link
-                href="/#verticals"
+                href="/verticals"
                 className="inline-flex items-center gap-2 text-sm text-white/60 transition-colors hover:text-white"
               >
                 <ArrowLeft size={15} />

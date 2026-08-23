@@ -4,7 +4,7 @@ export const SUPPORTING_LINE =
 export const navLinks = [
   { label: "Who We Are", href: "/about-us" },
   { label: "Impact", href: "/#impact" },
-  { label: "Verticals", href: "/#verticals" },
+  { label: "Verticals", href: "/verticals" },
   { label: "Portfolio", href: "/portfolio" },
   { label: "Insights", href: "/news-insights" },
   { label: "Contact", href: "/contact" },
@@ -298,26 +298,6 @@ export const teamDirectory: TeamDirectoryEntry[] = [
 export const verticals = [
   {
     index: "01",
-    slug: "logistics",
-    name: "Logistics",
-    subtitle: "Crossbay",
-    description:
-      "MARK's logistics platform, Crossbay, invests in single-tenant urban distribution centres near Europe's major gateway cities, giving institutional investors exposure to last-mile logistics.",
-    description2:
-      "A sector underpinned by long-term structural demand shifts, executed by local acquisitions, asset management, and development teams.",
-  },
-  {
-    index: "02",
-    slug: "residential",
-    name: "Residential",
-    subtitle: "UK PRS",
-    description:
-      "MARK's UK Private Rented Sector strategy aggregates newly built, mid-market multifamily housing across Greater London and the south east.",
-    description2:
-      "Sourced directly and often off-market through established housebuilder relationships, then repositioned into professionally managed rental homes.",
-  },
-  {
-    index: "03",
     slug: "retail",
     name: "Retail",
     subtitle: "Mixed-use",
@@ -325,6 +305,29 @@ export const verticals = [
       "MARK manages and repositions retail and mixed-use assets across Europe, most notably Promenaden in Oslo — a prime shopping district redeveloped into one of the city's premier luxury retail destinations.",
     description2:
       "Promenaden is now home to nine of the world's ten most valuable luxury brands.",
+    image: "/images/verticals/retail.webp",
+  },
+  {
+    index: "02",
+    slug: "logistics",
+    name: "Logistics",
+    subtitle: "Crossbay",
+    description:
+      "MARK's logistics platform, Crossbay, invests in single-tenant urban distribution centres near Europe's major gateway cities, giving institutional investors exposure to last-mile logistics.",
+    description2:
+      "A sector underpinned by long-term structural demand shifts, executed by local acquisitions, asset management, and development teams.",
+    image: "/images/verticals/logistics.webp",
+  },
+  {
+    index: "03",
+    slug: "residential",
+    name: "Residential",
+    subtitle: "UK PRS",
+    description:
+      "MARK's UK Private Rented Sector strategy aggregates newly built, mid-market multifamily housing across Greater London and the south east.",
+    description2:
+      "Sourced directly and often off-market through established housebuilder relationships, then repositioned into professionally managed rental homes.",
+    image: "/images/verticals/residential.webp",
   },
 ];
 
@@ -831,7 +834,7 @@ export const offices: Office[] = [
 export const footerNav = [
   { label: "About Us", href: "/about-us" },
   { label: "Portfolio", href: "/portfolio" },
-  { label: "Verticals", href: "/#verticals" },
+  { label: "Verticals", href: "/verticals" },
   { label: "Insights", href: "/news-insights" },
   { label: "Contact", href: "/contact" },
 ];
