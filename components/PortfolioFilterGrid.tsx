@@ -1,9 +1,9 @@
 "use client";
 
 import { motion, useReducedMotion, useScroll, useSpring, useTransform } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useRef, useState } from "react";
-import DuotoneImage from "./DuotoneImage";
 import type { PortfolioHighlight } from "@/lib/data";
 
 const ALL = "All";
@@ -26,7 +26,7 @@ function useParallaxY(direction: number) {
   const prefersReducedMotion = useReducedMotion();
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
 
-  const magnitude = direction === 0 ? 0 : 48;
+  const magnitude = direction === 0 ? 0 : 84;
   const range =
     direction < 0 ? [magnitude, -magnitude] : direction > 0 ? [-magnitude, magnitude] : [0, 0];
   const rawY = useTransform(scrollYProgress, [0, 1], range);
@@ -50,11 +50,12 @@ function PortfolioCard({
     <motion.div ref={ref} style={{ y }}>
       <Link href={`/portfolio/${item.slug}`} className="group block">
         <div className={`relative w-full overflow-hidden rounded-xs bg-ink/5 ${aspectClass}`}>
-          <DuotoneImage
+          <Image
             src={item.image}
             alt={`${item.name}, ${item.location}`}
+            fill
             sizes="(min-width: 640px) 33vw, 100vw"
-            interactive
+            className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
           />
         </div>
         <div className="mt-4 text-lg text-ink transition-colors group-hover:text-accent sm:text-xl">
@@ -101,7 +102,7 @@ export default function PortfolioFilterGrid({ items }: { items: PortfolioHighlig
           <button
             key={category}
             onClick={() => setActive(category)}
-            className={`shrink-0 rounded-xs border px-4 py-2 text-sm transition-colors ${
+            className={`shrink-0 cursor-pointer rounded-xs border px-4 py-2 text-sm transition-colors ${
               active === category
                 ? "border-ink bg-ink text-white"
                 : "border-hairline text-ink/50 hover:text-ink"
@@ -119,7 +120,7 @@ export default function PortfolioFilterGrid({ items }: { items: PortfolioHighlig
               <button
                 key={category}
                 onClick={() => setActive(category)}
-                className={`text-left text-base transition-colors ${
+                className={`cursor-pointer text-left text-base transition-colors ${
                   active === category ? "text-ink" : "text-ink/35 hover:text-ink/70"
                 }`}
               >
@@ -131,7 +132,7 @@ export default function PortfolioFilterGrid({ items }: { items: PortfolioHighlig
 
         <div className="grid grid-cols-1 gap-x-6 gap-y-16 sm:grid-cols-3 sm:gap-x-8">
           {columns.map((column, colIndex) => (
-            <div key={colIndex} className="flex flex-col gap-14">
+            <div key={colIndex} className="flex flex-col gap-28">
               {column.map(({ item, index }) => {
                 const rowGroup = Math.floor(index / COLUMN_COUNT);
                 const pattern = DIRECTION_PATTERNS[rowGroup % DIRECTION_PATTERNS.length];

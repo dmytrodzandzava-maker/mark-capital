@@ -3,7 +3,6 @@ import { ArrowLeft } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import DuotoneImage from "@/components/DuotoneImage";
 import Eyebrow from "@/components/Eyebrow";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
@@ -108,11 +107,12 @@ export default async function PortfolioProjectPage({
                     href={`/portfolio/${p.slug}`}
                     className="group relative flex h-56 items-end overflow-hidden rounded-xs"
                   >
-                    <DuotoneImage
+                    <Image
                       src={p.image}
                       alt={`${p.name}, ${p.location}`}
+                      fill
                       sizes="(min-width: 640px) 50vw, 100vw"
-                      interactive
+                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                     />
                     <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/20 to-transparent" />
                     <div className="relative z-10 p-6">
