@@ -41,7 +41,7 @@ export default async function PortfolioProjectPage({
   const item = portfolioHighlights.find((p) => p.slug === slug);
   if (!item) notFound();
 
-  const others = portfolioHighlights.filter((p) => p.slug !== item.slug);
+  const others = portfolioHighlights.filter((p) => p.slug !== item.slug).slice(0, 4);
 
   return (
     <>
@@ -66,7 +66,7 @@ export default async function PortfolioProjectPage({
             <div className="mx-auto max-w-[1400px]">
               <Reveal>
                 <Link
-                  href="/#portfolio"
+                  href="/portfolio"
                   className="inline-flex items-center gap-2 text-sm text-white/60 transition-colors hover:text-white"
                 >
                   <ArrowLeft size={15} />
@@ -111,11 +111,10 @@ export default async function PortfolioProjectPage({
                       src={p.image}
                       alt={`${p.name}, ${p.location}`}
                       fill
-                      quality={90}
                       sizes="(min-width: 640px) 50vw, 100vw"
-                      className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/20 to-transparent" />
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/20 to-transparent" />
                     <div className="relative z-10 p-6">
                       <div className="text-lg text-white">{p.name}</div>
                       <div className="text-sm text-white/60">{p.location}</div>

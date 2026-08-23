@@ -93,8 +93,10 @@ function PortfolioCard({
   );
 }
 
+const flagshipProjects = portfolioHighlights.slice(0, 3);
+
 export default function Portfolio() {
-  // Fixed at 3 real items — individual refs keep this lint-safe (no hooks in a loop).
+  // Fixed at 3 flagship items — individual refs keep this lint-safe (no hooks in a loop).
   const ref0 = useRef<HTMLDivElement>(null);
   const ref1 = useRef<HTMLDivElement>(null);
   const ref2 = useRef<HTMLDivElement>(null);
@@ -114,16 +116,25 @@ export default function Portfolio() {
       </div>
 
       <div className="mx-auto max-w-[1400px] px-5 pb-24 sm:px-8 sm:pb-32">
-        {portfolioHighlights.map((item, i) => (
+        {flagshipProjects.map((item, i) => (
           <PortfolioCard
             key={item.slug}
             item={item}
             index={i}
             cardRef={refs[i]}
             nextCardRef={refs[i + 1]}
-            hasNext={i < portfolioHighlights.length - 1}
+            hasNext={i < flagshipProjects.length - 1}
           />
         ))}
+
+        <Reveal delay={0.1} className="mt-10 text-center">
+          <Link
+            href="/portfolio"
+            className="inline-flex items-center gap-2 text-sm text-accent underline decoration-accent/40 underline-offset-4 transition-colors hover:text-ink"
+          >
+            View All Projects →
+          </Link>
+        </Reveal>
       </div>
     </section>
   );
