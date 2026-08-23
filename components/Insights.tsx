@@ -5,6 +5,10 @@ import Reveal from "./Reveal";
 import RevealText from "./RevealText";
 import { insights } from "@/lib/data";
 
+// Homepage gets a short, curated preview — the full list lives on
+// /news-insights, which now scales to dozens of articles via pagination.
+const previewInsights = insights.slice(0, 6);
+
 export default function Insights() {
   return (
     <section
@@ -35,7 +39,7 @@ export default function Insights() {
 
           <Reveal delay={0.1}>
             <div className="border-t border-hairline">
-              {insights.map((item) => (
+              {previewInsights.map((item) => (
                 <a
                   key={item.title}
                   href={item.href}
