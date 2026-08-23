@@ -93,6 +93,20 @@ export default async function TeamMemberPage({
             </div>
           </div>
         </section>
+
+        {member.bio && member.bio.length > 0 && (
+          <section data-header-theme="light" className="bg-white px-5 py-20 sm:px-8">
+            <div className="mx-auto flex max-w-[1400px] flex-col gap-6">
+              {member.bio.map((paragraph, i) => (
+                <Reveal key={i} delay={i * 0.05}>
+                  <p className="max-w-2xl text-lg leading-relaxed text-ink/70 md:text-xl">
+                    {paragraph}
+                  </p>
+                </Reveal>
+              ))}
+            </div>
+          </section>
+        )}
       </main>
       <Footer />
     </>

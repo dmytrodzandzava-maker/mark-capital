@@ -67,6 +67,7 @@ export type TeamMember = {
   location: string;
   image: string;
   investmentCommittee?: boolean;
+  bio?: string[];
 };
 
 export const team: TeamMember[] = [
@@ -77,6 +78,11 @@ export const team: TeamMember[] = [
     location: "London",
     image: "/images/team/marcus-meijer.jpg",
     investmentCommittee: true,
+    bio: [
+      "Marcus Meijer is the Founder and Chief Executive Officer of MARK and Chairman of Crossbay. Marcus has extensive corporate finance, real estate investment and development experience. He has originated, executed, and exited single asset, portfolio, and non-performing loan transactions across the United States, the U.K., and Continental Europe.",
+      "Before founding MARK in 2004, Marcus served as CFO of MARK's predecessor, MAB Group, where he was responsible for the strategic restructuring of the business, culminating in the sale of the business to a global financial institution.",
+      "Marcus began his career in 1995 at Hines in Chicago and London, before joining Goldman Sachs' Principal Investment Team in 1997. Marcus graduated from Leyden University with a Master's degree in law, and received his MBA in 2002 from INSEAD. He speaks six languages.",
+    ],
   },
   {
     slug: "philippe-bidaud",
@@ -85,6 +91,11 @@ export const team: TeamMember[] = [
     location: "Paris",
     image: "/images/team/philippe-bidaud.jpg",
     investmentCommittee: true,
+    bio: [
+      "Philippe Bidaud is Managing Partner and Chief Operating Officer at MARK, overseeing the management platform's operations. He is also an Executive Board Member and sits on all Investment Committees. With extensive experience in finance and real estate, his skillset is broad, spanning corporate finance, business development, acquisitions, and asset management across Europe, drawing on his strong investor network.",
+      "Before joining MARK, Philippe was the M&A Director at HSBC, where he managed large real estate disposals and corporate finance deals in Continental Europe. He also held senior roles at Klepierre and Unibail Rodamco, overseeing acquisitions, asset management, and dispositions of retail assets in Western Europe.",
+      "Philippe is a graduate of ESTP Civil Engineering School and ESSEC Business School in Paris and is fluent in both French and English.",
+    ],
   },
   {
     slug: "marco-riva",
@@ -93,6 +104,12 @@ export const team: TeamMember[] = [
     location: "London",
     image: "/images/team/marco-riva.jpg",
     investmentCommittee: true,
+    bio: [
+      "Marco Riva is the CEO of Crossbay, MARK's urban logistics platform.",
+      "Marco has overall responsibility for the growth and management of MARK's industry-leading logistics platform, Crossbay. He leads a team of over 40 people responsible for the sourcing, acquisition, management and development of logistics assets across Europe. He brings almost 20 years of experience to MARK.",
+      "His career began at KPMG, before moving to Goldman Sachs, where he was involved in acquisitions, restructuring and debt management, as well as leasing across the company's real estate investments in Italy.",
+      "He then joined Logicor, Blackstone's pan-European logistics portfolio, which exited to the China Investment Corporation for €12.5bn. As director of acquisitions, Marco oversaw a 147 million sq. ft portfolio across 17 European countries, 70% of which was concentrated in the UK, Germany, France and Southern Europe. He oversaw over €2bn of investments for the platform.",
+    ],
   },
   {
     slug: "michelle-doran",
@@ -101,6 +118,12 @@ export const team: TeamMember[] = [
     location: "London",
     image: "/images/team/michelle-doran.jpg",
     investmentCommittee: true,
+    bio: [
+      "Michelle is a Senior Managing Director in the Client Solutions team. She joined the firm in 2022, following 12 years at Tishman Speyer, where she served as Head of European Portfolio Management before becoming Managing Director for Global Equity Capital Markets. In this later role, Michelle was responsible for developing and managing strategic relationships with some of the world's most prominent pension funds, sovereign wealth funds, insurance companies and family offices across Europe, Israel and Asia.",
+      "At MARK, Michelle oversees relationships with the firm's global investor base and spearheads fundraising efforts for both new and existing platforms.",
+      "Michelle has been in the real estate investment industry since 2006. She worked at M3 Capital and CBRE before joining Tishman Speyer in 2010, gaining extensive capital markets and acquisitions experience in the process.",
+      "Michelle has studied in both Hong Kong and the UK, where she obtained a Master's degree in real estate investment from Cass Business School and an MA (Oxon) in Modern History from the University of Oxford.",
+    ],
   },
   {
     slug: "matthew-armitage",
@@ -109,6 +132,10 @@ export const team: TeamMember[] = [
     location: "London",
     image: "/images/team/matthew-armitage.jpg",
     investmentCommittee: true,
+    bio: [
+      "Matthew Armitage joined MARK in 2016 and is focused on the structuring of new and existing investments.",
+      "Prior to joining MARK, Matthew worked at PwC, where he gained significant experience in the financial and tax elements of real estate transactions.",
+    ],
   },
   {
     slug: "matthew-ammirati",
@@ -116,6 +143,11 @@ export const team: TeamMember[] = [
     title: "Chief Marketing Officer",
     location: "New York",
     image: "/images/team/matthew-ammirati.jpg",
+    bio: [
+      "Matthew Ammirati joined MARK in 2019 and focuses on branding, digital, social media and marketing initiatives for the business and investments.",
+      "Prior to joining MARK, Matthew held senior roles at Newell Brands as Head of Marketing eCommerce, and founded and led Ammirati (subsequently renamed Resource/Ammirati) as CEO from 2001 to 2017.",
+      "Matthew holds a BFA in Graphic Design and Marketing from the School of Visual Arts.",
+    ],
   },
   {
     slug: "nitin-aggarwal",
@@ -123,6 +155,11 @@ export const team: TeamMember[] = [
     title: "Chief Technology Officer",
     location: "London",
     image: "/images/team/nitin-aggarwal.jpg",
+    bio: [
+      "Nitin has overall responsibility for MARK's technology strategy across the firm's European platform, leading its IT, information security, and compliance functions, as well as the data and automation capabilities that support its investment and operational teams.",
+      "He has led MARK's adoption of artificial intelligence, designing and delivering capability-building programmes for teams in London, Paris and Luxembourg, and across the firm's logistics platform, Crossbay. His focus has been on embedding practical AI tools into everyday workflows—from investment analysis through to finance and operations—and on automating processes to improve the speed, accuracy, and quality of decision-making.",
+      "Nitin brings more than 20 years of experience across the financial services and real estate sectors. Prior to joining MARK, he provided technology consulting to financial services firms, including Generation Investment Management LLP and Crescent Credit Europe LLP.",
+    ],
   },
   {
     slug: "eric-van-duren",
@@ -131,6 +168,11 @@ export const team: TeamMember[] = [
     location: "London",
     image: "/images/team/eric-van-duren.jpg",
     investmentCommittee: true,
+    bio: [
+      "Eric van Duren joined MARK as Senior Managing Director and focuses on transaction execution.",
+      "Prior to joining MARK, Eric held senior roles at Multi Corporation, including nine years as a member of the Board of Directors and Chief Investment Officer, with responsibility for overseeing investments and disposals of retail assets valued over €8 billion across Europe. He began his career in 1985 at NN Vastgoed in Delft.",
+      "Eric holds a Master's in Architecture from Delft University. He is fluent in Dutch, English, French and German.",
+    ],
   },
   {
     slug: "nick-russell",
@@ -139,6 +181,11 @@ export const team: TeamMember[] = [
     location: "London",
     image: "/images/team/nick-russell.jpg",
     investmentCommittee: true,
+    bio: [
+      "Nick Russell joined MARK as General Counsel in 2024, bringing more than two decades of legal experience.",
+      "Before joining MARK, he served as General Counsel at Henderson Park, General Counsel at Cross Ocean Partners in London, and Senior Counsel at Capula Investment Management. Prior to working in alternative asset management, he spent 14 years at Goldman Sachs, where he acted as counsel to the European Special Situations Group.",
+      "A Solicitor of the Senior Courts of England and Wales, Nick earned his LLB (Hons) in Law from Sheffield Hallam University.",
+    ],
   },
   {
     slug: "jonathan-buchanan",
@@ -146,6 +193,11 @@ export const team: TeamMember[] = [
     title: "Board Director",
     location: "Guernsey",
     image: "/images/team/jonathan-buchanan.jpg",
+    bio: [
+      "Jonathan Buchanan joined MARK as Board Director in 2015 and has over 35 years of experience in real estate transactions, both domestic and international.",
+      "Prior to joining MARK, Jonathan built his career in property investment and development, and has held various board positions in the UK and abroad, including six years on the board of Notting Hill Housing Trust (Notting Hill Genesis), where he also chaired The Group Development Committee.",
+      "Jonathan holds a fiduciary licence with The Guernsey Financial Services Commission.",
+    ],
   },
 ];
 
