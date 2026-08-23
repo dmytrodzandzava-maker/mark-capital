@@ -3,7 +3,6 @@ export const SUPPORTING_LINE =
 
 export const navLinks = [
   { label: "Who We Are", href: "/about-us" },
-  { label: "Impact", href: "/#impact" },
   { label: "Verticals", href: "/verticals" },
   { label: "Portfolio", href: "/portfolio" },
   { label: "Insights", href: "/news-insights" },

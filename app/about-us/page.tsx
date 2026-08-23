@@ -68,13 +68,13 @@ export default function AboutUsPage() {
           <Reveal delay={0.15} className="mx-auto mt-16 max-w-[1400px]">
             <div className="flex flex-col gap-3 sm:flex-row">
               <Link
-                href="/#verticals"
+                href="/verticals"
                 className="flex-1 rounded-xs bg-light px-6 py-6 text-base text-ink transition-colors hover:bg-ink hover:text-white"
               >
                 Our Verticals →
               </Link>
               <Link
-                href="/#portfolio"
+                href="/portfolio"
                 className="flex-1 rounded-xs bg-light px-6 py-6 text-base text-ink transition-colors hover:bg-ink hover:text-white"
               >
                 Our Portfolio →
