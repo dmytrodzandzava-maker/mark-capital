@@ -13,6 +13,7 @@ export default function VerticalsGallery({
   verticals: typeof verticalsData;
 }) {
   const [active, setActive] = useState(0);
+  const [hovered, setHovered] = useState<number | null>(null);
   const activeVertical = verticals[active];
 
   return (
@@ -44,7 +45,11 @@ export default function VerticalsGallery({
           <Link
             key={v.slug}
             href={`/verticals/${v.slug}`}
-            onMouseEnter={() => setActive(i)}
+            onMouseEnter={() => {
+              setActive(i);
+              setHovered(i);
+            }}
+            onMouseLeave={() => setHovered(null)}
             className={`group relative flex min-h-[260px] flex-col justify-between gap-8 border-hairline p-6 transition-colors duration-300 sm:min-h-[320px] sm:p-10 ${
               i < 2 ? "border-b" : ""
             } ${i === 1 ? "sm:border-b-0 sm:border-r" : ""} ${i === 0 ? "sm:col-span-2" : ""} ${
@@ -70,7 +75,7 @@ export default function VerticalsGallery({
             </div>
 
             <AnimatePresence>
-              {active === i && (
+              {hovered === i && (
                 <motion.span
                   key="arrow-box"
                   initial={{ scale: 0, opacity: 0 }}
@@ -80,7 +85,7 @@ export default function VerticalsGallery({
                   style={{ transformOrigin: "top right" }}
                   className="absolute right-px top-px z-10 flex h-16 w-16 shrink-0 items-center justify-center rounded-xs bg-white sm:h-20 sm:w-20"
                 >
-                  <ArrowUpRight size={28} className="text-ink" />
+                  <ArrowUpRight size={32} strokeWidth={1.5} className="text-ink" />
                 </motion.span>
               )}
             </AnimatePresence>
