@@ -17,14 +17,14 @@ export default function NewsHero({ featured }: { featured: Insight }) {
         <Reveal>
           <Eyebrow>News</Eyebrow>
         </Reveal>
-        <h1 className="mt-6 text-[clamp(2.5rem,7vw,5.5rem)] font-normal leading-[1.02] text-ink">
+        <h1 className="mt-6 text-[44px] font-normal leading-[1.02] text-ink">
           <RevealText delay={0.05}>News &amp; Insights</RevealText>
         </h1>
       </div>
 
       <Reveal delay={0.15} className="mx-auto mt-14 max-w-[1400px] sm:mt-16">
-        <div className="grid grid-cols-1 overflow-hidden rounded-xs lg:grid-cols-2">
-          <div className="flex min-h-[320px] flex-col justify-between gap-10 bg-ink p-8 sm:min-h-[420px] sm:p-12">
+        <div className="grid grid-cols-1 gap-3 lg:grid-cols-2">
+          <div className="flex min-h-[420px] flex-col justify-between gap-10 rounded-xs bg-ink p-8 sm:min-h-[640px] sm:p-12">
             <div className="flex flex-wrap gap-2">
               <span className="inline-block rounded-full bg-white/10 px-2.5 py-1 text-[11px] uppercase tracking-wide text-white/80">
                 {TAG_LABELS[featured.tag] ?? featured.tag}
@@ -53,7 +53,7 @@ export default function NewsHero({ featured }: { featured: Insight }) {
             </div>
           </div>
 
-          <div className="relative min-h-[280px] sm:min-h-[420px]">
+          <div className="relative min-h-[320px] overflow-hidden rounded-xs sm:min-h-[640px]">
             <Image
               src={featured.image}
               alt={featured.title}

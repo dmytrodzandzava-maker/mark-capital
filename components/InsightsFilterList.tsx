@@ -18,7 +18,7 @@ function InsightRow({ item }: { item: Insight }) {
       href={item.href}
       target="_blank"
       rel="noreferrer"
-      className="group flex flex-col gap-4 border-b border-hairline px-4 py-6 transition-colors duration-300 hover:bg-accent sm:flex-row sm:items-center sm:gap-8 sm:px-6 sm:py-8"
+      className="group flex flex-col gap-4 border-b border-hairline px-4 py-12 transition-colors duration-300 hover:bg-accent sm:flex-row sm:items-center sm:gap-10 sm:px-6 sm:py-16"
     >
       <div className="sm:w-28 sm:shrink-0">
         <span className="text-sm text-ink/40 transition-colors duration-300 group-hover:text-white/70">
@@ -33,8 +33,8 @@ function InsightRow({ item }: { item: Insight }) {
         {item.title}
       </p>
 
-      <div className="relative h-20 w-28 shrink-0 overflow-hidden rounded-xs sm:h-20 sm:w-28">
-        <Image src={item.image} alt={item.title} fill sizes="112px" className="object-cover" />
+      <div className="relative h-40 w-56 shrink-0 overflow-hidden rounded-xs">
+        <Image src={item.image} alt={item.title} fill sizes="224px" className="object-cover" />
       </div>
 
       <ArrowUpRight

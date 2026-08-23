@@ -35,7 +35,7 @@ export default function VideoHero({
         <Reveal>
           <Eyebrow light>{eyebrow}</Eyebrow>
         </Reveal>
-        <h1 className="mt-6 max-w-3xl text-[clamp(2.5rem,7vw,5.5rem)] font-normal leading-[1.05] text-white">
+        <h1 className="mt-6 max-w-3xl text-[44px] font-normal leading-[1.05] text-white">
           <RevealText delay={0.05}>{heading}</RevealText>
         </h1>
         <Reveal delay={0.15} className="mt-8 max-w-xl">
