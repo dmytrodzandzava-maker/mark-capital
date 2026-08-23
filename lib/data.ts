@@ -6,7 +6,7 @@ export const navLinks = [
   { label: "Impact", href: "/#impact" },
   { label: "Verticals", href: "/#verticals" },
   { label: "Portfolio", href: "/portfolio" },
-  { label: "Insights", href: "/#insights" },
+  { label: "Insights", href: "/news-insights" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -534,9 +534,12 @@ export const proofStats = [
 ];
 
 export type Insight = {
-  tag: "MARK NEWS" | "PRESS RELEASE";
+  tag: "MARK NEWS" | "PRESS RELEASE" | "UNCATEGORIZED";
   title: string;
   date: string;
+  image: string;
+  href: string;
+  featured?: boolean;
 };
 
 export const insights: Insight[] = [
@@ -545,47 +548,219 @@ export const insights: Insight[] = [
     title:
       "MARK's senior leadership team interviewed by PERE on asset granularity as a returns driver in Crossbay's urban logistics strategy",
     date: "2026",
+    image: "/images/insights/pere-leadership-interview.jpg",
+    href: "https://thisismark.com/marks-senior-leadership-team-was-interviewed-by-pere-on-how-asset-granularity-is-a-key-returns-driver-in-crossbays-urban-logistics-strategy/",
   },
   {
     tag: "PRESS RELEASE",
     title: "Crossbay secures one of West Yorkshire's largest logistics leases of 2025",
     date: "2025",
+    image: "/images/insights/west-yorkshire-lease.jpg",
+    href: "https://thisismark.com/crossbay-secures-one-of-west-yorkshires-largest-logistics-leases-of-2025/",
   },
   {
     tag: "MARK NEWS",
     title: "MARK Capital Management wins PERE “Logistics Investor of the Year”",
-    date: "2025",
+    date: "28 February 2025",
+    image: "/images/insights/pere-logistics-investor.jpg",
+    href: "https://thisismark.com/mark-capital-management-wins-pere-logistics-investor-of-the-year/",
+    featured: true,
   },
   {
     tag: "PRESS RELEASE",
     title: "MARK appoints new Head of Asset Management for Crossbay",
     date: "2025",
+    image: "/images/insights/head-of-asset-management.jpg",
+    href: "https://thisismark.com/mark-appoints-new-head-of-asset-management-for-crossbay/",
   },
   {
     tag: "PRESS RELEASE",
     title: "MARK strengthens Crossbay and Client Solutions team with two new hires",
     date: "2025",
+    image: "/images/insights/two-new-hires.jpg",
+    href: "https://thisismark.com/mark-strengthens-crossbay-and-client-solutions-team-with-two-new-hires/",
   },
   {
     tag: "PRESS RELEASE",
     title:
       "Crossbay expands French portfolio to over 150,000 sqm following a sale-and-leaseback",
     date: "2025",
+    image: "/images/insights/french-portfolio.jpg",
+    href: "https://thisismark.com/crossbay-expands-french-portfolio-to-over-150000-sqm-following-portfolio-sale-and-leaseback/",
   },
   {
     tag: "PRESS RELEASE",
     title: "Crossbay and Kryalos acquire a last-mile logistics asset in Fiumicino",
     date: "2024",
+    image: "/images/insights/fiumicino.jpg",
+    href: "https://thisismark.com/kryalos-sgrs-bay-fund-acquires-a-last-mile-logistics-asset-in-fiumicino/",
   },
   {
     tag: "PRESS RELEASE",
     title: "Assembly and Eternam to deliver office-to-PBSA conversions in western Paris",
     date: "2024",
+    image: "/images/insights/paris-pbsa.jpg",
+    href: "https://thisismark.com/assembly-and-eternam-to-deliver-office-to-pbsa-conversions-in-western-paris/",
   },
   {
     tag: "PRESS RELEASE",
     title: "World's oldest department store in Oslo sees a surge in tax-free sales",
     date: "2024",
+    image: "/images/insights/oslo-department-store.jpg",
+    href: "https://thisismark.com/worlds-oldest-department-store-in-oslo-experiences-surge-in-tax-free-sales/",
+  },
+  {
+    tag: "MARK NEWS",
+    title: "Arket opens flagship store in Dublin",
+    date: "01 October 2025",
+    image: "/images/insights/arket-dublin.jpg",
+    href: "https://thisismark.com/arket-opens-flagship-store-in-dublin/",
+  },
+  {
+    tag: "PRESS RELEASE",
+    title: "Crossbay acquires fully let urban logistics asset in Düsseldorf",
+    date: "27 August 2025",
+    image: "/images/insights/dusseldorf-logistics.jpg",
+    href: "https://thisismark.com/crossbay-acquires-fully-let-urban-logistics-asset-in-dusseldorf/",
+  },
+  {
+    tag: "PRESS RELEASE",
+    title: "Crossbay sells Barcelona last-mile logistics asset in first fund",
+    date: "05 August 2025",
+    image: "/images/insights/barcelona-sale.jpg",
+    href: "https://thisismark.com/crossbay-sells-barcelona-last-mile-logistics-asset-in-first-fund/",
+  },
+  {
+    tag: "PRESS RELEASE",
+    title: "Crossbay completes 14,000 sqm lease for last-mile logistics asset in Berlin",
+    date: "29 July 2025",
+    image: "/images/insights/berlin-lease.jpg",
+    href: "https://thisismark.com/crossbay-completes-14000-sqm-lease-for-last-mile-logistics-asset-in-berlin/",
+  },
+  {
+    tag: "PRESS RELEASE",
+    title:
+      "MARK Capital Management to scale delivery partner Assembly into pan-European development platform",
+    date: "18 June 2025",
+    image: "/images/insights/assembly-platform.jpg",
+    href: "https://thisismark.com/mark-capital-management-to-scale-delivery-partner-assembly-into-pan-european-development-platform/",
+  },
+  {
+    tag: "PRESS RELEASE",
+    title:
+      "MARK Capital Management and Blackstone agree 3.6bn NOK (€320m) facility to refinance prime Oslo mixed-use portfolio",
+    date: "23 April 2025",
+    image: "/images/insights/blackstone-oslo-facility.jpg",
+    href: "https://thisismark.com/mark-capital-management-and-blackstone-agree-3-6bn-nok-e320m-facility-to-refinance-prime-oslo-mixed-use-portfolio/",
+  },
+  {
+    tag: "PRESS RELEASE",
+    title: "Crossbay's UK portfolio passes 1million sq. ft following acquisition from abrdn",
+    date: "11 February 2025",
+    image: "/images/insights/uk-portfolio-1msqft.jpg",
+    href: "https://thisismark.com/crossbays-uk-portfolio-passes-1million-sq-ft-following-acquisition-from-abrdn/",
+  },
+  {
+    tag: "PRESS RELEASE",
+    title: "Crossbay acquires ca. 68,000 sqm prime logistics opportunity in Berlin",
+    date: "29 January 2025",
+    image: "/images/insights/berlin-68000sqm.jpg",
+    href: "https://thisismark.com/crossbay-acquires-ca-68000-sqm-prime-logistics-opportunity-in-berlin/",
+  },
+  {
+    tag: "PRESS RELEASE",
+    title: "MARK Capital Management secures €660m in equity commitments for Crossbay II",
+    date: "02 December 2024",
+    image: "/images/insights/crossbay-ii-660m.jpg",
+    href: "https://thisismark.com/mark-capital-management-secures-e660m-in-equity-commitments-for-crossbay-ii/",
+  },
+  {
+    tag: "PRESS RELEASE",
+    title: "MARK appoints former Henderson Park executive as General Counsel",
+    date: "22 January 2024",
+    image: "/images/insights/nick-russell-general-counsel.jpg",
+    href: "https://thisismark.com/mark-appoints-former-henderson-park-executive-as-general-counsel/",
+  },
+  {
+    tag: "UNCATEGORIZED",
+    title: "Second Crossbay vehicle adds over 500,000 sq ft to UK portfolio",
+    date: "15 December 2023",
+    image: "/images/insights/second-crossbay-vehicle.jpg",
+    href: "https://thisismark.com/second-crossbay-vehicle-adds-over-500000-sq-ft-to-uk-portfolio/",
+  },
+  {
+    tag: "PRESS RELEASE",
+    title: "The Whiteley unveils inaugural show apartment designed by Kelly Behun",
+    date: "15 December 2023",
+    image: "/images/insights/whiteley-show-apartment.jpg",
+    href: "https://thisismark.com/the-whiteley-unveils-inaugural-show-apartment-designed-by-kelly-behun/",
+  },
+  {
+    tag: "UNCATEGORIZED",
+    title: "Leading indoor golf concept selects Dublin for international expansion plans",
+    date: "22 November 2023",
+    image: "/images/insights/indoor-golf-dublin.jpg",
+    href: "https://thisismark.com/leading-indoor-golf-concept-selects-dublin-for-international-expansion-plans/",
+  },
+  {
+    tag: "PRESS RELEASE",
+    title:
+      "LOEWE joins Louis Vuitton, Chanel, Hermès and Dior in Oslo as Norwegian capital cements leading luxury reputation",
+    date: "03 November 2023",
+    image: "/images/insights/loewe-oslo.jpg",
+    href: "https://thisismark.com/loewe-joins-louis-vuitton-chanel-hermes-and-dior-in-oslo-as-norwegian-capital-cements-leading-luxury-reputation/",
+  },
+  {
+    tag: "PRESS RELEASE",
+    title: "MARK and HUB get green light for landmark Birmingham BTR scheme",
+    date: "07 July 2023",
+    image: "/images/insights/birmingham-btr-green-light.jpg",
+    href: "https://thisismark.com/mark-and-hub-get-green-light-for-landmark-birmingham-btr-scheme/",
+  },
+  {
+    tag: "PRESS RELEASE",
+    title:
+      "Borough Yards continues emergence as new London cultural hotspot with arrival of 12 new brands",
+    date: "16 June 2023",
+    image: "/images/insights/borough-yards-new-brands.jpg",
+    href: "https://thisismark.com/borough-yards-continues-emergence-as-new-london-cultural-hotspot-with-arrival-of-12-new-brands/",
+  },
+  {
+    tag: "PRESS RELEASE",
+    title: "Everyman to open new venue at The Whiteley in Queensway, London",
+    date: "06 June 2023",
+    image: "/images/insights/everyman-whiteley.jpg",
+    href: "https://thisismark.com/everyman-to-open-new-venue-at-the-whiteley-in-queensway-london/",
+  },
+  {
+    tag: "PRESS RELEASE",
+    title: "£258m Development Facility Secured on Flagship Kensington Residential Development",
+    date: "07 March 2023",
+    image: "/images/insights/kensington-development-facility.jpg",
+    href: "https://thisismark.com/258m-development-facility-secured-on-flagship-kensington-residential-development/",
+  },
+  {
+    tag: "PRESS RELEASE",
+    title:
+      "MARK secures French government ESG certification for MPUR, its Paris urban regeneration fund",
+    date: "14 November 2022",
+    image: "/images/insights/mpur-esg-certification.jpg",
+    href: "https://thisismark.com/mark-secures-french-government-esg-certification-for-mpur-its-paris-urban-regeneration-fund/",
+  },
+  {
+    tag: "PRESS RELEASE",
+    title: "MARK and HUB submit plans for landmark Birmingham BTR scheme",
+    date: "02 November 2022",
+    image: "/images/insights/birmingham-btr-submit-plans.jpg",
+    href: "https://thisismark.com/mark-and-hub-submit-plans-for-landmark-birmingham-btr-scheme/",
+  },
+  {
+    tag: "PRESS RELEASE",
+    title:
+      "MARK secures €250m debt facility from Citi to fund initial growth of second Crossbay portfolio",
+    date: "05 October 2022",
+    image: "/images/insights/citi-debt-facility.jpg",
+    href: "https://thisismark.com/mark-secures-e250m-debt-facility-from-citi-to-fund-initial-growth-of-second-crossbay-portfolio/",
   },
 ];
 
@@ -657,6 +832,6 @@ export const footerNav = [
   { label: "About Us", href: "/about-us" },
   { label: "Portfolio", href: "/portfolio" },
   { label: "Verticals", href: "/#verticals" },
-  { label: "Insights", href: "/#insights" },
+  { label: "Insights", href: "/news-insights" },
   { label: "Contact", href: "/contact" },
 ];

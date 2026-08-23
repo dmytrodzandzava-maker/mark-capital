@@ -1,8 +1,13 @@
 import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
 import Eyebrow from "./Eyebrow";
 import Reveal from "./Reveal";
 import RevealText from "./RevealText";
 import { insights } from "@/lib/data";
+
+// Homepage gets a short, curated preview — the full list lives on
+// /news-insights, which now scales to dozens of articles via pagination.
+const previewInsights = insights.slice(0, 6);
 
 export default function Insights() {
   return (
@@ -22,24 +27,22 @@ export default function Insights() {
               <RevealText delay={0.05}>Explore More News &amp; Insights</RevealText>
             </h2>
             <Reveal delay={0.15}>
-              <a
-                href="https://thisismark.com/news-insights/"
-                target="_blank"
-                rel="noreferrer"
+              <Link
+                href="/news-insights"
                 className="mt-8 inline-flex items-center gap-2.5 rounded-xs bg-accent px-6 py-4 text-sm text-white transition-colors hover:bg-ink"
               >
                 Explore More News &amp; Insights
                 <ArrowUpRight size={16} />
-              </a>
+              </Link>
             </Reveal>
           </div>
 
           <Reveal delay={0.1}>
             <div className="border-t border-hairline">
-              {insights.map((item) => (
+              {previewInsights.map((item) => (
                 <a
                   key={item.title}
-                  href="https://thisismark.com/news-insights/"
+                  href={item.href}
                   target="_blank"
                   rel="noreferrer"
                   className="group flex flex-col gap-3 border-b border-hairline py-6 sm:flex-row sm:items-center sm:justify-between sm:gap-6"
