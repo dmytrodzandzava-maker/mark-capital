@@ -17,7 +17,7 @@ export default function VerticalsGallery({
 
   return (
     <div className="grid grid-cols-1 items-stretch gap-2 lg:grid-cols-2">
-      <div className="relative h-[320px] w-full overflow-hidden rounded-xs bg-ink/5 sm:h-[440px] lg:sticky lg:top-32 lg:h-auto lg:self-stretch">
+      <div className="relative h-[360px] w-full overflow-hidden rounded-xs bg-ink/5 sm:h-[480px] lg:sticky lg:top-32 lg:h-auto lg:self-stretch">
         <AnimatePresence initial={false}>
           <motion.div
             key={activeVertical.slug}
@@ -39,15 +39,17 @@ export default function VerticalsGallery({
         </AnimatePresence>
       </div>
 
-      <div className="grid grid-cols-1 border-t border-l border-hairline sm:grid-cols-2">
+      <div className="grid grid-cols-1 overflow-hidden rounded-xs sm:grid-cols-2">
         {verticals.map((v, i) => (
           <Link
             key={v.slug}
             href={`/verticals/${v.slug}`}
             onMouseEnter={() => setActive(i)}
-            className={`group relative flex min-h-[220px] flex-col justify-between gap-8 border-r border-b border-hairline p-6 transition-colors duration-300 sm:min-h-[280px] sm:p-10 ${
-              i === 2 ? "sm:col-span-2" : ""
-            } ${active === i ? "text-white" : "text-ink"}`}
+            className={`group relative flex min-h-[260px] flex-col justify-between gap-8 border-hairline p-6 transition-colors duration-300 sm:min-h-[320px] sm:p-10 ${
+              i < 2 ? "border-b" : ""
+            } ${i === 0 ? "sm:border-r" : ""} ${i === 2 ? "sm:col-span-2" : ""} ${
+              active === i ? "text-white" : "text-ink"
+            }`}
           >
             {active === i && (
               <motion.div
@@ -65,12 +67,18 @@ export default function VerticalsGallery({
               >
                 {v.index}
               </span>
-              <ArrowUpRight
-                size={18}
-                className={`shrink-0 transition-all duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 ${
-                  active === i ? "text-white/70" : "text-ink/30"
+              <span
+                className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xs transition-colors duration-300 ${
+                  active === i ? "bg-white" : "bg-transparent"
                 }`}
-              />
+              >
+                <ArrowUpRight
+                  size={18}
+                  className={`transition-all duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 ${
+                    active === i ? "text-ink" : "text-ink/30"
+                  }`}
+                />
+              </span>
             </div>
 
             <div className="relative z-10">
