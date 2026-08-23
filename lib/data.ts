@@ -305,7 +305,7 @@ export const verticals = [
       "MARK manages and repositions retail and mixed-use assets across Europe, most notably Promenaden in Oslo — a prime shopping district redeveloped into one of the city's premier luxury retail destinations.",
     description2:
       "Promenaden is now home to nine of the world's ten most valuable luxury brands.",
-    image: "/images/verticals/retail.jpg",
+    image: "/images/verticals/retail.webp",
   },
   {
     index: "02",
@@ -316,7 +316,7 @@ export const verticals = [
       "MARK's logistics platform, Crossbay, invests in single-tenant urban distribution centres near Europe's major gateway cities, giving institutional investors exposure to last-mile logistics.",
     description2:
       "A sector underpinned by long-term structural demand shifts, executed by local acquisitions, asset management, and development teams.",
-    image: "/images/verticals/logistics.jpg",
+    image: "/images/verticals/logistics.webp",
   },
   {
     index: "03",
@@ -327,7 +327,7 @@ export const verticals = [
       "MARK's UK Private Rented Sector strategy aggregates newly built, mid-market multifamily housing across Greater London and the south east.",
     description2:
       "Sourced directly and often off-market through established housebuilder relationships, then repositioned into professionally managed rental homes.",
-    image: "/images/verticals/residential.jpg",
+    image: "/images/verticals/residential.webp",
   },
 ];
 
