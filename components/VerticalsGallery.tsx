@@ -59,7 +59,7 @@ export default function VerticalsGallery({
               />
             )}
 
-            <div className="relative z-10 flex items-start justify-between gap-4">
+            <div className="relative z-10">
               <span
                 className={`font-serif-num text-2xl transition-colors duration-300 ${
                   active === i ? "text-white/50" : "text-ink/30"
@@ -67,19 +67,20 @@ export default function VerticalsGallery({
               >
                 {v.index}
               </span>
-              <span
-                className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xs transition-colors duration-300 ${
-                  active === i ? "bg-white" : "bg-transparent"
-                }`}
-              >
-                <ArrowUpRight
-                  size={18}
-                  className={`transition-all duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 ${
-                    active === i ? "text-ink" : "text-ink/30"
-                  }`}
-                />
-              </span>
             </div>
+
+            <span
+              className={`absolute right-0 top-0 z-10 flex h-16 w-16 shrink-0 items-center justify-center rounded-bl-xs transition-colors duration-300 sm:h-20 sm:w-20 ${
+                active === i ? "bg-white" : "bg-transparent"
+              }`}
+            >
+              <ArrowUpRight
+                size={18}
+                className={`transition-all duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 ${
+                  active === i ? "text-ink" : "text-ink/30"
+                }`}
+              />
+            </span>
 
             <div className="relative z-10">
               <span
