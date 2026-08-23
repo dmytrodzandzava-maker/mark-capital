@@ -127,12 +127,13 @@ export default function Portfolio() {
           />
         ))}
 
-        <Reveal delay={0.1} className="mt-10 text-center">
+        <Reveal delay={0.1} className="mt-10 flex justify-center">
           <Link
             href="/portfolio"
-            className="inline-flex items-center gap-2 text-sm text-accent underline decoration-accent/40 underline-offset-4 transition-colors hover:text-ink"
+            className="inline-flex items-center gap-2.5 rounded-xs bg-accent px-6 py-4 text-sm text-white transition-colors hover:bg-ink"
           >
-            View All Projects →
+            View All Projects
+            <ArrowUpRight size={16} />
           </Link>
         </Reveal>
       </div>
