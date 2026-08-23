@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Reveal from "@/components/Reveal";
 import RevealText from "@/components/RevealText";
+import StatsBand from "@/components/StatsBand";
 import TeamDirectory from "@/components/TeamDirectory";
 import { team } from "@/lib/data";
 
@@ -88,34 +89,7 @@ export default function AboutUsPage() {
           </Reveal>
         </section>
 
-        <section
-          data-header-theme="dark"
-          className="relative overflow-hidden bg-ink px-5 py-24 sm:px-8 sm:py-32"
-        >
-          <Image
-            src="/images/about-quote.jpg"
-            alt="A MARK building facade, viewed from below"
-            fill
-            sizes="100vw"
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-ink/75" />
-
-          <div className="relative z-10 mx-auto max-w-[1000px]">
-            <Reveal>
-              <Eyebrow light>Mark Team</Eyebrow>
-            </Reveal>
-            <Reveal delay={0.1}>
-              <p className="font-serif mt-8 text-[clamp(1.5rem,3.2vw,2.5rem)] italic leading-[1.3] text-white">
-                &ldquo;Our team of visionaries has hundreds of years combined
-                experience across the industry. From acquisition and
-                leasing, to marketing, financing and structuring, our people
-                have a competitive edge in delivering excellence with every
-                investment.&rdquo;
-              </p>
-            </Reveal>
-          </div>
-        </section>
+        <StatsBand />
 
         <section id="team" data-header-theme="light" className="bg-white px-5 py-24 sm:px-8 sm:py-32">
           <div className="mx-auto max-w-[1400px]">
@@ -164,6 +138,35 @@ export default function AboutUsPage() {
               >
                 View the full directory →
               </Link>
+            </Reveal>
+          </div>
+        </section>
+
+        <section
+          data-header-theme="dark"
+          className="relative overflow-hidden bg-ink px-5 py-24 sm:px-8 sm:py-32"
+        >
+          <Image
+            src="/images/about-quote.jpg"
+            alt="A MARK building facade, viewed from below"
+            fill
+            sizes="100vw"
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-ink/75" />
+
+          <div className="relative z-10 mx-auto max-w-[1000px]">
+            <Reveal>
+              <Eyebrow light>Mark Team</Eyebrow>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <p className="font-serif mt-8 text-[clamp(1.5rem,3.2vw,2.5rem)] italic leading-[1.3] text-white">
+                &ldquo;Our team of visionaries has hundreds of years combined
+                experience across the industry. From acquisition and
+                leasing, to marketing, financing and structuring, our people
+                have a competitive edge in delivering excellence with every
+                investment.&rdquo;
+              </p>
             </Reveal>
           </div>
         </section>
