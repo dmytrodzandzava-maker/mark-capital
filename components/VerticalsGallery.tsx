@@ -69,18 +69,21 @@ export default function VerticalsGallery({
               </span>
             </div>
 
-            <span
-              className={`absolute right-px top-px z-10 flex h-16 w-16 shrink-0 items-center justify-center rounded-xs transition-colors duration-300 sm:h-20 sm:w-20 ${
-                active === i ? "bg-white" : "bg-transparent"
-              }`}
-            >
-              <ArrowUpRight
-                size={18}
-                className={`transition-all duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 ${
-                  active === i ? "text-ink" : "text-ink/30"
-                }`}
-              />
-            </span>
+            <AnimatePresence>
+              {active === i && (
+                <motion.span
+                  key="arrow-box"
+                  initial={{ scale: 0, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  exit={{ scale: 0, opacity: 0 }}
+                  transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                  style={{ transformOrigin: "top right" }}
+                  className="absolute right-px top-px z-10 flex h-16 w-16 shrink-0 items-center justify-center rounded-xs bg-white sm:h-20 sm:w-20"
+                >
+                  <ArrowUpRight size={28} className="text-ink" />
+                </motion.span>
+              )}
+            </AnimatePresence>
 
             <div className="relative z-10">
               <span
