@@ -17,7 +17,7 @@ export default function NewsHero({ featured }: { featured: Insight }) {
         <Reveal>
           <Eyebrow>News</Eyebrow>
         </Reveal>
-        <h1 className="mt-6 text-[44px] font-normal leading-[1.02] text-ink">
+        <h1 className="mt-6 text-[clamp(2.75rem,7vw,5.5rem)] font-normal leading-[1.02] text-ink">
           <RevealText delay={0.05}>News &amp; Insights</RevealText>
         </h1>
       </div>
