@@ -44,7 +44,7 @@ export default async function TeamMemberPage({
     <>
       <Header />
       <main>
-        <section data-header-theme="dark" className="bg-ink px-5 pb-20 pt-40 sm:px-8 sm:pb-28 sm:pt-48">
+        <section data-header-theme="dark" className="bg-ink px-5 pb-20 pt-24 sm:px-8 sm:pb-28 sm:pt-48">
           <div className="mx-auto max-w-[1400px]">
             <Reveal>
               <Link
