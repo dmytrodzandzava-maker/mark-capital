@@ -1,10 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import type { Insight } from "@/lib/data";
 
 const ALL = "All";
+const PAGE_SIZE = 6;
 
 const TAG_LABELS: Record<string, string> = {
   "MARK NEWS": "Mark News",
@@ -53,11 +54,21 @@ export default function InsightsFilterList({ items }: { items: Insight[] }) {
     [items]
   );
   const [active, setActive] = useState(ALL);
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
 
   const filtered = useMemo(
     () => (active === ALL ? items : items.filter((item) => item.tag === active)),
     [items, active]
   );
+
+  // Switching filters starts a fresh page — otherwise a narrower filter
+  // could leave visibleCount stuck above the new, smaller total.
+  useEffect(() => {
+    setVisibleCount(PAGE_SIZE);
+  }, [active]);
+
+  const visibleItems = filtered.slice(0, visibleCount);
+  const hasMore = visibleCount < filtered.length;
 
   return (
     <div>
@@ -81,10 +92,23 @@ export default function InsightsFilterList({ items }: { items: Insight[] }) {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8">
-          {filtered.map((item) => (
-            <InsightCard key={item.title} item={item} />
-          ))}
+        <div>
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8">
+            {visibleItems.map((item) => (
+              <InsightCard key={item.title} item={item} />
+            ))}
+          </div>
+
+          {hasMore && (
+            <div className="mt-12 flex justify-center sm:mt-16">
+              <button
+                onClick={() => setVisibleCount((c) => c + PAGE_SIZE)}
+                className="cursor-pointer rounded-xs border border-ink/15 px-8 py-3.5 text-sm text-ink transition-colors hover:bg-ink hover:text-white"
+              >
+                Load More
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>
