@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { verticals as verticalsData } from "@/lib/data";
 
 export default function VerticalsGallery({
@@ -14,11 +14,42 @@ export default function VerticalsGallery({
 }) {
   const [active, setActive] = useState(0);
   const [hovered, setHovered] = useState<number | null>(null);
+  const [isTouch, setIsTouch] = useState(false);
+  const cardRefs = useRef<(HTMLAnchorElement | null)[]>([]);
   const activeVertical = verticals[active];
+
+  useEffect(() => {
+    const query = window.matchMedia("(min-width: 1024px)");
+    const update = () => setIsTouch(!query.matches);
+    update();
+    query.addEventListener("change", update);
+    return () => query.removeEventListener("change", update);
+  }, []);
+
+  useEffect(() => {
+    if (!isTouch) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          const index = cardRefs.current.indexOf(entry.target as HTMLAnchorElement);
+          if (index !== -1) setActive(index);
+        }
+      },
+      { rootMargin: "-45% 0px -45% 0px", threshold: 0 },
+    );
+
+    for (const card of cardRefs.current) {
+      if (card) observer.observe(card);
+    }
+
+    return () => observer.disconnect();
+  }, [isTouch]);
 
   return (
     <div className="grid grid-cols-1 items-stretch gap-2 lg:grid-cols-2">
-      <div className="relative h-[360px] w-full overflow-hidden rounded-xs bg-ink/5 sm:h-[480px] lg:sticky lg:top-32 lg:h-auto lg:self-stretch">
+      <div className="sticky top-20 h-[360px] w-full overflow-hidden rounded-xs bg-ink/5 sm:top-24 sm:h-[480px] lg:top-32 lg:h-auto lg:self-stretch">
         <AnimatePresence initial={false}>
           <motion.div
             key={activeVertical.slug}
@@ -44,6 +75,9 @@ export default function VerticalsGallery({
         {verticals.map((v, i) => (
           <Link
             key={v.slug}
+            ref={(el) => {
+              cardRefs.current[i] = el;
+            }}
             href={`/verticals/${v.slug}`}
             onMouseEnter={() => {
               setActive(i);
@@ -75,7 +109,7 @@ export default function VerticalsGallery({
             </div>
 
             <AnimatePresence>
-              {hovered === i && (
+              {(hovered === i || (isTouch && active === i)) && (
                 <motion.span
                   key="arrow-box"
                   initial={{ scale: 0, opacity: 0 }}
