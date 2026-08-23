@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
 import ClosingCta from "@/components/ClosingCta";
-import Eyebrow from "@/components/Eyebrow";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import Reveal from "@/components/Reveal";
-import RevealText from "@/components/RevealText";
 import VerticalsGallery from "@/components/VerticalsGallery";
+import VideoHero from "@/components/VideoHero";
 import { verticals } from "@/lib/data";
 
 export const metadata: Metadata = {
@@ -20,27 +18,15 @@ export default function VerticalsPage() {
     <>
       <Header />
       <main>
-        <section
-          data-header-theme="light"
-          className="bg-white px-5 pb-16 pt-40 sm:px-8 sm:pb-20 sm:pt-48"
-        >
-          <div className="mx-auto max-w-[1400px]">
-            <Reveal>
-              <Eyebrow>Verticals</Eyebrow>
-            </Reveal>
-            <h1 className="mt-6 max-w-2xl text-[clamp(2.75rem,7vw,5.5rem)] font-normal leading-[1.02] text-ink">
-              <RevealText delay={0.05}>Thematic strategies, built by sector specialists.</RevealText>
-            </h1>
-            <Reveal delay={0.15}>
-              <p className="mt-6 max-w-2xl text-base leading-relaxed text-ink/70 md:text-lg">
-                MARK invests thematically across three verticals, executed by local
-                acquisitions, asset management, and development teams.
-              </p>
-            </Reveal>
-          </div>
-        </section>
+        <VideoHero
+          videoSrc="/videos/verticals-hero.mp4"
+          theme="light"
+          eyebrow="Verticals"
+          heading="Thematic strategies, built by sector specialists."
+          paragraph="MARK invests thematically across three verticals, executed by local acquisitions, asset management, and development teams."
+        />
 
-        <section data-header-theme="light" className="bg-white px-5 pb-20 sm:px-8 sm:pb-28">
+        <section data-header-theme="light" className="bg-white px-5 pb-20 pt-16 sm:px-8 sm:pb-28 sm:pt-20">
           <div className="mx-auto max-w-[1400px]">
             <VerticalsGallery verticals={verticals} />
           </div>
