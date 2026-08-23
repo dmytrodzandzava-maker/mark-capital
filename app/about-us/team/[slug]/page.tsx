@@ -40,6 +40,8 @@ export default async function TeamMemberPage({
   const member = team.find((m) => m.slug === slug);
   if (!member) notFound();
 
+  const leadSentence = member.bio?.[0]?.match(/^[^.!?]*[.!?]/)?.[0] ?? member.bio?.[0];
+
   return (
     <>
       <Header />
@@ -105,12 +107,21 @@ export default async function TeamMemberPage({
                   </Reveal>
                 </div>
 
-                {member.bio && member.bio.length > 0 && (
-                  <Reveal delay={0.25} className="mt-4 border-t border-white/15 pt-4 sm:mt-16 sm:pt-10">
-                    <p className="font-serif line-clamp-2 max-w-xl text-base italic leading-snug text-white/90 sm:line-clamp-none sm:text-[clamp(1.25rem,2.8vw,1.875rem)] sm:leading-[1.4]">
-                      &ldquo;{member.bio[0]}&rdquo;
-                    </p>
-                  </Reveal>
+                {leadSentence && (
+                  <>
+                    {/* Mobile: static, no reveal-on-scroll — it's already in the initial viewport */}
+                    <div className="mt-4 border-t border-white/15 pt-4 sm:hidden">
+                      <p className="font-serif max-w-xl text-base italic leading-snug text-white/90">
+                        &ldquo;{leadSentence}&rdquo;
+                      </p>
+                    </div>
+
+                    <Reveal delay={0.25} className="hidden sm:mt-16 sm:block sm:border-t sm:border-white/15 sm:pt-10">
+                      <p className="font-serif max-w-xl text-[clamp(1.25rem,2.8vw,1.875rem)] italic leading-[1.4] text-white/90">
+                        &ldquo;{leadSentence}&rdquo;
+                      </p>
+                    </Reveal>
+                  </>
                 )}
               </div>
             </div>
