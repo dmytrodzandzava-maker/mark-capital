@@ -105,13 +105,25 @@ export default function Portfolio() {
   return (
     <section id="portfolio" data-header-theme="light" className="relative bg-light">
       <div className="px-5 pb-10 pt-24 sm:px-8 sm:pt-32">
-        <div className="mx-auto max-w-[1400px]">
-          <Reveal>
-            <Eyebrow>Portfolio</Eyebrow>
+        <div className="mx-auto flex max-w-[1400px] flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <Reveal>
+              <Eyebrow>Portfolio</Eyebrow>
+            </Reveal>
+            <h2 className="mt-6 max-w-2xl text-[clamp(1.75rem,4.5vw,3.375rem)] font-normal leading-[1.15] text-ink">
+              <RevealText delay={0.05}>Landmark assets, reimagined.</RevealText>
+            </h2>
+          </div>
+
+          <Reveal delay={0.1} className="shrink-0">
+            <Link
+              href="/portfolio"
+              className="inline-flex items-center gap-2.5 rounded-xs bg-accent px-6 py-4 text-sm text-white transition-colors hover:bg-ink"
+            >
+              View All Projects
+              <ArrowUpRight size={16} />
+            </Link>
           </Reveal>
-          <h2 className="mt-6 max-w-2xl text-[clamp(1.75rem,4.5vw,3.375rem)] font-normal leading-[1.15] text-ink">
-            <RevealText delay={0.05}>Landmark assets, reimagined.</RevealText>
-          </h2>
         </div>
       </div>
 
@@ -126,15 +138,6 @@ export default function Portfolio() {
             hasNext={i < flagshipProjects.length - 1}
           />
         ))}
-
-        <Reveal delay={0.1} className="mt-10 text-center">
-          <Link
-            href="/portfolio"
-            className="inline-flex items-center gap-2 text-sm text-accent underline decoration-accent/40 underline-offset-4 transition-colors hover:text-ink"
-          >
-            View All Projects →
-          </Link>
-        </Reveal>
       </div>
     </section>
   );
