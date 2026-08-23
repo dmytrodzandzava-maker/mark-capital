@@ -10,6 +10,7 @@ const PAGE_SIZE = 6;
 const TAG_LABELS: Record<string, string> = {
   "MARK NEWS": "Mark News",
   "PRESS RELEASE": "Press Release",
+  UNCATEGORIZED: "Uncategorized",
 };
 
 function InsightCard({ item }: { item: Insight }) {

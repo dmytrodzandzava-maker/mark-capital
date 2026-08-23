@@ -7,6 +7,7 @@ import type { Insight } from "@/lib/data";
 const TAG_LABELS: Record<string, string> = {
   "MARK NEWS": "Mark News",
   "PRESS RELEASE": "Press Release",
+  UNCATEGORIZED: "Uncategorized",
 };
 
 export default function NewsHero({ featured }: { featured: Insight }) {
