@@ -111,15 +111,13 @@ export default async function VerticalPage({
 
             {vertical.facts && vertical.facts.length > 0 && (
               <Reveal delay={0.15}>
-                <div className="mt-14 grid grid-cols-1 gap-10 border-t border-hairline pt-10 sm:grid-cols-2">
+                <div className="mt-14 grid grid-cols-2 gap-8 border-t border-hairline pt-10 sm:grid-cols-4">
                   {vertical.facts.map((fact) => (
                     <div key={fact.label}>
                       <div className="font-serif-num text-[clamp(1.75rem,4vw,3rem)] leading-none text-ink">
                         {fact.value}
                       </div>
-                      <div className="mt-3 max-w-sm text-sm leading-relaxed text-ink/50">
-                        {fact.label}
-                      </div>
+                      <div className="mt-3 text-sm leading-relaxed text-ink/50">{fact.label}</div>
                     </div>
                   ))}
                 </div>
