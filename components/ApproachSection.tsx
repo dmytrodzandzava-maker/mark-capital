@@ -2,6 +2,7 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
+import Button from "./Button";
 import Eyebrow from "./Eyebrow";
 import Reveal from "./Reveal";
 import RevealText from "./RevealText";
@@ -28,8 +29,16 @@ export default function ApproachSection() {
           </p>
         </Reveal>
 
-        <div className="mt-14 grid grid-cols-1 gap-10 sm:mt-16 lg:grid-cols-[minmax(0,380px)_1fr] lg:gap-16">
-          <Reveal delay={0.15}>
+        <Reveal delay={0.15} className="mt-8">
+          <div className="inline-block rounded-xs border border-white/15 bg-white/10 p-1.5 backdrop-blur-xl [will-change:backdrop-filter]">
+            <Button href="/contact" variant="light" className="border-0">
+              Contact Us
+            </Button>
+          </div>
+        </Reveal>
+
+        <div className="mt-14 grid grid-cols-1 gap-10 sm:mt-16 lg:grid-cols-[minmax(0,380px)_1fr] lg:gap-24">
+          <Reveal delay={0.2}>
             <div className="flex flex-col">
               {approachPillars.map((p, i) => (
                 <button
@@ -65,8 +74,8 @@ export default function ApproachSection() {
             </div>
           </Reveal>
 
-          <Reveal delay={0.2}>
-            <div className="relative overflow-hidden rounded-xs border border-white/10 bg-white/[0.02] p-8 sm:p-10">
+          <Reveal delay={0.25}>
+            <div className="relative max-w-md overflow-hidden rounded-xs border border-white/10 bg-white/[0.02] p-6 sm:p-8">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={pillar.title}
@@ -75,19 +84,19 @@ export default function ApproachSection() {
                   exit={{ opacity: 0, y: -12 }}
                   transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
                 >
-                  <h3 className="text-2xl text-white sm:text-3xl">{pillar.title}</h3>
-                  <p className="mt-6 text-base leading-relaxed text-white/70 sm:text-lg">
+                  <h3 className="text-lg text-white sm:text-xl">{pillar.title}</h3>
+                  <p className="mt-4 text-sm leading-relaxed text-white/70">
                     {pillar.description}
                   </p>
 
-                  <span className="mt-10 block text-xs uppercase tracking-widest text-white/40">
+                  <span className="mt-8 block text-xs uppercase tracking-widest text-white/40">
                     Key Components
                   </span>
-                  <ul className="mt-4 space-y-3">
+                  <ul className="mt-3 space-y-2.5">
                     {pillar.components.map((c) => (
-                      <li key={c} className="flex items-start gap-3">
-                        <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
-                        <span className="text-base leading-relaxed text-white/80">{c}</span>
+                      <li key={c} className="flex items-start gap-2.5">
+                        <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-accent" />
+                        <span className="text-sm leading-relaxed text-white/80">{c}</span>
                       </li>
                     ))}
                   </ul>
