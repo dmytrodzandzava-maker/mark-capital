@@ -1,12 +1,16 @@
 import type { Metadata } from "next";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ArrowUpRight } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Eyebrow from "@/components/Eyebrow";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import InsightCard from "@/components/InsightCard";
 import Reveal from "@/components/Reveal";
-import { verticals } from "@/lib/data";
+import RevealText from "@/components/RevealText";
+import SplitHero from "@/components/SplitHero";
+import { insights, portfolioHighlights, verticals } from "@/lib/data";
 
 export function generateStaticParams() {
   return verticals.map((v) => ({ slug: v.slug }));
@@ -41,43 +45,137 @@ export default async function VerticalPage({
   if (!vertical) notFound();
 
   const others = verticals.filter((v) => v.slug !== vertical.slug);
+  const relatedCases = portfolioHighlights
+    .filter((item) => item.verticals?.includes(vertical.slug))
+    .slice(0, 3);
+  const relatedNews = insights
+    .filter((item) => item.verticals?.includes(vertical.slug))
+    .slice(0, 3);
 
   return (
     <>
       <Header />
       <main>
-        <section
-          data-header-theme="dark"
-          className="bg-ink px-5 pb-20 pt-40 sm:px-8 sm:pb-28 sm:pt-48"
-        >
+        <SplitHero
+          eyebrow={vertical.subtitle}
+          headlineTop={vertical.heroHeadlineTop}
+          headlineBottom={vertical.heroHeadlineBottom}
+          paragraph={vertical.heroParagraph}
+          image={vertical.image}
+          imageAlt={`${vertical.name} — ${vertical.subtitle}`}
+        />
+
+        <section data-header-theme="light" className="bg-white px-5 pt-16 pb-20 sm:px-8 sm:pt-20 sm:pb-28">
           <div className="mx-auto max-w-[1400px]">
             <Reveal>
               <Link
                 href="/verticals"
-                className="inline-flex items-center gap-2 text-sm text-white/60 transition-colors hover:text-white"
+                className="inline-flex items-center gap-2 text-sm text-ink/50 transition-colors hover:text-ink"
               >
                 <ArrowLeft size={15} />
                 Back to Verticals
               </Link>
             </Reveal>
 
-            <Reveal delay={0.05} className="mt-8">
-              <Eyebrow light>{vertical.subtitle}</Eyebrow>
-            </Reveal>
-            <h1 className="mt-6 max-w-3xl text-[clamp(2.25rem,6vw,4.5rem)] font-normal leading-[1.05] text-white">
-              {vertical.name}
-            </h1>
-
-            <div className="mt-10 max-w-2xl space-y-5 text-base leading-relaxed text-white/70 md:text-lg">
-              <p>{vertical.description}</p>
-              <p>{vertical.description2}</p>
+            <div className="mt-10 grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-16">
+              <Reveal delay={0.05}>
+                <Eyebrow as="h2">{vertical.name}</Eyebrow>
+                <p className="mt-6 text-lg leading-relaxed text-ink/80 md:text-xl">
+                  {vertical.description}
+                </p>
+              </Reveal>
+              <Reveal delay={0.1}>
+                <p className="text-base leading-relaxed text-ink/60 md:mt-[3.75rem]">
+                  {vertical.description2}
+                </p>
+              </Reveal>
             </div>
 
-            <div className="mt-14 font-serif-num text-[clamp(3rem,8vw,6rem)] leading-none text-white/15">
-              {vertical.index}
-            </div>
+            {vertical.facts && vertical.facts.length > 0 && (
+              <Reveal delay={0.15}>
+                <div className="mt-14 grid grid-cols-2 gap-8 border-t border-hairline pt-10 sm:grid-cols-3">
+                  {vertical.facts.map((fact) => (
+                    <div key={fact.label}>
+                      <div className="font-serif-num text-[clamp(1.75rem,4vw,3rem)] leading-none text-ink">
+                        {fact.value}
+                      </div>
+                      <div className="mt-3 text-sm text-ink/50">{fact.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </Reveal>
+            )}
+
+            {vertical.quote && (
+              <Reveal delay={0.2}>
+                <blockquote className="mt-14 border-l-2 border-accent pl-6 sm:pl-8">
+                  <p className="font-serif text-xl leading-relaxed text-ink/80 italic sm:text-2xl">
+                    &ldquo;{vertical.quote.text}&rdquo;
+                  </p>
+                  <footer className="mt-4 text-sm text-ink/50">{vertical.quote.attribution}</footer>
+                </blockquote>
+              </Reveal>
+            )}
           </div>
         </section>
+
+        {relatedCases.length > 0 && (
+          <section data-header-theme="light" className="bg-light px-5 py-20 sm:px-8">
+            <div className="mx-auto max-w-[1400px]">
+              <Reveal>
+                <Eyebrow>Related Cases</Eyebrow>
+              </Reveal>
+              <h2 className="mt-6 max-w-2xl text-[clamp(1.75rem,4.5vw,3rem)] font-normal leading-[1.15] text-ink">
+                <RevealText delay={0.05}>Portfolio in {vertical.name}</RevealText>
+              </h2>
+
+              <Reveal delay={0.15} className="mt-12 sm:mt-14">
+                <div className="grid grid-cols-1 gap-10 sm:grid-cols-3 sm:gap-8">
+                  {relatedCases.map((item) => (
+                    <Link key={item.slug} href={`/portfolio/${item.slug}`} className="group block">
+                      <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xs bg-ink/5">
+                        <Image
+                          src={item.image}
+                          alt={`${item.name}, ${item.location}`}
+                          fill
+                          sizes="(min-width: 640px) 33vw, 100vw"
+                          className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                        />
+                      </div>
+                      <div className="mt-4 text-lg text-ink transition-colors group-hover:text-accent sm:text-xl">
+                        {item.name}
+                      </div>
+                      <div className="mt-1 text-xs uppercase tracking-widest text-ink/40">
+                        {item.location}
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </Reveal>
+            </div>
+          </section>
+        )}
+
+        {relatedNews.length > 0 && (
+          <section data-header-theme="light" className="bg-white px-5 py-20 sm:px-8">
+            <div className="mx-auto max-w-[1400px]">
+              <Reveal>
+                <Eyebrow>Related News</Eyebrow>
+              </Reveal>
+              <h2 className="mt-6 max-w-2xl text-[clamp(1.75rem,4.5vw,3rem)] font-normal leading-[1.15] text-ink">
+                <RevealText delay={0.05}>{vertical.name} in the News</RevealText>
+              </h2>
+
+              <Reveal delay={0.15} className="mt-12 sm:mt-14">
+                <div className="grid grid-cols-1 gap-6 sm:grid-cols-3 sm:gap-8">
+                  {relatedNews.map((item) => (
+                    <InsightCard key={item.title} item={item} />
+                  ))}
+                </div>
+              </Reveal>
+            </div>
+          </section>
+        )}
 
         <section data-header-theme="light" className="bg-white px-5 py-20 sm:px-8">
           <div className="mx-auto max-w-[1400px]">
@@ -98,9 +196,9 @@ export default async function VerticalPage({
                       </div>
                       <div className="mt-1 text-sm text-accent">{v.subtitle}</div>
                     </div>
-                    <ArrowLeft
+                    <ArrowUpRight
                       size={20}
-                      className="shrink-0 rotate-180 text-ink/30 transition-all duration-300 group-hover:translate-x-1 group-hover:text-white"
+                      className="shrink-0 text-ink/30 transition-all duration-300 group-hover:translate-x-1 group-hover:text-white"
                     />
                   </Link>
                 ))}

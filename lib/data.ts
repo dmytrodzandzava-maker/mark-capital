@@ -294,39 +294,72 @@ export const teamDirectory: TeamDirectoryEntry[] = [
   { name: "Xing Zhang", role: "Executive Assistant", businessUnit: "Operations", location: "London" },
 ];
 
+export type VerticalFact = { value: string; label: string };
+export type VerticalQuote = { text: string; attribution: string };
+
 export const verticals = [
   {
     index: "01",
     slug: "retail",
     name: "Retail",
     subtitle: "Mixed-use",
+    heroHeadlineTop: "A Leading",
+    heroHeadlineBottom: "Retail & Mixed-Use Investor",
+    heroParagraph:
+      "MARK possesses extensive retail expertise and a proven ability to underwrite, manage, and transform complex assets across Europe.",
     description:
-      "MARK manages and repositions retail and mixed-use assets across Europe, most notably Promenaden in Oslo — a prime shopping district redeveloped into one of the city's premier luxury retail destinations.",
+      "MARK manages and repositions retail and mixed-use assets across Europe through a dedicated team of sector specialists, with targeted repositioning strategies designed to enhance performance and establish each destination as a market leader.",
     description2:
-      "Promenaden is now home to nine of the world's ten most valuable luxury brands.",
+      "The platform's flagship is Promenaden in Oslo — a prime retail and office district now home to nine of the world's ten most valuable luxury brands, anchored by the historic Steen & Strøm department store.",
     image: "/images/verticals/retail.webp",
+    facts: [
+      { value: "75,000 sqm", label: "Promenaden, Oslo" },
+      { value: "9 of 10", label: "Top global luxury brands present" },
+      { value: "2016", label: "Promenaden acquired by MARK" },
+    ] as VerticalFact[],
   },
   {
     index: "02",
     slug: "logistics",
     name: "Logistics",
     subtitle: "Crossbay",
+    heroHeadlineTop: "A Leading",
+    heroHeadlineBottom: "Urban Logistics Investor",
+    heroParagraph:
+      "Crossbay invests in single-tenant urban distribution centres near Europe's major gateway cities, giving institutional investors access to last-mile logistics.",
     description:
-      "MARK's logistics platform, Crossbay, invests in single-tenant urban distribution centres near Europe's major gateway cities, giving institutional investors exposure to last-mile logistics.",
+      "Crossbay invests in single-tenant urban distribution centres near Europe's major gateway cities, giving institutional investors — including pension funds and insurance companies — access to a fast-growing, structurally under-supplied last-mile logistics sub-sector.",
     description2:
-      "A sector underpinned by long-term structural demand shifts, executed by local acquisitions, asset management, and development teams.",
+      "The platform has transacted more than 190 assets across eight European countries, and sold its first fund for €1.6bn in 2022 — one of the largest urban logistics exits in the sector's history.",
     image: "/images/verticals/logistics.webp",
+    facts: [
+      { value: "€1.6bn", label: "Fund I sale, 2022" },
+      { value: "190+", label: "Assets transacted" },
+      { value: "8", label: "Countries of operation" },
+    ] as VerticalFact[],
+    quote: {
+      text: "Our urban logistics strategy allows investors to access high quality assets, with grade A occupiers managed by an institutional-grade operator.",
+      attribution: "Marcus Meijer, CEO, MARK",
+    } as VerticalQuote,
   },
   {
     index: "03",
     slug: "residential",
     name: "Residential",
     subtitle: "UK PRS",
+    heroHeadlineTop: "A Leading",
+    heroHeadlineBottom: "UK Residential Investor",
+    heroParagraph:
+      "MARK's UK Private Rented Sector strategy aggregates newly built, mid-market multifamily housing across Greater London and the South East.",
     description:
-      "MARK's UK Private Rented Sector strategy aggregates newly built, mid-market multifamily housing across Greater London and the south east.",
+      "MARK's UK Private Rented Sector strategy targets newly built, mid-market multifamily homes across Greater London and the South East, aggregated directly from housebuilders — often off-market — and repositioned from for-sale stock into professionally managed rental homes.",
     description2:
-      "Sourced directly and often off-market through established housebuilder relationships, then repositioned into professionally managed rental homes.",
+      "Backed by more than 35 years of residential experience and established relationships with the UK's major housebuilders and Housing Associations, the platform favours lightly amenitised buildings that support affordability and long-term operational resilience for London's workforce and student populations.",
     image: "/images/verticals/residential.webp",
+    facts: [
+      { value: "35+", label: "Years of residential experience" },
+      { value: "London", label: "& South East focus" },
+    ] as VerticalFact[],
   },
 ];
 
@@ -337,6 +370,7 @@ export type PortfolioHighlight = {
   tag: string;
   description: string;
   image: string;
+  verticals?: string[];
 };
 
 export const portfolioHighlights: PortfolioHighlight[] = [
@@ -348,6 +382,7 @@ export const portfolioHighlights: PortfolioHighlight[] = [
     description:
       "A landmark waterfront extension of the Principality, combining residential, retail, and marina infrastructure on newly created land.",
     image: "/images/portfolio/mareterra.jpg",
+    verticals: ["residential", "retail"],
   },
   {
     slug: "the-whiteley",
@@ -357,6 +392,7 @@ export const portfolioHighlights: PortfolioHighlight[] = [
     description:
       "The historic Bayswater department store reimagined as a luxury residential, retail, and hospitality destination.",
     image: "/images/portfolio/whiteley.jpg",
+    verticals: ["residential", "retail"],
   },
   {
     slug: "toko",
@@ -366,6 +402,7 @@ export const portfolioHighlights: PortfolioHighlight[] = [
     description:
       "A newly delivered mixed residential scheme in the Paris metropolitan area, part of MARK's continental housing strategy.",
     image: "/images/portfolio/toko.jpg",
+    verticals: ["residential"],
   },
   {
     slug: "borough-yards",
@@ -375,6 +412,7 @@ export const portfolioHighlights: PortfolioHighlight[] = [
     description:
       "A restored railway-arch quarter beside Borough Market, repositioned into a retail, dining, and workspace destination.",
     image: "/images/portfolio/borough-yards.jpg",
+    verticals: ["retail"],
   },
   {
     slug: "corti-segreti",
@@ -384,6 +422,7 @@ export const portfolioHighlights: PortfolioHighlight[] = [
     description:
       "Two prime Milan retail assets repositioned for the city's high-street and courtyard retail circuits.",
     image: "/images/portfolio/corti-segreti.jpg",
+    verticals: ["retail"],
   },
   {
     slug: "pershing-hall",
@@ -402,6 +441,7 @@ export const portfolioHighlights: PortfolioHighlight[] = [
     description:
       "A German residential acquisition extending MARK's footprint into the Berlin housing market.",
     image: "/images/portfolio/richardstrasse.jpg",
+    verticals: ["residential"],
   },
   {
     slug: "grafton-place",
@@ -411,6 +451,7 @@ export const portfolioHighlights: PortfolioHighlight[] = [
     description:
       "Prime Dublin city-centre assets combining retail and office accommodation in the capital's core.",
     image: "/images/portfolio/grafton-place.jpg",
+    verticals: ["retail"],
   },
   {
     slug: "bond-street-house",
@@ -420,6 +461,7 @@ export const portfolioHighlights: PortfolioHighlight[] = [
     description:
       "A prime West End retail and office asset on one of London's most prestigious shopping streets.",
     image: "/images/portfolio/bond-street-house.jpg",
+    verticals: ["retail"],
   },
   {
     slug: "promenaden",
@@ -429,6 +471,7 @@ export const portfolioHighlights: PortfolioHighlight[] = [
     description:
       "Oslo's premier luxury retail district, redeveloped into a destination now home to nine of the world's ten most valuable luxury brands.",
     image: "/images/portfolio/promenaden.jpg",
+    verticals: ["retail"],
   },
 ];
 
@@ -542,6 +585,7 @@ export type Insight = {
   image: string;
   href: string;
   featured?: boolean;
+  verticals?: string[];
 };
 
 export const insights: Insight[] = [
@@ -552,6 +596,7 @@ export const insights: Insight[] = [
     date: "2026",
     image: "/images/insights/pere-leadership-interview.jpg",
     href: "https://thisismark.com/marks-senior-leadership-team-was-interviewed-by-pere-on-how-asset-granularity-is-a-key-returns-driver-in-crossbays-urban-logistics-strategy/",
+    verticals: ["logistics"],
   },
   {
     tag: "PRESS RELEASE",
@@ -559,6 +604,7 @@ export const insights: Insight[] = [
     date: "2025",
     image: "/images/insights/west-yorkshire-lease.jpg",
     href: "https://thisismark.com/crossbay-secures-one-of-west-yorkshires-largest-logistics-leases-of-2025/",
+    verticals: ["logistics"],
   },
   {
     tag: "MARK NEWS",
@@ -567,6 +613,7 @@ export const insights: Insight[] = [
     image: "/images/insights/pere-logistics-investor.jpg",
     href: "https://thisismark.com/mark-capital-management-wins-pere-logistics-investor-of-the-year/",
     featured: true,
+    verticals: ["logistics"],
   },
   {
     tag: "PRESS RELEASE",
@@ -574,6 +621,7 @@ export const insights: Insight[] = [
     date: "2025",
     image: "/images/insights/head-of-asset-management.jpg",
     href: "https://thisismark.com/mark-appoints-new-head-of-asset-management-for-crossbay/",
+    verticals: ["logistics"],
   },
   {
     tag: "PRESS RELEASE",
@@ -581,6 +629,7 @@ export const insights: Insight[] = [
     date: "2025",
     image: "/images/insights/two-new-hires.jpg",
     href: "https://thisismark.com/mark-strengthens-crossbay-and-client-solutions-team-with-two-new-hires/",
+    verticals: ["logistics"],
   },
   {
     tag: "PRESS RELEASE",
@@ -589,6 +638,7 @@ export const insights: Insight[] = [
     date: "2025",
     image: "/images/insights/french-portfolio.jpg",
     href: "https://thisismark.com/crossbay-expands-french-portfolio-to-over-150000-sqm-following-portfolio-sale-and-leaseback/",
+    verticals: ["logistics"],
   },
   {
     tag: "PRESS RELEASE",
@@ -596,6 +646,7 @@ export const insights: Insight[] = [
     date: "2024",
     image: "/images/insights/fiumicino.jpg",
     href: "https://thisismark.com/kryalos-sgrs-bay-fund-acquires-a-last-mile-logistics-asset-in-fiumicino/",
+    verticals: ["logistics"],
   },
   {
     tag: "PRESS RELEASE",
@@ -603,6 +654,7 @@ export const insights: Insight[] = [
     date: "2024",
     image: "/images/insights/paris-pbsa.jpg",
     href: "https://thisismark.com/assembly-and-eternam-to-deliver-office-to-pbsa-conversions-in-western-paris/",
+    verticals: ["residential"],
   },
   {
     tag: "PRESS RELEASE",
@@ -610,6 +662,7 @@ export const insights: Insight[] = [
     date: "2024",
     image: "/images/insights/oslo-department-store.jpg",
     href: "https://thisismark.com/worlds-oldest-department-store-in-oslo-experiences-surge-in-tax-free-sales/",
+    verticals: ["retail"],
   },
   {
     tag: "MARK NEWS",
@@ -617,6 +670,7 @@ export const insights: Insight[] = [
     date: "01 October 2025",
     image: "/images/insights/arket-dublin.jpg",
     href: "https://thisismark.com/arket-opens-flagship-store-in-dublin/",
+    verticals: ["retail"],
   },
   {
     tag: "PRESS RELEASE",
@@ -624,6 +678,7 @@ export const insights: Insight[] = [
     date: "27 August 2025",
     image: "/images/insights/dusseldorf-logistics.jpg",
     href: "https://thisismark.com/crossbay-acquires-fully-let-urban-logistics-asset-in-dusseldorf/",
+    verticals: ["logistics"],
   },
   {
     tag: "PRESS RELEASE",
@@ -631,6 +686,7 @@ export const insights: Insight[] = [
     date: "05 August 2025",
     image: "/images/insights/barcelona-sale.jpg",
     href: "https://thisismark.com/crossbay-sells-barcelona-last-mile-logistics-asset-in-first-fund/",
+    verticals: ["logistics"],
   },
   {
     tag: "PRESS RELEASE",
@@ -638,6 +694,7 @@ export const insights: Insight[] = [
     date: "29 July 2025",
     image: "/images/insights/berlin-lease.jpg",
     href: "https://thisismark.com/crossbay-completes-14000-sqm-lease-for-last-mile-logistics-asset-in-berlin/",
+    verticals: ["logistics"],
   },
   {
     tag: "PRESS RELEASE",
@@ -654,6 +711,7 @@ export const insights: Insight[] = [
     date: "23 April 2025",
     image: "/images/insights/blackstone-oslo-facility.jpg",
     href: "https://thisismark.com/mark-capital-management-and-blackstone-agree-3-6bn-nok-e320m-facility-to-refinance-prime-oslo-mixed-use-portfolio/",
+    verticals: ["retail"],
   },
   {
     tag: "PRESS RELEASE",
@@ -661,6 +719,7 @@ export const insights: Insight[] = [
     date: "11 February 2025",
     image: "/images/insights/uk-portfolio-1msqft.jpg",
     href: "https://thisismark.com/crossbays-uk-portfolio-passes-1million-sq-ft-following-acquisition-from-abrdn/",
+    verticals: ["logistics"],
   },
   {
     tag: "PRESS RELEASE",
@@ -668,6 +727,7 @@ export const insights: Insight[] = [
     date: "29 January 2025",
     image: "/images/insights/berlin-68000sqm.jpg",
     href: "https://thisismark.com/crossbay-acquires-ca-68000-sqm-prime-logistics-opportunity-in-berlin/",
+    verticals: ["logistics"],
   },
   {
     tag: "PRESS RELEASE",
@@ -675,6 +735,7 @@ export const insights: Insight[] = [
     date: "02 December 2024",
     image: "/images/insights/crossbay-ii-660m.jpg",
     href: "https://thisismark.com/mark-capital-management-secures-e660m-in-equity-commitments-for-crossbay-ii/",
+    verticals: ["logistics"],
   },
   {
     tag: "PRESS RELEASE",
@@ -689,6 +750,7 @@ export const insights: Insight[] = [
     date: "15 December 2023",
     image: "/images/insights/second-crossbay-vehicle.jpg",
     href: "https://thisismark.com/second-crossbay-vehicle-adds-over-500000-sq-ft-to-uk-portfolio/",
+    verticals: ["logistics"],
   },
   {
     tag: "PRESS RELEASE",
@@ -696,6 +758,7 @@ export const insights: Insight[] = [
     date: "15 December 2023",
     image: "/images/insights/whiteley-show-apartment.jpg",
     href: "https://thisismark.com/the-whiteley-unveils-inaugural-show-apartment-designed-by-kelly-behun/",
+    verticals: ["residential"],
   },
   {
     tag: "UNCATEGORIZED",
@@ -711,6 +774,7 @@ export const insights: Insight[] = [
     date: "03 November 2023",
     image: "/images/insights/loewe-oslo.jpg",
     href: "https://thisismark.com/loewe-joins-louis-vuitton-chanel-hermes-and-dior-in-oslo-as-norwegian-capital-cements-leading-luxury-reputation/",
+    verticals: ["retail"],
   },
   {
     tag: "PRESS RELEASE",
@@ -718,6 +782,7 @@ export const insights: Insight[] = [
     date: "07 July 2023",
     image: "/images/insights/birmingham-btr-green-light.jpg",
     href: "https://thisismark.com/mark-and-hub-get-green-light-for-landmark-birmingham-btr-scheme/",
+    verticals: ["residential"],
   },
   {
     tag: "PRESS RELEASE",
@@ -726,6 +791,7 @@ export const insights: Insight[] = [
     date: "16 June 2023",
     image: "/images/insights/borough-yards-new-brands.jpg",
     href: "https://thisismark.com/borough-yards-continues-emergence-as-new-london-cultural-hotspot-with-arrival-of-12-new-brands/",
+    verticals: ["retail"],
   },
   {
     tag: "PRESS RELEASE",
@@ -733,6 +799,7 @@ export const insights: Insight[] = [
     date: "06 June 2023",
     image: "/images/insights/everyman-whiteley.jpg",
     href: "https://thisismark.com/everyman-to-open-new-venue-at-the-whiteley-in-queensway-london/",
+    verticals: ["retail"],
   },
   {
     tag: "PRESS RELEASE",
@@ -740,6 +807,7 @@ export const insights: Insight[] = [
     date: "07 March 2023",
     image: "/images/insights/kensington-development-facility.jpg",
     href: "https://thisismark.com/258m-development-facility-secured-on-flagship-kensington-residential-development/",
+    verticals: ["residential"],
   },
   {
     tag: "PRESS RELEASE",
@@ -755,6 +823,7 @@ export const insights: Insight[] = [
     date: "02 November 2022",
     image: "/images/insights/birmingham-btr-submit-plans.jpg",
     href: "https://thisismark.com/mark-and-hub-submit-plans-for-landmark-birmingham-btr-scheme/",
+    verticals: ["residential"],
   },
   {
     tag: "PRESS RELEASE",
@@ -763,6 +832,7 @@ export const insights: Insight[] = [
     date: "05 October 2022",
     image: "/images/insights/citi-debt-facility.jpg",
     href: "https://thisismark.com/mark-secures-e250m-debt-facility-from-citi-to-fund-initial-growth-of-second-crossbay-portfolio/",
+    verticals: ["logistics"],
   },
 ];
 
