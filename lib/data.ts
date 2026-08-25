@@ -297,6 +297,7 @@ export const teamDirectory: TeamDirectoryEntry[] = [
 export type VerticalFact = { value: string; label: string };
 export type VerticalQuote = { text: string; attribution: string; personSlug?: string };
 export type VerticalLink = { label: string; href: string };
+export type VerticalHighlight = { heading: string; body: string; href: string };
 
 export const verticals = [
   {
@@ -340,10 +341,20 @@ export const verticals = [
     heroImage: "/images/verticals/logistics-bw.webp",
     websiteLink: { label: "Crossbay website", href: "https://www.crossbay.com/" } as VerticalLink,
     facts: [
-      { value: "€1.6bn", label: "Fund I sale, 2022" },
-      { value: "190+", label: "Assets transacted" },
-      { value: "8", label: "Countries of operation" },
+      { value: "€1.6bn", label: "Fund I sold for €1.6bn in 2022" },
+      { value: "190", label: "Crossbay has transacted on over 190 assets in its history" },
+      {
+        value: "8",
+        label:
+          "Our transactions have covered 8 countries (UK, Italy, Netherlands, Spain, France, Germany, Poland, Belgium)",
+      },
+      { value: "8.5m sq ft", label: "Space under management" },
     ] as VerticalFact[],
+    awardHighlight: {
+      heading: "MARK Capital Management wins PERE ‘Logistics Investor of the Year’",
+      body: "MARK Capital Management, an independent pan-European real estate asset and investment manager, has been awarded ‘Logistics Investor of the Year’ by PERE, a leading industry title.",
+      href: "https://www.pei-privaterealestate.com/equity/pere-awards-2024-the-winners-explained/",
+    } as VerticalHighlight,
     quote: {
       text: "Our urban logistics strategy allows investors to access high quality assets, with grade A occupiers managed by an institutional-grade operator.",
       attribution: "Marcus Meijer, CEO, MARK",

@@ -111,16 +111,42 @@ export default async function VerticalPage({
 
             {vertical.facts && vertical.facts.length > 0 && (
               <Reveal delay={0.15}>
-                <div className="mt-14 grid grid-cols-2 gap-8 border-t border-hairline pt-10 sm:grid-cols-3">
+                <div className="mt-14 grid grid-cols-1 gap-10 border-t border-hairline pt-10 sm:grid-cols-2">
                   {vertical.facts.map((fact) => (
                     <div key={fact.label}>
                       <div className="font-serif-num text-[clamp(1.75rem,4vw,3rem)] leading-none text-ink">
                         {fact.value}
                       </div>
-                      <div className="mt-3 text-sm text-ink/50">{fact.label}</div>
+                      <div className="mt-3 max-w-sm text-sm leading-relaxed text-ink/50">
+                        {fact.label}
+                      </div>
                     </div>
                   ))}
                 </div>
+              </Reveal>
+            )}
+
+            {vertical.awardHighlight && (
+              <Reveal delay={0.2}>
+                <a
+                  href={vertical.awardHighlight.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group mt-14 flex flex-col gap-6 rounded-xs border border-hairline p-8 transition-colors hover:bg-ink sm:flex-row sm:items-center sm:justify-between sm:p-10"
+                >
+                  <div>
+                    <p className="text-lg leading-snug text-ink transition-colors group-hover:text-white sm:text-xl">
+                      {vertical.awardHighlight.heading}
+                    </p>
+                    <p className="mt-3 max-w-2xl text-sm leading-relaxed text-ink/60 transition-colors group-hover:text-white/70">
+                      {vertical.awardHighlight.body}
+                    </p>
+                  </div>
+                  <ArrowUpRight
+                    size={20}
+                    className="shrink-0 text-ink/30 transition-all duration-300 group-hover:translate-x-1 group-hover:text-white"
+                  />
+                </a>
               </Reveal>
             )}
           </div>
