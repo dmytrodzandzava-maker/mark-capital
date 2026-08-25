@@ -245,7 +245,7 @@ export default async function VerticalPage({
         )}
 
         {relatedNews.length > 0 && (
-          <section data-header-theme="light" className="bg-white px-5 py-20 sm:px-8">
+          <section data-header-theme="light" className="bg-white px-5 pt-20 pb-10 sm:px-8 sm:pt-20 sm:pb-12">
             <div className="mx-auto max-w-[1400px]">
               <Reveal>
                 <Eyebrow>Related News</Eyebrow>
@@ -265,12 +265,15 @@ export default async function VerticalPage({
           </section>
         )}
 
-        <section data-header-theme="light" className="bg-white px-5 py-20 sm:px-8">
+        <section data-header-theme="light" className="bg-white px-5 pt-10 pb-20 sm:px-8 sm:pt-12 sm:pb-20">
           <div className="mx-auto max-w-[1400px]">
             <Reveal>
               <Eyebrow>Other Verticals</Eyebrow>
             </Reveal>
-            <Reveal delay={0.1} className="mt-10 sm:mt-12">
+            <h2 className="mt-6 max-w-2xl text-[clamp(1.75rem,4.5vw,3rem)] font-normal leading-[1.15] text-ink">
+              <RevealText delay={0.05}>Explore our other verticals.</RevealText>
+            </h2>
+            <Reveal delay={0.15} className="mt-10 sm:mt-12">
               <VerticalsGallery verticals={others} />
             </Reveal>
           </div>
