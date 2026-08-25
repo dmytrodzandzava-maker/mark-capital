@@ -6,9 +6,9 @@ import Link from "next/link";
 import type { PortfolioHighlight } from "@/lib/data";
 import useParallaxY from "./useParallaxY";
 
-// Matches the first row's drift pattern on the main Portfolio grid: still,
-// up, down — so a 3-card row reads with the same rhythm as it does there.
-const DIRECTIONS = [0, -1, 1];
+// All three cards drift — none stays still — so the motion reads clearly
+// across a single row instead of the main Portfolio grid's per-column mix.
+const DIRECTIONS = [-1, 1, -1];
 
 function Card({ item, direction }: { item: PortfolioHighlight; direction: number }) {
   const { ref, y } = useParallaxY(direction);

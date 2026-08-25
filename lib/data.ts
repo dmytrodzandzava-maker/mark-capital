@@ -295,8 +295,8 @@ export const teamDirectory: TeamDirectoryEntry[] = [
 ];
 
 export type VerticalFact = { value: string; label: string };
-export type VerticalQuote = { text: string; attribution: string };
-export type VerticalStory = { heading: string; body: string; href: string; image: string };
+export type VerticalQuote = { text: string; attribution: string; personSlug?: string };
+export type VerticalLink = { label: string; href: string };
 
 export const verticals = [
   {
@@ -316,6 +316,7 @@ export const verticals = [
       "Nedre Slottsgate, often described as “the Bond Street of Oslo,” now hosts Chanel, Louis Vuitton, Dior, Gucci and Prada, many of them brought to the city through Promenaden. Recent enhancements to the historic Steen & Strøm department store include two new fashion floors and a 7,500 sq. ft Tech Hall hosting over 600 brands.",
     image: "/images/verticals/retail.webp",
     heroImage: "/images/verticals/retail-bw.webp",
+    websiteLink: { label: "Promenaden website", href: "https://www.promenaden.no/en/" } as VerticalLink,
     facts: [
       { value: "75,000 sqm", label: "Promenaden, Oslo" },
       { value: "9 of 10", label: "Top global luxury brands present" },
@@ -332,11 +333,12 @@ export const verticals = [
     heroParagraph:
       "Crossbay invests in single-tenant urban distribution centres near Europe's major gateway cities, giving institutional investors access to last-mile logistics.",
     description:
-      "Crossbay invests in single-tenant urban distribution centres near Europe's major gateway cities, giving institutional investors — including pension funds and insurance companies — access to a fast-growing, structurally under-supplied last-mile logistics sub-sector.",
+      "Crossbay is a leading investor in European urban logistics, focusing on single-tenant distribution centres near the continent's gateway cities.",
     description2:
-      "The platform has transacted more than 190 assets across eight European countries, and sold its first fund for €1.6bn in 2022 — one of the largest urban logistics exits in the sector's history.",
+      "Crossbay allows institutional investors such as pension funds and insurance companies to gain exposure to a rapidly growing sub-sector that is supported by long-term growth drivers and structural shifts in the economy.",
     image: "/images/verticals/logistics.webp",
     heroImage: "/images/verticals/logistics-bw.webp",
+    websiteLink: { label: "Crossbay website", href: "https://www.crossbay.com/" } as VerticalLink,
     facts: [
       { value: "€1.6bn", label: "Fund I sale, 2022" },
       { value: "190+", label: "Assets transacted" },
@@ -346,34 +348,26 @@ export const verticals = [
       text: "Our urban logistics strategy allows investors to access high quality assets, with grade A occupiers managed by an institutional-grade operator.",
       attribution: "Marcus Meijer, CEO, MARK",
     } as VerticalQuote,
+    quoteImage: "/images/verticals/farnborough.jpg",
+    leadershipTitle:
+      "MARK's senior leadership team was interviewed by PERE on how asset granularity is a key returns driver in Crossbay's urban logistics strategy",
     leadershipQuotes: [
       {
         text: "Investor demand for last-mile logistics will remain very strong. Ultimately, these assets carry all the fundamentals of standard logistics, plus the benefit of being located in areas with very limited competing supply and almost no new supply coming to market.",
-        attribution: "Marco Riva, CEO, Crossbay",
+        attribution: "Marco Riva, Partner & CEO, Crossbay",
+        personSlug: "marco-riva",
       },
       {
         text: "Institutional investors are now focusing on diversifying and rebalancing their own logistics holdings, which means managers need to offer something differentiated, like Crossbay, to get traction.",
-        attribution: "Michelle Doran, Head of Client Solutions, MARK",
+        attribution: "Michelle Doran, Head of Client Solutions",
+        personSlug: "michelle-doran",
       },
       {
         text: "Advancements in robotics and self-driving cars will likely become much more universal within the next five years — last-mile logistics is one of the few sectors that looks pretty resilient in the face of those expected developments.",
         attribution: "Marcus Meijer, CEO, MARK & Chairman, Crossbay",
+        personSlug: "marcus-meijer",
       },
     ] as VerticalQuote[],
-    featuredStories: [
-      {
-        heading: "MARK Capital Management wins PERE ‘Logistics Investor of the Year’",
-        body: "MARK Capital Management, an independent pan-European real estate asset and investment manager, has been awarded ‘Logistics Investor of the Year’ by PERE, a leading industry title.",
-        href: "https://thisismark.com/mark-capital-management-wins-pere-logistics-investor-of-the-year/",
-        image: "/images/insights/pere-logistics-investor.jpg",
-      },
-      {
-        heading: "MARK Capital Management secures €660m in equity commitments for Crossbay II",
-        body: "Crossbay II has secured €660m in total fund commitments, a 20% increase in fund size versus the predecessor vehicle. Including debt financing, Crossbay II has a total investment capacity of over €1.5bn, deployed and managed by Crossbay's on-the-ground teams across Europe's major markets.",
-        href: "https://thisismark.com/mark-capital-management-secures-e660m-in-equity-commitments-for-crossbay-ii/",
-        image: "/images/insights/crossbay-ii-660m.jpg",
-      },
-    ] as VerticalStory[],
   },
   {
     index: "03",

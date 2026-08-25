@@ -91,6 +91,20 @@ export default async function VerticalPage({
                   {vertical.description3 && (
                     <p className="text-base leading-relaxed text-ink/60">{vertical.description3}</p>
                   )}
+                  {vertical.websiteLink && (
+                    <a
+                      href={vertical.websiteLink.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="group inline-flex items-center gap-2 text-sm text-accent transition-colors hover:text-ink"
+                    >
+                      {vertical.websiteLink.label}
+                      <ArrowUpRight
+                        size={14}
+                        className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                      />
+                    </a>
+                  )}
                 </div>
               </Reveal>
             </div>
@@ -109,17 +123,6 @@ export default async function VerticalPage({
                 </div>
               </Reveal>
             )}
-
-            {vertical.quote && (
-              <Reveal delay={0.2}>
-                <blockquote className="mt-14 border-l-2 border-accent pl-6 sm:pl-8">
-                  <p className="font-serif text-xl leading-relaxed text-ink/80 italic sm:text-2xl">
-                    &ldquo;{vertical.quote.text}&rdquo;
-                  </p>
-                  <footer className="mt-4 text-sm text-ink/50">{vertical.quote.attribution}</footer>
-                </blockquote>
-              </Reveal>
-            )}
           </div>
         </section>
 
@@ -129,6 +132,11 @@ export default async function VerticalPage({
               <Reveal>
                 <Eyebrow light>Leadership Perspectives</Eyebrow>
               </Reveal>
+              {vertical.leadershipTitle && (
+                <h2 className="mt-6 max-w-3xl text-[clamp(1.5rem,3.5vw,2.25rem)] font-normal leading-[1.25] text-white">
+                  <RevealText delay={0.05}>{vertical.leadershipTitle}</RevealText>
+                </h2>
+              )}
               <Reveal delay={0.1} className="mt-12 sm:mt-14">
                 <div className="grid grid-cols-1 gap-12 border-t border-white/10 pt-12 sm:grid-cols-3 sm:gap-10">
                   {vertical.leadershipQuotes.map((q) => (
@@ -145,42 +153,28 @@ export default async function VerticalPage({
           </section>
         )}
 
-        {vertical.featuredStories && vertical.featuredStories.length > 0 && (
-          <section data-header-theme="light" className="bg-white px-5 py-20 sm:px-8">
-            <div className="mx-auto max-w-[1400px]">
+        {vertical.quote && (
+          <section data-header-theme="dark" className="relative overflow-hidden bg-ink px-5 py-24 sm:px-8 sm:py-32">
+            {vertical.quoteImage && (
+              <>
+                <Image
+                  src={vertical.quoteImage}
+                  alt={`${vertical.name} — a MARK asset`}
+                  fill
+                  sizes="100vw"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-ink/75" />
+              </>
+            )}
+            <div className="relative z-10 mx-auto max-w-[1000px]">
               <Reveal>
-                <Eyebrow>Latest from {vertical.subtitle}</Eyebrow>
+                <p className="font-serif text-[clamp(1.5rem,3.2vw,2.5rem)] italic leading-[1.3] text-white">
+                  &ldquo;{vertical.quote.text}&rdquo;
+                </p>
               </Reveal>
-              <Reveal delay={0.15} className="mt-12 sm:mt-14">
-                <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 sm:gap-8">
-                  {vertical.featuredStories.map((story) => (
-                    <a
-                      key={story.href}
-                      href={story.href}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="group block overflow-hidden rounded-xs bg-light transition-colors duration-300 hover:bg-accent"
-                    >
-                      <div className="relative aspect-[16/9] w-full">
-                        <Image
-                          src={story.image}
-                          alt={story.heading}
-                          fill
-                          sizes="(min-width: 640px) 50vw, 100vw"
-                          className="object-cover"
-                        />
-                      </div>
-                      <div className="p-6 sm:p-8">
-                        <p className="text-lg leading-snug text-ink transition-colors duration-300 group-hover:text-white sm:text-xl">
-                          {story.heading}
-                        </p>
-                        <p className="mt-3 text-sm leading-relaxed text-ink/60 transition-colors duration-300 group-hover:text-white/80">
-                          {story.body}
-                        </p>
-                      </div>
-                    </a>
-                  ))}
-                </div>
+              <Reveal delay={0.1}>
+                <span className="mt-6 block text-sm text-white/60">{vertical.quote.attribution}</span>
               </Reveal>
             </div>
           </section>
