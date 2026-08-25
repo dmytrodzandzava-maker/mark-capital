@@ -34,7 +34,12 @@ export default function VerticalsPage() {
           </div>
         </section>
 
-        <WhoWeAre secondaryLink={{ href: "/contact", label: "Contact Us →" }} />
+        <WhoWeAre
+          buttons={[
+            { href: "/about-us", label: "About Us →" },
+            { href: "/contact", label: "Contact Us →", accent: true },
+          ]}
+        />
         <Portfolio />
       </main>
       <ClosingCta />
