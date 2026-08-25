@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import AboutHero from "@/components/AboutHero";
+import Button from "@/components/Button";
 import ClosingCta from "@/components/ClosingCta";
 import Eyebrow from "@/components/Eyebrow";
 import Footer from "@/components/Footer";
@@ -81,7 +82,7 @@ export default function AboutUsPage() {
               </Link>
               <Link
                 href="/contact"
-                className="flex-1 rounded-xs bg-light px-6 py-6 text-base text-ink transition-colors hover:bg-ink hover:text-white"
+                className="flex-1 rounded-xs bg-accent px-6 py-6 text-base text-white transition-colors hover:bg-ink"
               >
                 Get in Touch →
               </Link>
@@ -167,6 +168,13 @@ export default function AboutUsPage() {
                 have a competitive edge in delivering excellence with every
                 investment.&rdquo;
               </p>
+            </Reveal>
+            <Reveal delay={0.15} className="mt-10">
+              <div className="inline-block rounded-xs border border-white/15 bg-white/10 p-1.5 backdrop-blur-xl [will-change:backdrop-filter]">
+                <Button href="/contact" variant="light" className="border-0">
+                  Get in Touch
+                </Button>
+              </div>
             </Reveal>
           </div>
         </section>

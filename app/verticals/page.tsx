@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import ClosingCta from "@/components/ClosingCta";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import Portfolio from "@/components/Portfolio";
 import VerticalsGallery from "@/components/VerticalsGallery";
 import VideoHero from "@/components/VideoHero";
+import WhoWeAre from "@/components/WhoWeAre";
 import { verticals } from "@/lib/data";
 
 export const metadata: Metadata = {
@@ -31,6 +33,14 @@ export default function VerticalsPage() {
             <VerticalsGallery verticals={verticals} />
           </div>
         </section>
+
+        <WhoWeAre
+          buttons={[
+            { href: "/about-us", label: "About Us →" },
+            { href: "/contact", label: "Contact Us →", accent: true },
+          ]}
+        />
+        <Portfolio />
       </main>
       <ClosingCta />
       <Footer />

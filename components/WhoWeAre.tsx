@@ -1,7 +1,16 @@
 import Eyebrow from "./Eyebrow";
 import Reveal from "./Reveal";
 
-export default function WhoWeAre() {
+type CtaButton = { href: string; label: string; accent?: boolean };
+
+export default function WhoWeAre({
+  buttons = [
+    { href: "#verticals", label: "Verticals →" },
+    { href: "/about-us", label: "About Us →", accent: true },
+  ],
+}: {
+  buttons?: [CtaButton, CtaButton];
+}) {
   return (
     <section
       id="who-we-are"
@@ -26,18 +35,19 @@ export default function WhoWeAre() {
         <div className="mt-12 grid grid-cols-1 gap-10 md:mt-16 md:grid-cols-[1fr_1fr] md:gap-16">
           <Reveal delay={0.1}>
             <div className="flex flex-col gap-3 sm:flex-row">
-              <a
-                href="/about-us"
-                className="flex-1 rounded-xs bg-light px-6 py-6 text-base text-ink transition-colors hover:bg-ink hover:text-white"
-              >
-                About Us →
-              </a>
-              <a
-                href="#verticals"
-                className="flex-1 rounded-xs bg-light px-6 py-6 text-base text-ink transition-colors hover:bg-ink hover:text-white"
-              >
-                Verticals →
-              </a>
+              {buttons.map((btn) => (
+                <a
+                  key={btn.href}
+                  href={btn.href}
+                  className={`flex-1 rounded-xs px-6 py-6 text-base transition-colors ${
+                    btn.accent
+                      ? "bg-accent text-white hover:bg-ink"
+                      : "bg-light text-ink hover:bg-ink hover:text-white"
+                  }`}
+                >
+                  {btn.label}
+                </a>
+              ))}
             </div>
           </Reveal>
 

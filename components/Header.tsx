@@ -33,15 +33,21 @@ function MenuBody({ onNavigate }: { onNavigate: () => void }) {
       <div className="flex flex-col gap-6 border-t border-white/10 pt-6 sm:border-t-0 sm:border-l sm:border-white/10 sm:pl-8 sm:pt-0">
         <div>
           <span className="text-xs uppercase tracking-wide text-white/40">Leadership</span>
-          <div className="mt-3 flex items-center gap-3">
+          <Link
+            href={`/about-us/team/${ceo.slug}`}
+            onClick={onNavigate}
+            className="group mt-3 flex items-center gap-3"
+          >
             <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full">
               <Image src={ceo.image} alt={ceo.name} fill sizes="48px" className="object-cover" />
             </div>
             <div>
-              <div className="text-sm text-white/90">{ceo.name}</div>
+              <div className="text-sm text-white/90 transition-colors group-hover:text-white">
+                {ceo.name}
+              </div>
               <div className="text-xs text-white/50">{ceo.title}</div>
             </div>
-          </div>
+          </Link>
         </div>
 
         <div>
