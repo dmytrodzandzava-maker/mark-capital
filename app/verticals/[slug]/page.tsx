@@ -111,9 +111,18 @@ export default async function VerticalPage({
 
             {vertical.facts && vertical.facts.length > 0 && (
               <Reveal delay={0.15}>
-                <div className="mt-14 grid grid-cols-2 gap-8 border-t border-hairline pt-10 sm:grid-cols-4">
-                  {vertical.facts.map((fact) => (
-                    <div key={fact.label}>
+                <div className="mt-14 grid grid-cols-2 gap-y-10 border-t border-hairline pt-10 sm:grid-cols-4">
+                  {vertical.facts.map((fact, i) => (
+                    <div
+                      key={fact.label}
+                      className={`${
+                        i % 2 !== 0 ? "border-l border-hairline pl-6" : "pl-0"
+                      } ${
+                        i % 4 !== 0
+                          ? "sm:border-l sm:border-hairline sm:pl-8"
+                          : "sm:border-l-0 sm:pl-0"
+                      }`}
+                    >
                       <div className="font-serif-num text-[clamp(1.75rem,4vw,3rem)] leading-none text-ink">
                         {fact.value}
                       </div>
@@ -130,9 +139,22 @@ export default async function VerticalPage({
                   href={vertical.awardHighlight.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="group mt-14 flex flex-col gap-6 rounded-xs border border-hairline p-8 transition-colors hover:bg-ink sm:flex-row sm:items-center sm:justify-between sm:p-10"
+                  className="group mt-14 flex flex-col gap-6 rounded-xs border border-hairline p-8 transition-colors hover:bg-ink sm:flex-row sm:items-center sm:gap-8 sm:p-10"
                 >
-                  <div>
+                  {vertical.awardHighlight.image && (
+                    <div className="flex h-24 w-24 shrink-0 items-center justify-center rounded-xs bg-white p-3 sm:h-28 sm:w-28">
+                      <div className="relative h-full w-full">
+                        <Image
+                          src={vertical.awardHighlight.image}
+                          alt={vertical.awardHighlight.heading}
+                          fill
+                          sizes="112px"
+                          className="object-contain"
+                        />
+                      </div>
+                    </div>
+                  )}
+                  <div className="flex-1">
                     <p className="text-lg leading-snug text-ink transition-colors group-hover:text-white sm:text-xl">
                       {vertical.awardHighlight.heading}
                     </p>
@@ -142,7 +164,7 @@ export default async function VerticalPage({
                   </div>
                   <ArrowUpRight
                     size={20}
-                    className="shrink-0 text-ink/30 transition-all duration-300 group-hover:translate-x-1 group-hover:text-white"
+                    className="shrink-0 text-ink/30 transition-all duration-300 group-hover:translate-x-1 group-hover:text-white sm:self-center"
                   />
                 </a>
               </Reveal>

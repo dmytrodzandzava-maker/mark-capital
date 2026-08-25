@@ -297,7 +297,7 @@ export const teamDirectory: TeamDirectoryEntry[] = [
 export type VerticalFact = { value: string; label: string };
 export type VerticalQuote = { text: string; attribution: string; personSlug?: string };
 export type VerticalLink = { label: string; href: string };
-export type VerticalHighlight = { heading: string; body: string; href: string };
+export type VerticalHighlight = { heading: string; body: string; href: string; image?: string };
 
 export const verticals = [
   {
@@ -354,6 +354,7 @@ export const verticals = [
       heading: "MARK Capital Management wins PERE ‘Logistics Investor of the Year’",
       body: "MARK Capital Management, an independent pan-European real estate asset and investment manager, has been awarded ‘Logistics Investor of the Year’ by PERE, a leading industry title.",
       href: "https://www.pei-privaterealestate.com/equity/pere-awards-2024-the-winners-explained/",
+      image: "/images/verticals/pere-award-badge.jpg",
     } as VerticalHighlight,
     quote: {
       text: "Our urban logistics strategy allows investors to access high quality assets, with grade A occupiers managed by an institutional-grade operator.",
