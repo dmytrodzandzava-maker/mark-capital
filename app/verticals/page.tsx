@@ -34,7 +34,7 @@ export default function VerticalsPage() {
           </div>
         </section>
 
-        <WhoWeAre secondaryLink={{ href: "/portfolio", label: "Portfolio →" }} />
+        <WhoWeAre secondaryLink={{ href: "/contact", label: "Contact Us →" }} />
         <Portfolio />
       </main>
       <ClosingCta />

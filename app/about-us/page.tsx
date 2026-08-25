@@ -81,7 +81,7 @@ export default function AboutUsPage() {
               </Link>
               <Link
                 href="/contact"
-                className="flex-1 rounded-xs bg-light px-6 py-6 text-base text-ink transition-colors hover:bg-ink hover:text-white"
+                className="flex-1 rounded-xs bg-accent px-6 py-6 text-base text-white transition-colors hover:bg-ink"
               >
                 Get in Touch →
               </Link>
