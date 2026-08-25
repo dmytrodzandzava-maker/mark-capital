@@ -296,6 +296,7 @@ export const teamDirectory: TeamDirectoryEntry[] = [
 
 export type VerticalFact = { value: string; label: string };
 export type VerticalQuote = { text: string; attribution: string };
+export type VerticalStory = { heading: string; body: string; href: string; image: string };
 
 export const verticals = [
   {
@@ -311,7 +312,10 @@ export const verticals = [
       "MARK manages and repositions retail and mixed-use assets across Europe through a dedicated team of sector specialists, with targeted repositioning strategies designed to enhance performance and establish each destination as a market leader.",
     description2:
       "The platform's flagship is Promenaden in Oslo — a prime retail and office district now home to nine of the world's ten most valuable luxury brands, anchored by the historic Steen & Strøm department store.",
+    description3:
+      "Nedre Slottsgate, often described as “the Bond Street of Oslo,” now hosts Chanel, Louis Vuitton, Dior, Gucci and Prada, many of them brought to the city through Promenaden. Recent enhancements to the historic Steen & Strøm department store include two new fashion floors and a 7,500 sq. ft Tech Hall hosting over 600 brands.",
     image: "/images/verticals/retail.webp",
+    heroImage: "/images/verticals/retail-bw.webp",
     facts: [
       { value: "75,000 sqm", label: "Promenaden, Oslo" },
       { value: "9 of 10", label: "Top global luxury brands present" },
@@ -332,6 +336,7 @@ export const verticals = [
     description2:
       "The platform has transacted more than 190 assets across eight European countries, and sold its first fund for €1.6bn in 2022 — one of the largest urban logistics exits in the sector's history.",
     image: "/images/verticals/logistics.webp",
+    heroImage: "/images/verticals/logistics-bw.webp",
     facts: [
       { value: "€1.6bn", label: "Fund I sale, 2022" },
       { value: "190+", label: "Assets transacted" },
@@ -341,6 +346,34 @@ export const verticals = [
       text: "Our urban logistics strategy allows investors to access high quality assets, with grade A occupiers managed by an institutional-grade operator.",
       attribution: "Marcus Meijer, CEO, MARK",
     } as VerticalQuote,
+    leadershipQuotes: [
+      {
+        text: "Investor demand for last-mile logistics will remain very strong. Ultimately, these assets carry all the fundamentals of standard logistics, plus the benefit of being located in areas with very limited competing supply and almost no new supply coming to market.",
+        attribution: "Marco Riva, CEO, Crossbay",
+      },
+      {
+        text: "Institutional investors are now focusing on diversifying and rebalancing their own logistics holdings, which means managers need to offer something differentiated, like Crossbay, to get traction.",
+        attribution: "Michelle Doran, Head of Client Solutions, MARK",
+      },
+      {
+        text: "Advancements in robotics and self-driving cars will likely become much more universal within the next five years — last-mile logistics is one of the few sectors that looks pretty resilient in the face of those expected developments.",
+        attribution: "Marcus Meijer, CEO, MARK & Chairman, Crossbay",
+      },
+    ] as VerticalQuote[],
+    featuredStories: [
+      {
+        heading: "MARK Capital Management wins PERE ‘Logistics Investor of the Year’",
+        body: "MARK Capital Management, an independent pan-European real estate asset and investment manager, has been awarded ‘Logistics Investor of the Year’ by PERE, a leading industry title.",
+        href: "https://thisismark.com/mark-capital-management-wins-pere-logistics-investor-of-the-year/",
+        image: "/images/insights/pere-logistics-investor.jpg",
+      },
+      {
+        heading: "MARK Capital Management secures €660m in equity commitments for Crossbay II",
+        body: "Crossbay II has secured €660m in total fund commitments, a 20% increase in fund size versus the predecessor vehicle. Including debt financing, Crossbay II has a total investment capacity of over €1.5bn, deployed and managed by Crossbay's on-the-ground teams across Europe's major markets.",
+        href: "https://thisismark.com/mark-capital-management-secures-e660m-in-equity-commitments-for-crossbay-ii/",
+        image: "/images/insights/crossbay-ii-660m.jpg",
+      },
+    ] as VerticalStory[],
   },
   {
     index: "03",
@@ -356,6 +389,7 @@ export const verticals = [
     description2:
       "Backed by more than 35 years of residential experience and established relationships with the UK's major housebuilders and Housing Associations, the platform favours lightly amenitised buildings that support affordability and long-term operational resilience for London's workforce and student populations.",
     image: "/images/verticals/residential.webp",
+    heroImage: "/images/verticals/residential-bw.webp",
     facts: [
       { value: "35+", label: "Years of residential experience" },
       { value: "London", label: "& South East focus" },

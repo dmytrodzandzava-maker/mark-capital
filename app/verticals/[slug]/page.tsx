@@ -10,6 +10,7 @@ import InsightCard from "@/components/InsightCard";
 import Reveal from "@/components/Reveal";
 import RevealText from "@/components/RevealText";
 import SplitHero from "@/components/SplitHero";
+import VerticalRelatedCases from "@/components/VerticalRelatedCases";
 import { insights, portfolioHighlights, verticals } from "@/lib/data";
 
 export function generateStaticParams() {
@@ -61,7 +62,7 @@ export default async function VerticalPage({
           headlineTop={vertical.heroHeadlineTop}
           headlineBottom={vertical.heroHeadlineBottom}
           paragraph={vertical.heroParagraph}
-          image={vertical.image}
+          image={vertical.heroImage}
           imageAlt={`${vertical.name} — ${vertical.subtitle}`}
         />
 
@@ -85,9 +86,12 @@ export default async function VerticalPage({
                 </p>
               </Reveal>
               <Reveal delay={0.1}>
-                <p className="text-base leading-relaxed text-ink/60 md:mt-[3.75rem]">
-                  {vertical.description2}
-                </p>
+                <div className="space-y-5 md:mt-[3.75rem]">
+                  <p className="text-base leading-relaxed text-ink/60">{vertical.description2}</p>
+                  {vertical.description3 && (
+                    <p className="text-base leading-relaxed text-ink/60">{vertical.description3}</p>
+                  )}
+                </div>
               </Reveal>
             </div>
 
@@ -119,6 +123,69 @@ export default async function VerticalPage({
           </div>
         </section>
 
+        {vertical.leadershipQuotes && vertical.leadershipQuotes.length > 0 && (
+          <section data-header-theme="dark" className="bg-ink px-5 py-20 sm:px-8 sm:py-28">
+            <div className="mx-auto max-w-[1400px]">
+              <Reveal>
+                <Eyebrow light>Leadership Perspectives</Eyebrow>
+              </Reveal>
+              <Reveal delay={0.1} className="mt-12 sm:mt-14">
+                <div className="grid grid-cols-1 gap-12 border-t border-white/10 pt-12 sm:grid-cols-3 sm:gap-10">
+                  {vertical.leadershipQuotes.map((q) => (
+                    <blockquote key={q.attribution}>
+                      <p className="font-serif text-lg leading-relaxed text-white/90 italic sm:text-xl">
+                        &ldquo;{q.text}&rdquo;
+                      </p>
+                      <footer className="mt-5 text-sm text-white/50">{q.attribution}</footer>
+                    </blockquote>
+                  ))}
+                </div>
+              </Reveal>
+            </div>
+          </section>
+        )}
+
+        {vertical.featuredStories && vertical.featuredStories.length > 0 && (
+          <section data-header-theme="light" className="bg-white px-5 py-20 sm:px-8">
+            <div className="mx-auto max-w-[1400px]">
+              <Reveal>
+                <Eyebrow>Latest from {vertical.subtitle}</Eyebrow>
+              </Reveal>
+              <Reveal delay={0.15} className="mt-12 sm:mt-14">
+                <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 sm:gap-8">
+                  {vertical.featuredStories.map((story) => (
+                    <a
+                      key={story.href}
+                      href={story.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="group block overflow-hidden rounded-xs bg-light transition-colors duration-300 hover:bg-accent"
+                    >
+                      <div className="relative aspect-[16/9] w-full">
+                        <Image
+                          src={story.image}
+                          alt={story.heading}
+                          fill
+                          sizes="(min-width: 640px) 50vw, 100vw"
+                          className="object-cover"
+                        />
+                      </div>
+                      <div className="p-6 sm:p-8">
+                        <p className="text-lg leading-snug text-ink transition-colors duration-300 group-hover:text-white sm:text-xl">
+                          {story.heading}
+                        </p>
+                        <p className="mt-3 text-sm leading-relaxed text-ink/60 transition-colors duration-300 group-hover:text-white/80">
+                          {story.body}
+                        </p>
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              </Reveal>
+            </div>
+          </section>
+        )}
+
         {relatedCases.length > 0 && (
           <section data-header-theme="light" className="bg-light px-5 py-20 sm:px-8">
             <div className="mx-auto max-w-[1400px]">
@@ -130,27 +197,7 @@ export default async function VerticalPage({
               </h2>
 
               <Reveal delay={0.15} className="mt-12 sm:mt-14">
-                <div className="grid grid-cols-1 gap-10 sm:grid-cols-3 sm:gap-8">
-                  {relatedCases.map((item) => (
-                    <Link key={item.slug} href={`/portfolio/${item.slug}`} className="group block">
-                      <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xs bg-ink/5">
-                        <Image
-                          src={item.image}
-                          alt={`${item.name}, ${item.location}`}
-                          fill
-                          sizes="(min-width: 640px) 33vw, 100vw"
-                          className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                        />
-                      </div>
-                      <div className="mt-4 text-lg text-ink transition-colors group-hover:text-accent sm:text-xl">
-                        {item.name}
-                      </div>
-                      <div className="mt-1 text-xs uppercase tracking-widest text-ink/40">
-                        {item.location}
-                      </div>
-                    </Link>
-                  ))}
-                </div>
+                <VerticalRelatedCases items={relatedCases} />
               </Reveal>
             </div>
           </section>

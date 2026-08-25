@@ -1,10 +1,11 @@
 "use client";
 
-import { motion, useReducedMotion, useScroll, useSpring, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { useMemo, useRef, useState } from "react";
+import { useMemo, useState } from "react";
 import type { PortfolioHighlight } from "@/lib/data";
+import useParallaxY from "./useParallaxY";
 
 const ALL = "All";
 const COLUMN_COUNT = 3;
@@ -20,20 +21,6 @@ const DIRECTION_PATTERNS = [
   [-1, 1, 1],
   [1, 0, -1],
 ];
-
-function useParallaxY(direction: number) {
-  const ref = useRef<HTMLDivElement>(null);
-  const prefersReducedMotion = useReducedMotion();
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
-
-  const magnitude = direction === 0 ? 0 : 84;
-  const range =
-    direction < 0 ? [magnitude, -magnitude] : direction > 0 ? [-magnitude, magnitude] : [0, 0];
-  const rawY = useTransform(scrollYProgress, [0, 1], range);
-  const springY = useSpring(rawY, { stiffness: 90, damping: 24, mass: 0.4 });
-
-  return { ref, y: prefersReducedMotion ? 0 : springY };
-}
 
 function PortfolioCard({
   item,
