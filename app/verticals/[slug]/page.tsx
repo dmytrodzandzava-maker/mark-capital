@@ -11,6 +11,7 @@ import Reveal from "@/components/Reveal";
 import RevealText from "@/components/RevealText";
 import SplitHero from "@/components/SplitHero";
 import VerticalRelatedCases from "@/components/VerticalRelatedCases";
+import VerticalsGallery from "@/components/VerticalsGallery";
 import { insights, portfolioHighlights, verticals } from "@/lib/data";
 
 export function generateStaticParams() {
@@ -270,26 +271,7 @@ export default async function VerticalPage({
               <Eyebrow>Other Verticals</Eyebrow>
             </Reveal>
             <Reveal delay={0.1} className="mt-10 sm:mt-12">
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                {others.map((v) => (
-                  <Link
-                    key={v.slug}
-                    href={`/verticals/${v.slug}`}
-                    className="group flex items-center justify-between gap-6 rounded-xs border border-hairline bg-light px-8 py-8 transition-colors hover:bg-ink"
-                  >
-                    <div>
-                      <div className="text-xl text-ink transition-colors group-hover:text-white sm:text-2xl">
-                        {v.name}
-                      </div>
-                      <div className="mt-1 text-sm text-accent">{v.subtitle}</div>
-                    </div>
-                    <ArrowUpRight
-                      size={20}
-                      className="shrink-0 text-ink/30 transition-all duration-300 group-hover:translate-x-1 group-hover:text-white"
-                    />
-                  </Link>
-                ))}
-              </div>
+              <VerticalsGallery verticals={others} />
             </Reveal>
           </div>
         </section>

@@ -15,6 +15,17 @@ import type { verticals as verticalsData } from "@/lib/data";
 
 type Verticals = typeof verticalsData;
 
+// Card border/span pattern depends on count: 3 items form a 2-over-1 grid
+// (first card spans both columns), 2 items sit side by side in one row.
+function cardLayoutClasses(i: number, count: number) {
+  if (count >= 3) {
+    return `${i < 2 ? "border-b" : ""} ${i === 1 ? "border-b-0 border-r" : ""} ${
+      i === 0 ? "col-span-2" : ""
+    }`;
+  }
+  return i < count - 1 ? "border-r" : "";
+}
+
 export default function VerticalsGallery({ verticals }: { verticals: Verticals }) {
   return (
     <>
@@ -63,11 +74,10 @@ function DesktopGallery({ verticals }: { verticals: Verticals }) {
               setHovered(i);
             }}
             onMouseLeave={() => setHovered(null)}
-            className={`group relative flex min-h-[320px] flex-col justify-between gap-8 border-hairline p-10 transition-colors duration-300 ${
-              i < 2 ? "border-b" : ""
-            } ${i === 1 ? "border-b-0 border-r" : ""} ${i === 0 ? "col-span-2" : ""} ${
-              active === i ? "text-white" : "text-ink"
-            }`}
+            className={`group relative flex min-h-[320px] flex-col justify-between gap-8 border-hairline p-10 transition-colors duration-300 ${cardLayoutClasses(
+              i,
+              verticals.length,
+            )} ${active === i ? "text-white" : "text-ink"}`}
           >
             {active === i && (
               <motion.div
