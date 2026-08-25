@@ -67,7 +67,7 @@ export default function ApproachSection() {
           </Reveal>
 
           <Reveal delay={0.25}>
-            <div className="relative ml-auto max-w-2xl overflow-hidden rounded-xs border border-white/10 bg-white/[0.02] p-6 sm:p-8">
+            <div className="relative mr-8 ml-auto max-w-xl overflow-hidden rounded-xs border border-white/10 p-6 sm:mr-12 sm:p-8">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={pillar.title}
