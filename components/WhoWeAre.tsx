@@ -1,7 +1,11 @@
 import Eyebrow from "./Eyebrow";
 import Reveal from "./Reveal";
 
-export default function WhoWeAre() {
+export default function WhoWeAre({
+  secondaryLink = { href: "#verticals", label: "Verticals →" },
+}: {
+  secondaryLink?: { href: string; label: string };
+}) {
   return (
     <section
       id="who-we-are"
@@ -33,10 +37,10 @@ export default function WhoWeAre() {
                 About Us →
               </a>
               <a
-                href="#verticals"
+                href={secondaryLink.href}
                 className="flex-1 rounded-xs bg-light px-6 py-6 text-base text-ink transition-colors hover:bg-ink hover:text-white"
               >
-                Verticals →
+                {secondaryLink.label}
               </a>
             </div>
           </Reveal>
