@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import AboutHero from "@/components/AboutHero";
+import ApproachSection from "@/components/ApproachSection";
 import Button from "@/components/Button";
 import ClosingCta from "@/components/ClosingCta";
 import Eyebrow from "@/components/Eyebrow";
@@ -91,6 +92,8 @@ export default function AboutUsPage() {
         </section>
 
         <StatsBand />
+
+        <ApproachSection />
 
         <section id="team" data-header-theme="light" className="bg-white px-5 py-24 sm:px-8 sm:py-32">
           <div className="mx-auto max-w-[1400px]">

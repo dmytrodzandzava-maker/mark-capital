@@ -59,6 +59,61 @@ export const stats = [
   { value: "€20bn", label: "Cumulatively managed since inception" },
 ];
 
+export const approachPillars = [
+  {
+    title: "Off-Market Sourcing",
+    subtitle: "Direct access to opportunities",
+    description:
+      "Local teams source acquisitions directly from developers, housebuilders, families and institutions — often before an asset ever reaches the open market. This proprietary pipeline lets MARK act with speed and certainty, without competing in broad marketed processes.",
+    components: [
+      "Local market relationships",
+      "Direct developer partnerships",
+      "Proprietary deal pipeline",
+      "Speed and certainty of execution",
+      "Off-market and early-stage opportunities",
+    ],
+  },
+  {
+    title: "Asset Management",
+    subtitle: "Hands-on value creation",
+    description:
+      "Active, on-the-ground asset management is embedded in every hold — from leasing and tenant strategy to operational efficiency and capital planning — protecting and compounding value across the investment period.",
+    components: [
+      "Active leasing and tenant strategy",
+      "Capital expenditure planning",
+      "Operational cost efficiency",
+      "Repositioning and redevelopment",
+      "ESG and sustainability upgrades",
+    ],
+  },
+  {
+    title: "Development & Delivery",
+    subtitle: "Full-lifecycle execution",
+    description:
+      "An integrated development capability takes projects from acquisition through construction and delivery in-house, keeping cost, quality and timeline under direct control rather than relying on third parties.",
+    components: [
+      "In-house development oversight",
+      "Planning and entitlement",
+      "Contractor and delivery management",
+      "Cost and programme control",
+      "Design and quality standards",
+    ],
+  },
+  {
+    title: "Risk & Structuring",
+    subtitle: "Institutional-grade discipline",
+    description:
+      "Rigorous underwriting, disciplined financing structures and diversified portfolio construction protect capital through market cycles, backed by a lean ownership structure that lets MARK move quickly as conditions change.",
+    components: [
+      "Rigorous underwriting standards",
+      "Debt and equity structuring",
+      "Portfolio diversification",
+      "Interest rate and currency management",
+      "Governance and reporting",
+    ],
+  },
+];
+
 export type TeamMember = {
   slug: string;
   name: string;
