@@ -5,8 +5,8 @@ type CtaButton = { href: string; label: string; accent?: boolean };
 
 export default function WhoWeAre({
   buttons = [
-    { href: "#verticals", label: "Verticals →", accent: true },
-    { href: "/about-us", label: "About Us →" },
+    { href: "#verticals", label: "Verticals →" },
+    { href: "/about-us", label: "About Us →", accent: true },
   ],
 }: {
   buttons?: [CtaButton, CtaButton];
