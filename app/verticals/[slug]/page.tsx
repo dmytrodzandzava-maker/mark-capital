@@ -270,7 +270,10 @@ export default async function VerticalPage({
             <Reveal>
               <Eyebrow>Other Verticals</Eyebrow>
             </Reveal>
-            <Reveal delay={0.1} className="mt-10 sm:mt-12">
+            <h2 className="mt-6 max-w-2xl text-[clamp(1.75rem,4.5vw,3rem)] font-normal leading-[1.15] text-ink">
+              <RevealText delay={0.05}>Explore our other verticals.</RevealText>
+            </h2>
+            <Reveal delay={0.15} className="mt-10 sm:mt-12">
               <VerticalsGallery verticals={others} />
             </Reveal>
           </div>
