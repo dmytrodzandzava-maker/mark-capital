@@ -2,7 +2,6 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
-import Button from "./Button";
 import Eyebrow from "./Eyebrow";
 import Reveal from "./Reveal";
 import RevealText from "./RevealText";
@@ -15,24 +14,12 @@ export default function ApproachSection() {
   return (
     <section data-header-theme="dark" className="bg-ink px-5 py-24 sm:px-8 sm:py-32">
       <div className="mx-auto max-w-[1400px]">
-        <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <Reveal>
-              <Eyebrow light>How We Operate</Eyebrow>
-            </Reveal>
-            <h2 className="mt-6 max-w-2xl text-[clamp(1.75rem,4.5vw,3rem)] font-normal leading-[1.15] text-white">
-              <RevealText delay={0.05}>Four disciplines, one process.</RevealText>
-            </h2>
-          </div>
-
-          <Reveal delay={0.15} className="shrink-0">
-            <div className="inline-block rounded-xs border border-white/15 bg-white/10 p-1.5 backdrop-blur-xl [will-change:backdrop-filter]">
-              <Button href="/contact" variant="light" className="border-0">
-                Contact Us
-              </Button>
-            </div>
-          </Reveal>
-        </div>
+        <Reveal>
+          <Eyebrow light>How We Operate</Eyebrow>
+        </Reveal>
+        <h2 className="mt-6 max-w-2xl text-[clamp(1.75rem,4.5vw,3rem)] font-normal leading-[1.15] text-white">
+          <RevealText delay={0.05}>Four disciplines, one process.</RevealText>
+        </h2>
 
         <Reveal delay={0.1}>
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/60 md:text-lg">
