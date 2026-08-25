@@ -115,13 +115,13 @@ export default async function VerticalPage({
                   {vertical.facts.map((fact, i) => (
                     <div
                       key={fact.label}
-                      className={`${
-                        i % 2 !== 0 ? "border-l border-hairline pl-6" : "pl-0"
+                      className={`${i % 2 !== 0 ? "border-l border-hairline pl-6" : "pl-0"} ${
+                        i % 2 !== 1 ? "pr-6" : "pr-0"
                       } ${
                         i % 4 !== 0
                           ? "sm:border-l sm:border-hairline sm:pl-8"
                           : "sm:border-l-0 sm:pl-0"
-                      }`}
+                      } ${i % 4 !== 3 ? "sm:pr-8" : "sm:pr-0"}`}
                     >
                       <div className="font-serif-num text-[clamp(1.75rem,4vw,3rem)] leading-none text-ink">
                         {fact.value}
