@@ -1,12 +1,17 @@
 import type { Metadata } from "next";
 import ClosingCta from "@/components/ClosingCta";
+import Eyebrow from "@/components/Eyebrow";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import Portfolio from "@/components/Portfolio";
+import Reveal from "@/components/Reveal";
+import RevealText from "@/components/RevealText";
+import VerticalRelatedCases from "@/components/VerticalRelatedCases";
 import VerticalsGallery from "@/components/VerticalsGallery";
 import VideoHero from "@/components/VideoHero";
 import WhoWeAre from "@/components/WhoWeAre";
-import { verticals } from "@/lib/data";
+import { portfolioHighlights, verticals } from "@/lib/data";
+
+const flagshipCases = portfolioHighlights.slice(0, 3);
 
 export const metadata: Metadata = {
   title: "Verticals",
@@ -40,7 +45,20 @@ export default function VerticalsPage() {
             { href: "/contact", label: "Contact Us →", accent: true },
           ]}
         />
-        <Portfolio />
+        <section data-header-theme="light" className="bg-light px-5 py-20 sm:px-8">
+          <div className="mx-auto max-w-[1400px]">
+            <Reveal>
+              <Eyebrow>Portfolio</Eyebrow>
+            </Reveal>
+            <h2 className="mt-6 max-w-2xl text-[clamp(1.75rem,4.5vw,3rem)] font-normal leading-[1.15] text-ink">
+              <RevealText delay={0.05}>Landmark assets, reimagined.</RevealText>
+            </h2>
+
+            <Reveal delay={0.15} className="mt-12 sm:mt-14">
+              <VerticalRelatedCases items={flagshipCases} />
+            </Reveal>
+          </div>
+        </section>
       </main>
       <ClosingCta />
       <Footer />
