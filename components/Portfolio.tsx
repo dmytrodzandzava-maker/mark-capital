@@ -62,7 +62,7 @@ function PortfolioCard({
             priority={index === 0}
             quality={90}
             sizes="(min-width: 1400px) 1400px, 100vw"
-            className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+            className="object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/20 to-ink/5" />
 
