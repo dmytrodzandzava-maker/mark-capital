@@ -2,9 +2,11 @@
 
 import { MessageCircle } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function ContactBadge() {
+  const pathname = usePathname();
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -14,7 +16,9 @@ export default function ContactBadge() {
     const observer = new IntersectionObserver(([entry]) => setVisible(!entry.isIntersecting));
     observer.observe(hero);
     return () => observer.disconnect();
-  }, []);
+  }, [pathname]);
+
+  if (pathname === "/contact") return null;
 
   return (
     <Link
