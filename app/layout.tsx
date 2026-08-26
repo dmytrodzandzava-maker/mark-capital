@@ -3,6 +3,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 import { Newsreader } from "next/font/google";
 import localFont from "next/font/local";
+import ContactBadge from "@/components/ContactBadge";
 import SmoothScroll from "@/components/SmoothScroll";
 import { offices } from "@/lib/data";
 import "./globals.css";
@@ -112,6 +113,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       </head>
       <body className="min-h-full flex flex-col bg-white text-ink">
         <SmoothScroll>{children}</SmoothScroll>
+        <ContactBadge />
         <SpeedInsights />
         <Analytics />
       </body>
