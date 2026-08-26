@@ -221,6 +221,7 @@ export const team: TeamMember[] = [
       "He has led MARK's adoption of artificial intelligence, designing and delivering capability-building programmes for teams in London, Paris and Luxembourg, and across the firm's logistics platform, Crossbay. His focus has been on embedding practical AI tools into everyday workflows—from investment analysis through to finance and operations—and on automating processes to improve the speed, accuracy, and quality of decision-making.",
       "Nitin brings more than 20 years of experience across the financial services and real estate sectors. Prior to joining MARK, he provided technology consulting to financial services firms, including Generation Investment Management LLP and Crescent Credit Europe LLP.",
     ],
+    linkedin: "https://www.linkedin.com/in/nitin-aggarwal-9988763a9/",
   },
   {
     slug: "eric-van-duren",
